@@ -1,0 +1,148 @@
+package uk.co.richardgoater.stats.persistence;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "GAMEDATA_PASSING")
+public class PassingGameData extends GameData {
+	
+	private int att;
+	private int comp;
+	private int yds;
+	@Transient private double compPerCent;
+	private int longest;
+	private boolean isLongTD;
+	@Transient private String displayLong;
+	private int td;
+	private int ints;
+	private int sck;
+	private int sackYds;
+	@Transient private double ydsPerAtt;
+	@Transient private double ydsPerComp;
+	
+	@Transient
+	public String[] getVisibleColumns() {
+		return new String[]{
+				"player.name", "player.number", "player.position",
+				"att",
+				"comp",
+				"yds",
+				"compPerCent",
+				"displayLong",
+				"td",
+				"ints",
+				"sck",
+				"sackYds",
+				"ydsPerAtt",
+				"ydsPerComp"
+		};
+	}
+	
+	public PassingGameData() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Column(name = "ATT")
+	public int getAtt() {
+		return att;
+	}
+
+	public void setAtt(int att) {
+		this.att = att;
+	}
+	
+	@Column(name = "COMP")
+	public int getComp() {
+		return comp;
+	}
+
+	public void setComp(int comp) {
+		this.comp = comp;
+	}
+	
+	@Column(name = "YDS")
+	public int getYds() {
+		return yds;
+	}
+
+	public void setYds(int yds) {
+		this.yds = yds;
+	}
+	
+	@Transient
+	public double getCompPerCent() {
+		return (comp / att) * 100;
+	}
+
+	@Transient
+	public double getYdsPerAtt() {
+		return yds / att;
+	}
+	
+	@Column(name = "TD")
+	public int getTd() {
+		return td;
+	}
+
+	public void setTd(int td) {
+		this.td = td;
+	}
+	
+	@Column(name = "INTS")
+	public int getInts() {
+		return ints;
+	}
+
+	public void setInts(int ints) {
+		this.ints = ints;
+	}
+	
+	@Column(name = "LONGEST")
+	public int getLongest() {
+		return longest;
+	}
+
+	public void setLongest(int longest) {
+		this.longest = longest;
+	}
+	
+	@Column(name = "SCK")
+	public int getSck() {
+		return sck;
+	}
+
+	public void setSck(int sck) {
+		this.sck = sck;
+	}
+	
+	@Column(name = "SACKYDS")
+	public int getSackYds() {
+		return sackYds;
+	}
+
+	public void setSackYds(int sackYds) {
+		this.sackYds = sackYds;
+	}
+	
+	@Transient
+	public String getDisplayLong() {
+		return LongUtility.getLong(longest, isLongTD);
+	}
+
+	@Column(name = "ISLONGTD")
+	public boolean isLongTD() {
+		return isLongTD;
+	}
+	
+	public void setLongTD(boolean isLongTD) {
+		this.isLongTD = isLongTD;
+	}
+	
+	@Transient
+	public double getYdsPerComp() {
+		return yds / comp;
+	}
+}

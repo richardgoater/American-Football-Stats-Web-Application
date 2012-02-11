@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/Stats">
+	<Resource name="MySqlDS" auth="Container" type="javax.sql.DataSource"/>
+	<ResourceParams name="MySqlDS">
+		<parameter>
+			<name>factory</name>
+			<value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+		</parameter>
+		<parameter>
+			<name>driverClassName</name>
+			<value>com.mysql.jdbc.Driver</value>
+		</parameter>
+		<parameter>
+			<name>url</name>
+			<value>jdbc:mysql://localhost:3306/c6statsadmindb</value>
+		</parameter>
+		<parameter>
+			<name>username</name>
+			<value>c6statsadmin</value>
+		</parameter>
+		<parameter>
+			<name>password</name>
+			<value>St4t5Adm1n</value>
+		</parameter>
+		<parameter>
+			<name>maxActive</name>
+			<value>100</value>
+		</parameter>
+		<parameter>
+			<name>maxIdle</name>
+			<value>30</value>
+		</parameter>
+		<parameter>
+			<name>maxWait</name>
+			<value>10000</value>
+		</parameter>
+		<parameter>
+			<name>removeAbandoned</name>
+			<value>true</value>
+		</parameter>
+		<parameter>
+			<name>removeAbandonedTimeout</name>
+			<value>300</value>
+		</parameter>
+		<parameter>
+			<name>logAbandoned</name>
+			<value>true</value>
+		</parameter>
+	</ResourceParams>
+</Context>

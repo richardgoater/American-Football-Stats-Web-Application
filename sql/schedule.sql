@@ -1,0 +1,11 @@
+insert into `SCHEDULE` values (0, null, 0, "Season", 0);
+insert into `SCHEDULE` values (0, null, 0, "Bedfordshire Blue Raiders", 1);
+insert into `SCHEDULE` values (0, null, 1, "Norwich Devils", 2);
+insert into `SCHEDULE` values (0, null, 0, "Maidstone Pumas", 3);
+insert into `SCHEDULE` values (0, null, 0, "Kent Exiles", 4);
+insert into `SCHEDULE` values (0, null, 1, "Milton Keynes Pathfinders", 5);
+insert into `SCHEDULE` values (0, null, 1, "Essex Spartans", 6);
+insert into `SCHEDULE` values (0, null, 0, "Norwich Devils", 7);
+insert into `SCHEDULE` values (0, null, 0, "Milton Keynes Pathfinders", 8);
+insert into `SCHEDULE` values (0, null, 1, "Kent Exiles", 9);
+insert into `SCHEDULE` values (0, null, 1, "Bedfordshire Blue Raiders", 10);

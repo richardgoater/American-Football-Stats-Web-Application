@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+    <defaultCache eternal="true" maxElementsInMemory="100" overflowToDisk="false" timeToLiveSeconds="300"/>
+    <cache name="statsCache" maxElementsInMemory="400" eternal="true" overflowToDisk="false" timeToLiveSeconds="300"/>
+    <cache name="playerCache" maxElementsInMemory="100" eternal="true" overflowToDisk="false" timeToLiveSeconds="300"/>
+    <cache name="selectionCache" maxElementsInMemory="50" eternal="true" overflowToDisk="false" timeToLiveSeconds="300"/>
+</ehcache>

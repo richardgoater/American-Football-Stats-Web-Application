@@ -1,0 +1,143 @@
+@import "../reindeer/styles.css";
+
+.v-generated-body, .v-app {
+	background-color: black;
+	color: white;	
+}
+
+.wcheader {
+	font: 62.5% Arial, Helvetica, sans-serif;
+	font-size: 36pt;
+	color: white;
+	font-weight: bold; 
+	padding-top: 5.0pt;
+}
+
+.wcsubheader1,
+.v-captiontext {
+	font-family: Arial, Geneva, sans-serif;
+	font-weight: bold;
+	font-size: 14pt; 
+	padding-right: 5pt;
+}
+
+.wcsubheader2,
+.v-table-header,
+.v-filterselect-input,
+.v-filterselect-suggestpopup,
+.v-checkbox {
+	font-size: 1.4em;
+	font-family: Arial, Geneva, sans-serif;
+	color: white;
+	padding-right: 5pt;
+}
+
+.v-tabsheet-tabcontainer { padding-top: 12pt; }
+
+.v-tabsheet-tabitemcell,
+.v-tabsheet-tabitem {
+	background: #FFC000;
+	/*background-image: none;*/
+	text-shadow: 0 0 5px black, 0 0 3px black;
+	color: white;
+}
+
+.v-tabsheet-spacertd,
+.v-tabsheet-spacertd div,
+.v-table-header,
+.v-filterselect-suggestpopup {
+	background: #FFC000;
+	/*background-image: none;*/
+	text-shadow: none;
+	color: white;
+}
+
+.v-tabsheet-tabitemcell div:hover {
+	color: black;
+	text-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white, 0 0 5px white;	
+}
+
+.v-tabsheet-tabitemcell-selected div:hover,
+.v-tabsheet-tabitem-selected .v-captiontext div:hover, 
+.v-tabsheet-tabitemcell-selected-first div:hover {
+	color: black;
+	text-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white, 0 0 5px white;
+}
+
+.v-tabsheet-tabitemcell-selected,
+.v-tabsheet-tabitem-selected,
+.v-tabsheet-tabitem-selected .v-captiontext {
+	color: black;
+	/*background-image: none;*/
+	/*border-color: black;*/
+	text-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white, 0 0 5px white;
+}
+
+.v-tabsheet-tabitem-selected .v-caption {
+	background-position: right -1310px;
+}
+
+.v-table-header {
+	/*font-style: italic;*/
+	color: black;	
+}
+
+.v-table-header-cell-desc .v-table-sort-indicator,
+.v-table-header-cell-asc .v-table-sort-indicator {
+	background-image: url("../watfordcheetahs/vertical-sprites.png");
+}
+
+.v-filterselect {
+	background-image: url("../watfordcheetahs/vertical-sprites.png");
+	padding-left: 1px;
+}
+
+.v-filterselect-button,
+.v-filterselect-button:hover,
+.v-app .v-filterselect-input, 
+.v-window .v-filterselect-input, 
+.v-popupview-popup .v-filterselect-input,
+.v-filterselect-focus .v-filterselect-input,
+.v-filterselect-focus .v-filterselect-button,
+.v-filterselect-focus .v-filterselect-button:hover {
+	background-image: url("../watfordcheetahs/vertical-sprites.png");
+	font-size: 12pt;
+	font-family: Arial, Geneva, sans-serif;
+	font-weight: bold;
+	/*font-style: italic;*/ 
+	color: white;
+}
+.v-filterselect-suggestmenu {
+	font-size: 12pt;
+	font-family: Arial, Geneva, sans-serif;
+	font-weight: bold;
+	/*font-style: italic;*/ 
+	color: white;
+}
+
+.v-filterselect-suggestmenu .gwt-MenuItem-selected {
+	background-image: none;
+	font-size: 12pt;
+	font-family: Arial, Geneva, sans-serif;
+	font-weight: bold;
+	/*font-style: italic;*/ 
+	color: white;
+	text-shadow: 0 0 3px black, 0 0 3px black;
+}
+
+.v-button,
+.v-button-wrap,
+.v-button:focus,
+.v-button:focus .v-button-wrap {
+	background-image: url("../watfordcheetahs/button-sprites.png");
+}
+
+.v-button-caption {
+	font-family: Tahoma, Arial, Geneva, sans-serif;
+	/*font-family: 'Arial Black'; 
+	font-weight: bold; 
+	font-style: italic;*/
+	text-shadow: none;
+}
+
+

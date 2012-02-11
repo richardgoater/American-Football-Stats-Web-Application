@@ -1,0 +1,134 @@
+@import "../reindeer/styles.css";
+.v-generated-body, .v-app {
+    background-color: black;
+    /*color: white;*/
+}
+.wcheader {
+    color: white;
+    font: bold 36pt Arial,Helvetica,sans-serif;
+    padding-top: 5pt;
+}
+.v-tabsheet-tabitem .v-captiontext{
+	color: black;	
+}
+.wcsubheader1, .v-captiontext {
+    font-family: Arial,Geneva,sans-serif;
+    font-size: 12pt;
+    font-weight: bold;
+    padding-right: 5pt;
+    color: #FFF;
+}
+.wcsubheader2, .v-table-header, .v-filterselect-input, .v-filterselect-suggestpopup, .v-checkbox {
+    color: white;
+    font-family: Arial,Geneva,sans-serif;
+}
+.v-tabsheet-tabcontainer {
+    padding-top: 12pt;
+}
+.v-tabsheet-tabitemcell, .v-tabsheet-tabitem {
+    color: black;
+    text-shadow: none;
+}
+.v-tabsheet-spacertd, .v-tabsheet-spacertd div, .v-table-header, .v-filterselect-suggestpopup {
+    color: white;
+    text-shadow: none;
+}
+.v-tabsheet-tabitemcell-selected, .v-tabsheet-tabitem-selected, .v-tabsheet-tabitem-selected .v-captiontext {
+    color: #FFF;
+}
+.v-table-header {
+    color: black;
+}
+.v-filterselect-button, .v-filterselect-button:hover, .v-app .v-filterselect-input, .v-window .v-filterselect-input, .v-popupview-popup .v-filterselect-input, .v-filterselect-focus .v-filterselect-input, .v-filterselect-focus .v-filterselect-button, .v-filterselect-focus .v-filterselect-button:hover {
+    color: black;
+    font-family: Arial,Geneva,sans-serif;
+    font-size: 11pt;
+    font-weight: bold;
+ 	background-image: url("../watfordcheetahs/vertical-sprites.png");
+}
+.v-filterselect-suggestpopup {
+	background-color: #ffce03;
+	border: 1px solid white;
+}
+.v-filterselect-suggestmenu {
+    color: black;
+    font-family: Arial,Geneva,sans-serif;
+    font-size: 11pt;
+    font-weight: bold;
+    background-color: #ffce03;
+}
+.v-filterselect-suggestmenu .gwt-MenuItem-selected {
+	color: white;
+	font-family: Arial,Geneva,sans-serif;
+	font-size: 11pt;
+	font-weight: bold;
+	text-shadow: none;
+	background-color: black;
+	background-image: none;
+}
+.v-filterselect {
+	background-image: url("../watfordcheetahs/vertical-sprites.png");
+    background-position: left -450px;
+    background-repeat: no-repeat;	
+}
+.v-tabsheet-tabitemcell {
+    background: url("../watfordcheetahs/vertical-sprites.png") no-repeat scroll left -1174px transparent;
+}
+.v-tabsheet-tabitem, .v-tabsheet-spacertd div {
+    background: url("../watfordcheetahs/vertical-sprites.png") repeat-x scroll left -1238px transparent;
+}
+.v-tabsheet-tabitem-selected .v-caption {
+    background-image: url("../watfordcheetahs/vertical-sprites.png");
+    background-position: right -1506px;
+}
+.v-tabsheet-tabitem .v-caption {
+    background: url("../watfordcheetahs/vertical-sprites.png") no-repeat scroll right -1270px transparent;
+    color: black;
+}
+.v-tabsheet-spacertd {
+    background: url("../watfordcheetahs/vertical-sprites.png") no-repeat scroll right -1538px transparent;
+}
+.v-table-header-wrap, .white .v-table-header-wrap, .v-table-footer-wrap, .white .v-table-footer-wrap, .v-table-header-drag {
+	background: url("../watfordcheetahs/vertical-sprites.png") repeat-x scroll left -925px transparent;
+	border-bottom-color: #999999;
+    border-left-color: #999999;
+    border-top-color: #999999;
+}
+.v-tabsheet-tabitemcell-first {
+	background-image: url("../watfordcheetahs/vertical-sprites.png");
+	background-position: left -1206px;
+}
+.v-tabsheet-tabitem-selected {
+    background-image: url("../watfordcheetahs/vertical-sprites.png");
+    background-position: left -1474px;
+    color: #232930;
+}
+.v-tabsheet-tabitemcell-selected {
+	background-image: url("../watfordcheetahs/vertical-sprites.png");
+	background-position: left -1410px;	
+}
+.v-tabsheet-tabitemcell-selected-first {
+    background-image: url("../watfordcheetahs/vertical-sprites.png");
+    background-position: left -1442px;
+}
+.v-table-header-cell-asc .v-table-sort-indicator {
+	background: url("../watfordcheetahs/vertical-sprites.png") no-repeat scroll right -947px transparent
+}
+.v-table-header-cell-desc .v-table-sort-indicator {
+	background: url("../watfordcheetahs/vertical-sprites.png") no-repeat scroll right -965px transparent
+}
+.v-table-resizer {
+	border-right: 1px solid #6F6F6F;		
+}
+.v-table-cell-content {
+	border-right-color: #6F6F6F;
+	padding: 2px 6px;	
+}
+.v-table-body {
+	border-color: #4D4D4D;
+	background: #1A1A1A;
+	color: white;	
+}
+.v-table-row { background: #1A1A1A; }
+.v-table-row-odd { background: #3C3C3C; }
+
