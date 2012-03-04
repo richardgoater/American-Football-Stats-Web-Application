@@ -10,6 +10,7 @@ import org.junit.Test;
 import uk.co.richardgoater.stats.persistence.GameData;
 import uk.co.richardgoater.stats.persistence.dao.DefenseStatsDAO;
 import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.AbstractStatsDAO;
 import uk.co.richardgoater.stats.tests.fake.FakeStatsDAO;
 
 public class DefenseGameDataTest {
@@ -30,6 +31,6 @@ public class DefenseGameDataTest {
 	}
 	
 	Object[] mockValues = {new Integer(1), new Long(1)};
-	DefenseStatsDAO realDao = new DefenseStatsDAO();	
+	AbstractStatsDAO realDao = new DefenseStatsDAO();	
 	
 }

@@ -1,15 +1,14 @@
 package uk.co.richardgoater.stats.tests.upload;
 
 import static org.easymock.EasyMock.*;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
 import uk.co.richardgoater.stats.persistence.DefenseGameData;
 import uk.co.richardgoater.stats.persistence.dao.DefenseStatsDAO;
 import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.AbstractStatsDAO;
 import uk.co.richardgoater.stats.upload.excel.ExcelCell;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 import uk.co.richardgoater.stats.upload.excel.mapping.DefenseRowMapper;
@@ -19,9 +18,29 @@ public class DefenseRowMapperTest {
 	
 	private DefenseRowMapper defenseRowMapper;
 	private ExcelRow mockRow;
-	private DefenseStatsDAO mockDAO;
+	private AbstractStatsDAO mockDAO;
 	private ExcelCell mockCell;
-
+	
+	private DefenseGameData mappedDefenseGameData;
+	private String playerName = "Dave Bright";
+	private int playerid = 50;
+	private int tckl = 8;
+	private int solo = 7;
+	private int assist = 1;
+	private int sck = 2;
+	private int sckYds = 6;
+	private int qbHurry = 1;
+	private int ints = 1;
+	private int intYds = 1;
+	private int bp = 1;
+	private int ff = 1;
+	private int fr = 1;
+	private int frYds = 1;
+	private int td = 1;
+	private int safety = 1;
+	private int bk = 1;
+	
+	
 	@Before
 	public void setUp() {
 		setUpMocks();
@@ -29,6 +48,8 @@ public class DefenseRowMapperTest {
 		
 		defenseRowMapper = new DefenseRowMapper();
 		defenseRowMapper.setDAO(mockDAO);
+		
+		mappedDefenseGameData = (DefenseGameData) defenseRowMapper.map(mockRow);
 	}
 
 	private void setUpMocks() {
@@ -38,10 +59,38 @@ public class DefenseRowMapperTest {
 	}
 	
 	private void setExpectations() {
-		expect(mockRow.getCell(anyInt())).andReturn(mockCell);
-		replay(mockRow);
+		setRowExpectations();		
+		setCellExpectations();
+		
+		expect(mockDAO.getPlayeridForName(playerName)).andReturn(playerid);
+		replay(mockDAO);
 	}
 	
+	private void setRowExpectations() {
+		expect(mockRow.getCell(anyInt())).andReturn(mockCell).anyTimes();
+		replay(mockRow);
+	}
+
+	private void setCellExpectations() {
+		expect(mockCell.asString()).andReturn(playerName);
+		expect(mockCell.asNumber()).andReturn(tckl);
+		expect(mockCell.asNumber()).andReturn(solo);
+		expect(mockCell.asNumber()).andReturn(assist);
+		expect(mockCell.asNumber()).andReturn(sck);
+		expect(mockCell.asNumber()).andReturn(sckYds);
+		expect(mockCell.asNumber()).andReturn(qbHurry);
+		expect(mockCell.asNumber()).andReturn(ints);
+		expect(mockCell.asNumber()).andReturn(intYds);
+		expect(mockCell.asNumber()).andReturn(bp);
+		expect(mockCell.asNumber()).andReturn(ff);
+		expect(mockCell.asNumber()).andReturn(fr);
+		expect(mockCell.asNumber()).andReturn(frYds);
+		expect(mockCell.asNumber()).andReturn(td);
+		expect(mockCell.asNumber()).andReturn(safety);
+		expect(mockCell.asNumber()).andReturn(bk);
+		replay(mockCell);
+	}
+
 	@Test
 	public void returnsCorrectDAOType() {
 		StatsDAO dao = defenseRowMapper.getDAO();
@@ -52,17 +101,87 @@ public class DefenseRowMapperTest {
 	
 	@Test
 	public void returnsCorrectGameDataType() {
-		Object mappedObject = defenseRowMapper.map(mockRow);
-		
-		assertNotNull(mappedObject);
-		assertTrue(mappedObject instanceof DefenseGameData);
+		assertNotNull(mappedDefenseGameData);
 	}
 	
 	@Test
-	public void attemptsToMapCells() {		
-		defenseRowMapper.map(mockRow);
-		
-		verify(mockRow);
+	public void verifyCells() {
+		verify(mockCell);
 	}
+	
+	@Test
+	public void mapsPlayerID() {		
+		assertEquals(playerid, mappedDefenseGameData.getPlayerid());
+	}
+	
+	@Test
+	public void mapsTackles() {
+		assertEquals(tckl, mappedDefenseGameData.getTckl());
+	}
+	
+	@Test
+	public void mapsSolo() {
+		assertEquals(solo, mappedDefenseGameData.getSolo());
+	}
+	
+	@Test
+	public void mapsAssist() {
+		assertEquals(assist, mappedDefenseGameData.getAssist());
+	}
+	
+	@Test
+	public void mapsSck() {
+		assertEquals(sck, mappedDefenseGameData.getSck(), 0);
+	}
+	
+	@Test
+	public void mapsQBHurry() {
+		assertEquals(qbHurry, mappedDefenseGameData.getQbHurry());
+	}
+	
+	@Test
+	public void mapsInts() {
+		assertEquals(ints, mappedDefenseGameData.getInts());
+	}
+	
+	@Test
+	public void mapsIntYds() {
+		assertEquals(intYds, mappedDefenseGameData.getIntYds());
+	}
+	
+	@Test
+	public void mapsBp() {
+		assertEquals(bp, mappedDefenseGameData.getBp());
+	}
+	
+	@Test
+	public void mapsFf() {
+		assertEquals(ff, mappedDefenseGameData.getFf());
+	}
+	
+	@Test
+	public void mapsFr() {
+		assertEquals(fr, mappedDefenseGameData.getFr());
+	}
+	
+	@Test
+	public void mapsFrYds() {
+		assertEquals(frYds, mappedDefenseGameData.getFrYds());
+	}
+	
+	@Test
+	public void mapsTd() {
+		assertEquals(td, mappedDefenseGameData.getTd());
+	}
+	
+	@Test
+	public void mapsSafety() {
+		assertEquals(safety, mappedDefenseGameData.getSafety());
+	}
+	
+	@Test
+	public void mapsBk() {
+		assertEquals(bk, mappedDefenseGameData.getBk());
+	}	
 	
 }

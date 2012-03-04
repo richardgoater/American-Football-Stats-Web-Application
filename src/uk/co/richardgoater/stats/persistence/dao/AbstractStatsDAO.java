@@ -3,7 +3,7 @@ package uk.co.richardgoater.stats.persistence.dao;
 import uk.co.richardgoater.stats.persistence.GameData;
 import uk.co.richardgoater.stats.persistence.Player;
 
-public abstract class StatsDAOImpl extends HibernateDAO implements StatsDAO {	
+public abstract class AbstractStatsDAO extends HibernateDAO implements StatsDAO {	
 	
 	public void savePlayer(Player p) {
 		hibernateTemplate.saveOrUpdate(p);	
@@ -22,5 +22,10 @@ public abstract class StatsDAOImpl extends HibernateDAO implements StatsDAO {
 	
 	protected void saveOrReplacePlayer(Player p) {
 		
+	}
+
+	public int getPlayeridForName(String playerName) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
