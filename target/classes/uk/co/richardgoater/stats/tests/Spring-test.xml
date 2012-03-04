@@ -48,7 +48,7 @@
 		</property>
 	</bean>
 
-	<bean id="DefenseStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.DefenseStatsDAOImpl">
+	<bean id="DefenseStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.DefenseStatsDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
@@ -56,9 +56,11 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
+	<!--
 	<bean id="uploadController" class="uk.co.richardgoater.stats.upload.UploadController"> 
 		<property name="statsLoader" ref="statsLoader"/>
 	</bean>
 	
-	<bean id="statsLoader" class="uk.co.richardgoater.stats.upload.ExcelStatsLoader" />
+	<bean id="statsLoader" class="uk.co.richardgoater.stats.upload.excel.ExcelStatsLoader" />-->
+
 </beans>

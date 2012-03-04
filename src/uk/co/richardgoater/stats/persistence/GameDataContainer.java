@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.vaadin.data.util.BeanItemContainer;
 
-@SuppressWarnings( { "unchecked", "serial" })
+@SuppressWarnings( { "serial" })
 public class GameDataContainer extends BeanItemContainer {
 
 	public GameDataContainer(Class type) throws IllegalArgumentException {

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="uk/co/richardgoater/stats/upload/excel/WorkBookLoader.java" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Richard/Documents/apache-tomcat-7.0.14/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="/home/richard/lib/servlet-api.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/VaadinCommon"/>
-	<classpathentry kind="lib" path="C:/Users/Richard/Documents/easymock-3.0/easymock-3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Richard/Documents/easymock-3.0/cglib-nodep-2.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Richard/Documents/easymock-3.0/objenesis-1.2/objenesis-1.2.jar"/>
+	<classpathentry kind="lib" path="/home/richard/lib/easymock-3.0.jar"/>
+	<classpathentry kind="lib" path="/home/richard/lib/cglib-nodep-2.2.2.jar"/>
+	<classpathentry kind="lib" path="/home/richard/lib/objenesis-1.2/objenesis-1.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

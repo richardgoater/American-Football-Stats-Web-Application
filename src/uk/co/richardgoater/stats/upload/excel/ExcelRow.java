@@ -9,5 +9,7 @@ public interface ExcelRow {
 	int getSeasonid();
 
 	int getWeeknum();
+	
+	ExcelCell getCell(int columnIndex);
 
 }

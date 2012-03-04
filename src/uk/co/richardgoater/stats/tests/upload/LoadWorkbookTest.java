@@ -16,12 +16,12 @@ import jxl.read.biff.BiffException;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.co.richardgoater.stats.tests.fake.FakeExcelRow;
 import uk.co.richardgoater.stats.tests.fake.FakeMultipartFile;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 import uk.co.richardgoater.stats.upload.excel.ExcelSheet;
 import uk.co.richardgoater.stats.upload.excel.ExcelStatsLoader;
 import uk.co.richardgoater.stats.upload.excel.ExcelWorkbook;
+import uk.co.richardgoater.stats.upload.excel.jxl.JxlRow;
 import uk.co.richardgoater.stats.upload.excel.jxl.JxlExcelParser;
 import uk.co.richardgoater.stats.upload.excel.mapping.ExcelRowMapper;
 
@@ -53,7 +53,7 @@ public class LoadWorkbookTest {
 		mockWorkbook = createMock(ExcelWorkbook.class);
 		file = new FakeMultipartFile(JxlLearningTest.filePath);
 		mockSheet = createMock(ExcelSheet.class);
-		fakeRow = new FakeExcelRow();
+		fakeRow = new JxlRow();
 		mockMap = createMock(Map.class);
 	}
 	
