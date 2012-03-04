@@ -10,6 +10,8 @@ public interface ExcelRow {
 
 	int getWeeknum();
 	
-	ExcelCell getCell(int columnIndex);
+	ExcelCell nextCell();
+	
+	void resetIterator();
 
 }

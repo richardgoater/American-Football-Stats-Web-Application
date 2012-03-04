@@ -4,6 +4,8 @@ public interface ExcelCell {
 	
 	String asString();
 
-	Number asNumber(); 
+	int asInt();
+
+	double asDouble(); 
 
 }

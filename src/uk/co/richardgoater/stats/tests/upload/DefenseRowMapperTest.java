@@ -27,7 +27,7 @@ public class DefenseRowMapperTest {
 	private int tckl = 8;
 	private int solo = 7;
 	private int assist = 1;
-	private int sck = 2;
+	private double sck = 2.0;
 	private int sckYds = 6;
 	private int qbHurry = 1;
 	private int ints = 1;
@@ -59,35 +59,34 @@ public class DefenseRowMapperTest {
 	}
 	
 	private void setExpectations() {
-		setRowExpectations();		
+		mockRow.resetIterator();
+		expectLastCall();
+		expect(mockRow.nextCell()).andReturn(mockCell).times(16);
+		replay(mockRow);
+		
 		setCellExpectations();
 		
 		expect(mockDAO.getPlayeridForName(playerName)).andReturn(playerid);
 		replay(mockDAO);
 	}
-	
-	private void setRowExpectations() {
-		expect(mockRow.getCell(anyInt())).andReturn(mockCell).anyTimes();
-		replay(mockRow);
-	}
 
 	private void setCellExpectations() {
 		expect(mockCell.asString()).andReturn(playerName);
-		expect(mockCell.asNumber()).andReturn(tckl);
-		expect(mockCell.asNumber()).andReturn(solo);
-		expect(mockCell.asNumber()).andReturn(assist);
-		expect(mockCell.asNumber()).andReturn(sck);
-		expect(mockCell.asNumber()).andReturn(sckYds);
-		expect(mockCell.asNumber()).andReturn(qbHurry);
-		expect(mockCell.asNumber()).andReturn(ints);
-		expect(mockCell.asNumber()).andReturn(intYds);
-		expect(mockCell.asNumber()).andReturn(bp);
-		expect(mockCell.asNumber()).andReturn(ff);
-		expect(mockCell.asNumber()).andReturn(fr);
-		expect(mockCell.asNumber()).andReturn(frYds);
-		expect(mockCell.asNumber()).andReturn(td);
-		expect(mockCell.asNumber()).andReturn(safety);
-		expect(mockCell.asNumber()).andReturn(bk);
+		expect(mockCell.asInt()).andReturn(tckl);
+		expect(mockCell.asInt()).andReturn(solo);
+		expect(mockCell.asInt()).andReturn(assist);
+		expect(mockCell.asDouble()).andReturn(sck);
+		expect(mockCell.asInt()).andReturn(sckYds);
+		expect(mockCell.asInt()).andReturn(qbHurry);
+		expect(mockCell.asInt()).andReturn(ints);
+		expect(mockCell.asInt()).andReturn(intYds);
+		expect(mockCell.asInt()).andReturn(bp);
+		expect(mockCell.asInt()).andReturn(ff);
+		expect(mockCell.asInt()).andReturn(fr);
+		expect(mockCell.asInt()).andReturn(frYds);
+		expect(mockCell.asInt()).andReturn(td);
+		expect(mockCell.asInt()).andReturn(safety);
+		expect(mockCell.asInt()).andReturn(bk);
 		replay(mockCell);
 	}
 
@@ -102,6 +101,11 @@ public class DefenseRowMapperTest {
 	@Test
 	public void returnsCorrectGameDataType() {
 		assertNotNull(mappedDefenseGameData);
+	}
+	
+	@Test
+	public void verifyRow() {
+		verify(mockRow);
 	}
 	
 	@Test
