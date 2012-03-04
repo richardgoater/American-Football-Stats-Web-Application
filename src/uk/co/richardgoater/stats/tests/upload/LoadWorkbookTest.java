@@ -53,7 +53,7 @@ public class LoadWorkbookTest {
 		mockWorkbook = createMock(ExcelWorkbook.class);
 		file = new FakeMultipartFile(JxlLearningTest.filePath);
 		mockSheet = createMock(ExcelSheet.class);
-		fakeRow = new JxlRow();
+		fakeRow = new JxlRow(null);
 		mockMap = createMock(Map.class);
 	}
 	

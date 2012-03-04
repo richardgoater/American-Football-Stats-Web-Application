@@ -20,7 +20,9 @@ public class JxlLearningTest {
 	File f;
 	Workbook wb;
 	
-	static String filePath = "C:\\Users\\Public\\Documents\\Watford Cheetahs Stats\\Maidstone Away 15.05.2011_formatted.xls";
+//	static String filePath = "C:\\Users\\Public\\Documents\\Watford Cheetahs Stats\\Maidstone Away 15.05.2011_formatted.xls";
+	static String filePath = "/home/richard/Maidstone Away 15.05.2011_formatted.xls";
+	
 	
 	public JxlLearningTest() {
 //		context = new ClassPathXmlApplicationContext("uk/co/richardgoater/stats/tests/Spring-test.xml");

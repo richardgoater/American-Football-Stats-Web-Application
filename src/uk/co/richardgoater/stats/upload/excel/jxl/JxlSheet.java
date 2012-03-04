@@ -1,5 +1,6 @@
 package uk.co.richardgoater.stats.upload.excel.jxl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
@@ -17,8 +18,12 @@ public class JxlSheet implements ExcelSheet {
 
 	@Override
 	public List<ExcelRow> getRows() {
-		// TODO Auto-generated method stub
-		return null;
+		List<ExcelRow> list = new ArrayList<ExcelRow>();
+		
+		for(int i = 0; i < realSheet.getRows(); i++)
+			list.add(new JxlRow(realSheet.getRow(i)));
+		
+		return list;
 	}
 
 	@Override
