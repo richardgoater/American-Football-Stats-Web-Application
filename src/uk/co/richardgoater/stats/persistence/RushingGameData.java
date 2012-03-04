@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+@SuppressWarnings("unused")
 @Entity
 @Table(name = "GAMEDATA_RUSHING")
 public class RushingGameData extends GameData {
@@ -27,6 +28,18 @@ public class RushingGameData extends GameData {
 				"displayLong",
 				"td"
 		};
+	}
+	
+	public RushingGameData() {}
+	
+	public RushingGameData( Number playerid, Number att,
+			Number yds, Number longest, Number td)
+	{
+		this.playerid = playerid.intValue();
+		this.att = att.intValue();
+		this.yds = yds.intValue();
+		this.longest = longest.intValue();
+		this.td = td.intValue();
 	}
 	
 	@Column(name = "ATT")

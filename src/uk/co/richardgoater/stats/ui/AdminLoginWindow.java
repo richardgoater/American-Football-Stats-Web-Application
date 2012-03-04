@@ -6,6 +6,7 @@ import com.vaadin.ui.Window;
 
 public class AdminLoginWindow extends Window {
 
+	private static final long serialVersionUID = 2422390826641481424L;
 	TextField username = new TextField("USERNAME");
 	TextField password = new TextField("PASSWORD");
 	Button login = new Button("LOGIN");

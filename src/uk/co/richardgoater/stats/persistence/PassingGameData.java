@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+@SuppressWarnings("unused")
 @Entity
 @Table(name = "GAMEDATA_PASSING")
 public class PassingGameData extends GameData {
@@ -41,10 +42,23 @@ public class PassingGameData extends GameData {
 		};
 	}
 	
-	public PassingGameData() {
-		// TODO Auto-generated constructor stub
+	public PassingGameData() {}
+	
+	public PassingGameData (Number playerid, Number att, Number comp, 
+			Number yds, Number longest, Number td, Number ints,	
+			Number sck,	Number sackYds)
+	{
+		this.playerid = playerid.intValue();
+		this.att = att.intValue();
+		this.comp = comp.intValue();
+		this.yds = yds.intValue();
+		this.longest = longest.intValue();
+		this.td = td.intValue();
+		this.ints = ints.intValue();
+		this.sck = sck.intValue();
+		this.sackYds = sackYds.intValue();
 	}
-
+	
 	@Column(name = "ATT")
 	public int getAtt() {
 		return att;

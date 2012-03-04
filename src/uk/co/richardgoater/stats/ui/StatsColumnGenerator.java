@@ -6,6 +6,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.Table.ColumnGenerator;
 
+@SuppressWarnings("serial")
 public class StatsColumnGenerator implements ColumnGenerator {
 
 	public StatsColumnGenerator() {

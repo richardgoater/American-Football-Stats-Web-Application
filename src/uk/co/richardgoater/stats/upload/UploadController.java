@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import uk.co.richardgoater.stats.StatsLoader;
 
 @Controller
 @RequestMapping(value = "/upload")
@@ -27,12 +26,12 @@ public class UploadController {
 	@RequestMapping(method = RequestMethod.POST)
 	public @ResponseBody
 	UploadResponse postUpload(@RequestParam("file") MultipartFile file,
-			@RequestParam("season") String season,
+			@RequestParam("season") int seasonid,
 			@RequestParam("weeknum") int weeknum) {
 
 		if (!file.isEmpty()) {
-			String result = statsLoader.load(file);
-			return new UploadResponse(result + "Season: " + season + " - Weeknum: " + weeknum);
+			String result = statsLoader.load(file, seasonid, weeknum);
+			return new UploadResponse(result);
 		} else {
 			return new UploadResponse("There was a problem with the upload. Soz.");
 		}

@@ -10,12 +10,14 @@ import com.googlecode.ehcache.annotations.Cacheable;
 
 public interface StatsDAO {
 	@Cacheable(cacheName="statsCache")
-	List<GameData> getGameDataForWeek(ScheduleWeek week, String statsCategory);
+	List<GameData> getGameDataForWeek(ScheduleWeek week);
 	@Cacheable(cacheName="statsCache")
-	List<GameData> getGameDataTotals(int seasonid, String statsCategory);
+	List<GameData> getGameDataTotals(int seasonid);
 	void saveGameData(GameData gameData);
 	
 	@Cacheable(cacheName="playerCache")
-	List<Player> getPlayers(int seasonid, String statsCategory);
+	List<Player> getPlayers(int seasonid);
 	void savePlayer(Player p);
+	
+	void saveOrReplace(Object mappedObject);
 }

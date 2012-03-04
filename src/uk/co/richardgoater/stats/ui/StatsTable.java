@@ -35,11 +35,11 @@ public abstract class StatsTable extends Table {
 	protected void setWeek(ScheduleWeek week) {
 		List<GameData> data = null;
 		if(week.getWeeknum() == 0)
-			data =  dao.getGameDataTotals(week.getSeasonID(), getClass().getName());
+			data =  dao.getGameDataTotals(week.getSeasonID());
 		else 
-			data = dao.getGameDataForWeek(week, getClass().getName());
+			data = dao.getGameDataForWeek(week);
 		
-		Map<Integer, Player> players = createPlayerMap(dao.getPlayers(week.getSeasonID(), getClass().getName()));		
+		Map<Integer, Player> players = createPlayerMap(dao.getPlayers(week.getSeasonID()));		
 		
 		GameDataContainer container = (GameDataContainer) getContainerDataSource();
 		container.removeAllItems();

@@ -45,10 +45,31 @@ public class DefenseGameData extends GameData {
 				"bk" };
 	}
 
-	public DefenseGameData() {
-
+	public DefenseGameData() {}
+	
+	public DefenseGameData(Number playerid, Number tckl, Number solo,
+			Number assist, Number sck, Number sckYds, Number qbHurry,
+			Number ints, Number intYds, Number bp, Number ff, Number fr,
+			Number frYds, Number td, Number safety, Number bk) 
+	{
+		this.playerid = playerid.intValue();
+		this.tckl = tckl.intValue();
+		this.solo = solo.intValue();
+		this.assist = assist.intValue();
+		this.sck = sck.doubleValue();
+		this.sckYds = sck.intValue();
+		this.qbHurry = qbHurry.intValue();
+		this.ints = ints.intValue();
+		this.intYds = intYds.intValue();
+		this.bp = bp.intValue();
+		this.ff = ff.intValue();
+		this.fr = fr.intValue();
+		this.frYds = frYds.intValue();
+		this.td = td.intValue();
+		this.safety = safety.intValue();
+		this.bk = bk.intValue();
 	}
-
+	
 	@Column(name = "TCKL")
 	public int getTckl() {
 		return tckl;

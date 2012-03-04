@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+@SuppressWarnings("unused")
 @Entity
 @Table(name = "GAMEDATA_RECEIVING")
 public class ReceivingGameData extends GameData {
@@ -29,10 +30,18 @@ public class ReceivingGameData extends GameData {
 		};
 	}
 	
-	public ReceivingGameData() {
-		// TODO Auto-generated constructor stub
+	public ReceivingGameData() {}
+	
+	public ReceivingGameData( Number playerid, Number rec,
+			Number yds, Number longest, Number td)
+	{
+		this.playerid = playerid.intValue();
+		this.rec = rec.intValue();
+		this.yds = yds.intValue();
+		this.longest = longest.intValue();
+		this.td = td.intValue();
 	}
-
+	
 	@Column(name = "REC")
 	public int getRec() {
 		return rec;
