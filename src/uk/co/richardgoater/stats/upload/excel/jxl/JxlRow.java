@@ -14,15 +14,22 @@ public class JxlRow implements ExcelRow {
 	
 	int seasonid;
 	int weeknum;
+	private int rownum;
 	
-	public JxlRow(Cell[] cells) {
+	public JxlRow(Cell[] cells, int rownum) {
 		this.cells = cells;
+		this.rownum = rownum;
 	}
 	
 	@Override
 	public String asString() {
-		// TODO Auto-generated method stub
-		return null;
+		resetIterator();
+		
+		StringBuilder sb = new StringBuilder().append("Row " + rownum + ":");
+		while(cellIterator.hasNext())
+			sb.append(" ").append(cellIterator.next().getContents());
+		
+		return sb.toString();
 	}
 
 	@Override

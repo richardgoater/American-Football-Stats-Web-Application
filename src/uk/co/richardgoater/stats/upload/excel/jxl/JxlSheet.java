@@ -21,7 +21,7 @@ public class JxlSheet implements ExcelSheet {
 		List<ExcelRow> list = new ArrayList<ExcelRow>();
 		
 		for(int i = 0; i < realSheet.getRows(); i++)
-			list.add(new JxlRow(realSheet.getRow(i)));
+			list.add(new JxlRow(realSheet.getRow(i), i+1));
 		
 		return list;
 	}

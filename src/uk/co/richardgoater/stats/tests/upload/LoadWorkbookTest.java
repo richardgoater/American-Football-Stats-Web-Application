@@ -32,7 +32,7 @@ public class LoadWorkbookTest {
 	private JxlExcelParser mockJxlParser;
 	private FakeMultipartFile file;
 	private ExcelSheet mockSheet;
-	private ExcelRow fakeRow;
+	private ExcelRow row;
 	private Map<String, ExcelRowMapper> mockMap;
 	private String dataType = "Defense";
 	private int seasonid = 1;
@@ -53,7 +53,7 @@ public class LoadWorkbookTest {
 		mockWorkbook = createMock(ExcelWorkbook.class);
 		file = new FakeMultipartFile(JxlLearningTest.filePath);
 		mockSheet = createMock(ExcelSheet.class);
-		fakeRow = new JxlRow(null);
+		row = new JxlRow(null, 1);
 		mockMap = createMock(Map.class);
 	}
 	
@@ -77,7 +77,7 @@ public class LoadWorkbookTest {
 	
 	private List<ExcelRow> getTestRows() {
 		List<ExcelRow> list = new ArrayList<ExcelRow>();
-		list.add(fakeRow);
+		list.add(row);
 		return list;
 	}
 	
@@ -96,8 +96,8 @@ public class LoadWorkbookTest {
 				
 		statsLoader.load(file, seasonid, weeknum);
 
-		assertEquals(seasonid, fakeRow.getSeasonid());
-		assertEquals(weeknum, fakeRow.getWeeknum());
+		assertEquals(seasonid, row.getSeasonid());
+		assertEquals(weeknum, row.getWeeknum());
 	}
 	
 	
