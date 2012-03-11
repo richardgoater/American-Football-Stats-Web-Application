@@ -1,29 +1,23 @@
 package uk.co.richardgoater.stats.tests.upload;
 
-import static org.easymock.EasyMock.*;
-import static org.junit.Assert.*;
-import org.junit.Before;
+import static org.easymock.EasyMock.expect;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import uk.co.richardgoater.stats.persistence.DefenseGameData;
-import uk.co.richardgoater.stats.persistence.dao.DefenseStatsDAO;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
-import uk.co.richardgoater.stats.persistence.dao.AbstractStatsDAO;
-import uk.co.richardgoater.stats.upload.excel.ExcelCell;
-import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 import uk.co.richardgoater.stats.upload.excel.mapping.DefenseRowMapper;
 
 
-public class DefenseRowMapperTest {
+public class DefenseRowMapperTest extends RowMapperTest {
 	
 	private DefenseRowMapper defenseRowMapper;
-	private ExcelRow mockRow;
-	private AbstractStatsDAO mockDAO;
-	private ExcelCell mockCell;
 	
 	private DefenseGameData mappedDefenseGameData;
-	private String playerName = "Dave Bright";
-	private int playerid = 50;
+	
+	@Override
+	protected void setPlayerName() {playerName = "Dave Bright";}
+	
 	private int tckl = 8;
 	private int solo = 7;
 	private int assist = 1;
@@ -40,38 +34,24 @@ public class DefenseRowMapperTest {
 	private int safety = 1;
 	private int bk = 1;
 	
-	
-	@Before
-	public void setUp() {
-		setUpMocks();
-		setExpectations();
-		
+	@Override
+	protected void instantiateRowMapper() {
 		defenseRowMapper = new DefenseRowMapper();
 		defenseRowMapper.setDAO(mockDAO);
-		
+	}
+
+	@Override
+	protected void mapGameData() {
 		mappedDefenseGameData = (DefenseGameData) defenseRowMapper.map(mockRow);
 	}
-
-	private void setUpMocks() {
-		mockRow = createMock(ExcelRow.class);
-		mockDAO = createMock(DefenseStatsDAO.class);
-		mockCell = createMock(ExcelCell.class);
+	
+	@Override
+	protected void setMapperRowExpectations() {
+		setNextCellNumberOfTimesExpectation(16);
 	}
 	
-	private void setExpectations() {
-		mockRow.resetIterator();
-		expectLastCall();
-		expect(mockRow.nextCell()).andReturn(mockCell).times(16);
-		replay(mockRow);
-		
-		setCellExpectations();
-		
-		expect(mockDAO.getPlayeridForName(playerName)).andReturn(playerid);
-		replay(mockDAO);
-	}
-
-	private void setCellExpectations() {
-		expect(mockCell.asString()).andReturn(playerName);
+	@Override
+	protected void setMapperCellExpectations() {
 		expect(mockCell.asInt()).andReturn(tckl);
 		expect(mockCell.asInt()).andReturn(solo);
 		expect(mockCell.asInt()).andReturn(assist);
@@ -87,35 +67,6 @@ public class DefenseRowMapperTest {
 		expect(mockCell.asInt()).andReturn(td);
 		expect(mockCell.asInt()).andReturn(safety);
 		expect(mockCell.asInt()).andReturn(bk);
-		replay(mockCell);
-	}
-
-	@Test
-	public void returnsCorrectDAOType() {
-		StatsDAO dao = defenseRowMapper.getDAO();
-		
-		assertNotNull(dao);
-		assertTrue(dao instanceof DefenseStatsDAO);
-	}
-	
-	@Test
-	public void returnsCorrectGameDataType() {
-		assertNotNull(mappedDefenseGameData);
-	}
-	
-	@Test
-	public void verifyRow() {
-		verify(mockRow);
-	}
-	
-	@Test
-	public void verifyCells() {
-		verify(mockCell);
-	}
-	
-	@Test
-	public void mapsPlayerID() {		
-		assertEquals(playerid, mappedDefenseGameData.getPlayerid());
 	}
 	
 	@Test
@@ -186,6 +137,6 @@ public class DefenseRowMapperTest {
 	@Test
 	public void mapsBk() {
 		assertEquals(bk, mappedDefenseGameData.getBk());
-	}	
+	}
 	
 }
