@@ -9,7 +9,7 @@ import com.vaadin.data.util.BeanItemContainer;
 public class GameDataContainer extends BeanItemContainer {
 
 	public GameDataContainer(Class type) throws IllegalArgumentException {
-		super(type);
+		super(type); 
 
 		addNestedContainerProperty("player.name");
 		addNestedContainerProperty("player.number");
