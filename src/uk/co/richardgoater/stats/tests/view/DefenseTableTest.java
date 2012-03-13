@@ -60,7 +60,7 @@ public class DefenseTableTest {
 	
 	@Test
 	public void defenseTableTest() {
-		assertEquals(1, dt.getContainerDataSource().size());
+		assertEquals(2, dt.getContainerDataSource().size());
 		Item i = dt.getItem(dgd);
 		assertEquals(5, i.getItemProperty("tckl").getValue());
 	}

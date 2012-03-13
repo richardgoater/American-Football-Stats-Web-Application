@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -22,6 +23,7 @@ import uk.co.richardgoater.stats.ui.SeasonSelector;
 import uk.co.richardgoater.stats.ui.StatsTable;
 import uk.co.richardgoater.stats.ui.WeekSelector;
 
+@Ignore
 public class IntegrationTests {
 	
 	ApplicationContext context;

@@ -20,6 +20,10 @@ public class PreliminaryTests {
 	DefenseGameData dgd;
 	Player p;
 	
+	int tckl = 5;
+	int ints = 2;
+	int numberOfColumnHeaders = 18;
+	
 	@Before
 	public void setUp() {
 		dao = new FakeStatsDAO();
@@ -31,8 +35,8 @@ public class PreliminaryTests {
 		dgd.setGamedataid(1);
 		dgd.setWeeknum(1);
 		dgd.setPlayerid(1);
-		dgd.setTckl(5);
-		dgd.setInts(2);
+		dgd.setTckl(tckl);
+		dgd.setInts(ints);
 		
 		p = new Player("Richard Goater", 27, "K", false);
 		p.setPlayerid(1);
@@ -54,11 +58,7 @@ public class PreliminaryTests {
 		t.setVisibleColumns(dgd.getVisibleColumns());
 
 		String[] headers = t.getColumnHeaders();
-		System.out.println("Length: " + headers.length);
-		for (String h : headers)
-			System.out.println(h);
-
-		Assert.assertEquals(14, headers.length);
+		Assert.assertEquals(numberOfColumnHeaders, headers.length);
 	}
 	
 	@Test
@@ -67,7 +67,7 @@ public class PreliminaryTests {
 		t.setVisibleColumns(dgd.getVisibleColumns());
 		
 		Item i = t.getItem(dgd);
-		Assert.assertEquals(5, i.getItemProperty("tckl").getValue());
-		Assert.assertEquals(5.0, i.getItemProperty("ydsPerInt").getValue());
+		Assert.assertEquals(tckl, i.getItemProperty("tckl").getValue());
+		Assert.assertEquals(ints, i.getItemProperty("ints").getValue());
 	}
 }

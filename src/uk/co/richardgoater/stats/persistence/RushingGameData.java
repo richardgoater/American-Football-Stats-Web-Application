@@ -8,14 +8,11 @@ import javax.persistence.Transient;
 @SuppressWarnings("unused")
 @Entity
 @Table(name = "GAMEDATA_RUSHING")
-public class RushingGameData extends GameData {
+public class RushingGameData extends GameDataWithLongest {
 	
 	private int att;
 	private int yds;
 	@Transient private double ydsPerAtt;
-	private int longest;
-	private boolean isLongTD;
-	@Transient private String displayLong;
 	private int td;
 	
 	@Transient
@@ -65,15 +62,6 @@ public class RushingGameData extends GameData {
 		return yds / att;
 	}
 	
-	@Column(name = "LONGEST")
-	public int getLongest() {
-		return longest;
-	}
-
-	public void setLongest(int longest) {
-		this.longest = longest;
-	}
-	
 	@Column(name = "TD")
 	public int getTd() {
 		return td;
@@ -81,19 +69,5 @@ public class RushingGameData extends GameData {
 
 	public void setTd(int td) {
 		this.td = td;
-	}
-	
-	@Transient
-	public String getDisplayLong() {
-		return LongUtility.getLong(longest, isLongTD);
-	}
-
-	@Column(name = "ISLONGTD")
-	public boolean isLongTD() {
-		return isLongTD;
-	}
-	
-	public void setLongTD(boolean isLongTD) {
-		this.isLongTD = isLongTD;
 	}
 }
