@@ -15,6 +15,7 @@ import org.junit.Test;
 
 import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
 import uk.co.richardgoater.stats.tests.fake.FakeMultipartFile;
+import uk.co.richardgoater.stats.upload.StatsUploadException;
 import uk.co.richardgoater.stats.upload.excel.ExcelParser;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 import uk.co.richardgoater.stats.upload.excel.ExcelStatsLoader;
@@ -37,7 +38,7 @@ public class LoadRowTest {
 	private ExcelParser mockJxlParser;
 	
 	@Before
-	public void setUp() {
+	public void setUp() throws StatsUploadException {
 		setUpMocks();
 		setExpectations();
 		
@@ -57,7 +58,7 @@ public class LoadRowTest {
 		mockMap = createMock(Map.class);	
 	}
 	
-	private void setExpectations() {
+	private void setExpectations() throws StatsUploadException {
 		expect(mockRowMapper.getDAO()).andReturn(mockStatsDAO);
 		expect(mockRowMapper.map(mockRow)).andReturn(null);
 		replay(mockRowMapper);

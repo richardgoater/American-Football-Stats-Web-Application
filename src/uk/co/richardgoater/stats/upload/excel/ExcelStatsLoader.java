@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartFile;
 
 import uk.co.richardgoater.stats.upload.StatsLoader;
+import uk.co.richardgoater.stats.upload.StatsUploadException;
 import uk.co.richardgoater.stats.upload.excel.mapping.ExcelRowMapper;
 
 public class ExcelStatsLoader implements StatsLoader {
@@ -35,8 +36,13 @@ public class ExcelStatsLoader implements StatsLoader {
 		if(rowMapper == null)
 			return "Unknown Datatype: '" + dataType + "'";
 		
-		Object mappedObject = rowMapper.map(row);
-		rowMapper.getDAO().saveOrReplace(mappedObject);
+		try {
+			Object mappedObject = rowMapper.map(row);
+			rowMapper.getDAO().saveOrReplace(mappedObject);
+		}
+		catch (StatsUploadException e) {
+			return e.getMessage();
+		}
 		
 		return "Row loaded: " + row.asString();
 	}
