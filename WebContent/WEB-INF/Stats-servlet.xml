@@ -49,14 +49,32 @@
 		<property name="statsLoader" ref="statsLoader"/>
 	</bean>
 	
-	<bean id="statsLoader" class="uk.co.richardgoater.stats.upload.ExcelStatsLoader">
-		<property name="DAOList">
-			<list>
-				<ref bean="PassingStatsDAO"/>
-				<ref bean="RushingStatsDAO"/>
-				<ref bean="ReceivingStatsDAO"/>
-				<ref bean="DefenseStatsDAO"/>		
-			</list>	
+	<bean id="statsLoader" class="uk.co.richardgoater.stats.upload.excel.ExcelStatsLoader">
+		<constructor-arg name="excelParser" ref="excelParser"/>
+		<property name="rowMappers">
+			<map>
+				<entry key="Passing" value-ref="passingRowMapper"/>
+				<entry key="Rushing" value-ref="rushingRowMapper"/>
+				<entry key="Receving" value-ref="receivingRowMapper"/>
+				<entry key="Defense" value-ref="defenseRowMapper"/>
+			</map>
 		</property>
+	</bean>
+	
+	<bean id="excelParser" class="uk.co.richardgoater.stats.upload.excel.jxl.JxlExcelParser"/>
+	
+	<bean id="passingRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.PassingRowMapper">
+		<property name="dao" ref="PassingStatsDAO"/>
+	</bean>
+	
+	<bean id="rushingRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.RushingRowMapper">
+		<property name="dao" ref="RushingStatsDAO"/>
+	</bean>
+	
+	<bean id="receivingRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.ReceivingRowMapper">
+		<property name="dao" ref="ReceivingStatsDAO"/>
+	</bean>
+	<bean id="defenseRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.DefenseRowMapper">
+		<property name="dao" ref="DefenseStatsDAO"/>
 	</bean>
 </beans>

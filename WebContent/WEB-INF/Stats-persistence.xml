@@ -35,19 +35,19 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
-	<bean id="PassingStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.PassingStatsDAOImpl">
+	<bean id="PassingStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.PassingStatsDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
-	<bean id="RushingStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.RushingStatsDAOImpl">
+	<bean id="RushingStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.RushingStatsDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
-	<bean id="ReceivingStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.ReceivingStatsDAOImpl">
+	<bean id="ReceivingStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.ReceivingStatsDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
-	<bean id="DefenseStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.DefenseStatsDAOImpl">
+	<bean id="DefenseStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.DefenseStatsDAO">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 </beans>

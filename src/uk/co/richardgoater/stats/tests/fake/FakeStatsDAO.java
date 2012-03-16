@@ -67,4 +67,10 @@ public class FakeStatsDAO implements StatsDAO {
 		
 	}
 
+	@Override
+	public int getPlayeridForName(String asString) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

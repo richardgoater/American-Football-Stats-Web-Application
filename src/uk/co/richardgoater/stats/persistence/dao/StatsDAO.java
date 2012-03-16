@@ -18,6 +18,8 @@ public interface StatsDAO {
 	@Cacheable(cacheName="playerCache")
 	List<Player> getPlayers(int seasonid);
 	void savePlayer(Player p);
+	int getPlayeridForName(String asString);
 	
 	void saveOrReplace(Object mappedObject);
+	
 }

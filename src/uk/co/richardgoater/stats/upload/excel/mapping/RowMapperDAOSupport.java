@@ -1,13 +1,12 @@
 package uk.co.richardgoater.stats.upload.excel.mapping;
 
-import uk.co.richardgoater.stats.persistence.dao.AbstractStatsDAO;
 import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
 
 public abstract class RowMapperDAOSupport {
 
-	protected AbstractStatsDAO dao;
+	protected StatsDAO dao;
 	
-	public void setDAO(AbstractStatsDAO dao) {
+	public void setDAO(StatsDAO dao) {
 		this.dao = dao;
 	}
 	
