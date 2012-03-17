@@ -28,7 +28,7 @@ public class ReceivingRowMapperTest extends RowMapperTest {
 	@Override
 	protected void instantiateRowMapper() {
 		receivingRowMapper = new ReceivingRowMapper();
-		receivingRowMapper.setDAO(mockDAO);
+		receivingRowMapper.setDao(mockDAO);
 	}
 
 	@Override

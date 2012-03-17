@@ -30,7 +30,7 @@ public class PassingRowMapperTest extends RowMapperTest {
 	@Override
 	protected void instantiateRowMapper() {
 		passingRowMapper = new PassingRowMapper();
-		passingRowMapper.setDAO(mockDAO);
+		passingRowMapper.setDao(mockDAO);
 	}
 
 	@Override

@@ -38,7 +38,7 @@ public class ExcelStatsLoader implements StatsLoader {
 		
 		try {
 			Object mappedObject = rowMapper.map(row);
-			rowMapper.getDAO().saveOrReplace(mappedObject);
+			rowMapper.getDao().saveOrReplace(mappedObject);
 		}
 		catch (StatsUploadException e) {
 			return e.getMessage();

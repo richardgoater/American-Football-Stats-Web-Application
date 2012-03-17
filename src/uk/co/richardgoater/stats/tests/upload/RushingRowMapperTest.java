@@ -28,7 +28,7 @@ public class RushingRowMapperTest extends RowMapperTest {
 	@Override
 	protected void instantiateRowMapper() {
 		rushingRowMapper = new RushingRowMapper();
-		rushingRowMapper.setDAO(mockDAO);
+		rushingRowMapper.setDao(mockDAO);
 	}
 
 	@Override

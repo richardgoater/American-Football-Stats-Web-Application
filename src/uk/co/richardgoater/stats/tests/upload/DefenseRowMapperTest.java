@@ -37,7 +37,7 @@ public class DefenseRowMapperTest extends RowMapperTest {
 	@Override
 	protected void instantiateRowMapper() {
 		defenseRowMapper = new DefenseRowMapper();
-		defenseRowMapper.setDAO(mockDAO);
+		defenseRowMapper.setDao(mockDAO);
 	}
 
 	@Override

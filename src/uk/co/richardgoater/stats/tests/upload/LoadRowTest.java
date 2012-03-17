@@ -59,7 +59,7 @@ public class LoadRowTest {
 	}
 	
 	private void setExpectations() throws StatsUploadException {
-		expect(mockRowMapper.getDAO()).andReturn(mockStatsDAO);
+		expect(mockRowMapper.getDao()).andReturn(mockStatsDAO);
 		expect(mockRowMapper.map(mockRow)).andReturn(null);
 		replay(mockRowMapper);
 		

@@ -9,6 +9,6 @@ public interface ExcelRowMapper {
 
 	Object map(ExcelRow row) throws StatsUploadException;
 
-	StatsDAO getDAO();
+	StatsDAO getDao();
 
 }

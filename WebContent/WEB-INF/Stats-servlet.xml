@@ -64,7 +64,7 @@
 	<bean id="excelParser" class="uk.co.richardgoater.stats.upload.excel.jxl.JxlExcelParser"/>
 	
 	<bean id="passingRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.PassingRowMapper">
-		<property name="dao" ref="PassingStatsDAO"/>
+		<property name="dao" ref="PassingStatsDAO" />
 	</bean>
 	
 	<bean id="rushingRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.RushingRowMapper">
