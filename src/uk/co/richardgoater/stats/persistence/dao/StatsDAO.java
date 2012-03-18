@@ -13,13 +13,10 @@ public interface StatsDAO {
 	List<GameData> getGameDataForWeek(ScheduleWeek week);
 	@Cacheable(cacheName="statsCache")
 	List<GameData> getGameDataTotals(int seasonid);
-	void saveGameData(GameData gameData);
-	
+		
 	@Cacheable(cacheName="playerCache")
 	List<Player> getPlayers(int seasonid);
-	void savePlayer(Player p);
 	int getPlayeridForName(String asString);
 	
 	void saveOrReplace(Object mappedObject);
-	
 }

@@ -12,12 +12,6 @@ import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
 public class FakeStatsDAO implements StatsDAO {
 
 	@Override
-	public void savePlayer(Player p) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public List<GameData> getGameDataForWeek(ScheduleWeek week) {
 
 		DefenseGameData dgd = new DefenseGameData();
@@ -36,12 +30,6 @@ public class FakeStatsDAO implements StatsDAO {
 	public List<GameData> getGameDataTotals(int seasonid) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void saveGameData(GameData gameData) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

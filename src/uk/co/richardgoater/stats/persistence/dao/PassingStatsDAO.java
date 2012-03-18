@@ -37,10 +37,4 @@ public class PassingStatsDAO extends AbstractStatsDAO {
 		return hibernateTemplate.find("from Player where ispassing = 1" + appendSeasonClause( " and", seasonid));
 	}
 
-	@Override
-	public void saveOrReplace(Object mappedObject) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

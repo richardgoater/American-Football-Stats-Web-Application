@@ -28,19 +28,19 @@ public class TestDataProvider {
 		p.setPlayerid(1);
 		p.setDefense(true);
 		p.setSeasonid(1);
-		dao.savePlayer(p);
+		dao.saveOrReplace(p);
 		
 		Player p2 = new Player("Mark Foster", 47, "S", false);
 		p2.setPlayerid(2);
 		p2.setDefense(true);
 		p2.setSeasonid(1);
-		dao.savePlayer(p2);
+		dao.saveOrReplace(p2);
 		
 		Player p3 = new Player("Richard Goater", 27, "K", true);
 		p3.setPlayerid(3);
 		p3.setDefense(true);
 		p3.setSeasonid(1);
-		dao.savePlayer(p3);
+		dao.saveOrReplace(p3);
 		
 		DefenseGameData dgd = new DefenseGameData();
 		dgd.setWeeknum(3);
@@ -48,7 +48,7 @@ public class TestDataProvider {
 		dgd.setTckl(2);
 		dgd.setInts(2);
 		dgd.setSeasonid(1);
-		dao.saveGameData(dgd);
+		dao.saveOrReplace(dgd);
 		
 		DefenseGameData dgd2 = new DefenseGameData();
 		dgd2.setWeeknum(3);
@@ -56,7 +56,7 @@ public class TestDataProvider {
 		dgd2.setTckl(2);
 		dgd2.setInts(2);
 		dgd2.setSeasonid(1);
-		dao.saveGameData(dgd2);
+		dao.saveOrReplace(dgd2);
 	}
 
 	public static void createSelectionRecords(ScheduleDAO dao) {

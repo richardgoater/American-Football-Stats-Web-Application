@@ -33,10 +33,4 @@ public class RushingStatsDAO extends AbstractStatsDAO {
 		return hibernateTemplate.find("from Player where isrushing = 1" + appendSeasonClause(" and", seasonid));		
 	}
 
-	@Override
-	public void saveOrReplace(Object mappedObject) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

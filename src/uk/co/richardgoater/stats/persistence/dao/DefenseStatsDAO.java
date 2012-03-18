@@ -44,11 +44,5 @@ public class DefenseStatsDAO extends AbstractStatsDAO {
 	public List<Player> getPlayers(int seasonid) {
 		return hibernateTemplate.find("from Player where isdefense = 1" + appendSeasonClause( " and", seasonid));
 	}
-
-	@Override
-	public void saveOrReplace(Object mappedObject) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 }
