@@ -73,5 +73,15 @@ public class ReceivingRowMapperTest extends RowMapperTest {
 	public void mapsTd() {
 		assertEquals(td, mappedRecevingGameData.getTd());
 	}
+	
+	@Test
+	public void mapsSeasonid() {
+		assertEquals(seasonid, mappedRecevingGameData.getSeasonid());
+	}
+	
+	@Test
+	public void mapsWeeknum() {
+		assertEquals(weeknum, mappedRecevingGameData.getWeeknum());
+	}
 
 }

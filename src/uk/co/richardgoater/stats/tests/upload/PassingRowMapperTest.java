@@ -94,4 +94,15 @@ public class PassingRowMapperTest extends RowMapperTest {
 	public void mapsSackYards() {
 		assertEquals(sackYds, mappedPassingGameData.getSackYds());
 	}
+	
+	@Test
+	public void mapsSeasonid() {
+		assertEquals(seasonid, mappedPassingGameData.getSeasonid());
+	}
+	
+	@Test
+	public void mapsWeeknum() {
+		assertEquals(weeknum, mappedPassingGameData.getWeeknum());
+	}
+	
 }

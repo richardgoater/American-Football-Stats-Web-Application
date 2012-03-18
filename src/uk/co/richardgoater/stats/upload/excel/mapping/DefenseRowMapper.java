@@ -1,17 +1,21 @@
 package uk.co.richardgoater.stats.upload.excel.mapping;
 
 import uk.co.richardgoater.stats.persistence.DefenseGameData;
+import uk.co.richardgoater.stats.persistence.GameData;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 
-public class DefenseRowMapper extends RowMapperDAOSupport implements ExcelRowMapper {
+public class DefenseRowMapper extends ExcelRowMapperImpl implements ExcelRowMapper {
+
+	@Override
+	public GameData getNewGameDataInstance() {
+		return new DefenseGameData();
+	}
 	
 	@Override
-	public Object map(ExcelRow row) {
-		DefenseGameData defenseGameData = new DefenseGameData();
+	public void mapStatsColumns(ExcelRow row) 
+	{	
+		DefenseGameData defenseGameData = (DefenseGameData) gameData;
 		
-		row.resetIterator();
-		
-		defenseGameData.setPlayerid(dao.getPlayeridForName(row.nextCell().asString()));
 		defenseGameData.setTckl(row.nextCell().asInt());
 		defenseGameData.setSolo(row.nextCell().asInt());
 		defenseGameData.setAssist(row.nextCell().asInt());
@@ -27,8 +31,6 @@ public class DefenseRowMapper extends RowMapperDAOSupport implements ExcelRowMap
 		defenseGameData.setTd(row.nextCell().asInt());
 		defenseGameData.setSafety(row.nextCell().asInt());
 		defenseGameData.setBk(row.nextCell().asInt());
-		
-		return defenseGameData;
 	}
 
 }

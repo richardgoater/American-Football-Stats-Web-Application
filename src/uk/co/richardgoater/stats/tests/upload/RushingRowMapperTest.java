@@ -73,5 +73,15 @@ public class RushingRowMapperTest extends RowMapperTest {
 	public void mapsTd() {
 		assertEquals(td, mappedRushingGameData.getTd());
 	}
+	
+	@Test
+	public void mapsSeasonid() {
+		assertEquals(seasonid, mappedRushingGameData.getSeasonid());
+	}
+	
+	@Test
+	public void mapsWeeknum() {
+		assertEquals(weeknum, mappedRushingGameData.getWeeknum());
+	}
 
 }

@@ -1,24 +1,27 @@
 package uk.co.richardgoater.stats.upload.excel.mapping;
 
+import uk.co.richardgoater.stats.persistence.GameData;
 import uk.co.richardgoater.stats.persistence.ReceivingGameData;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 
-public class ReceivingRowMapper extends RowMapperDAOSupport implements
-		ExcelRowMapper {
+public class ReceivingRowMapper 
+extends ExcelRowMapperImpl 
+implements ExcelRowMapper {
 
 	@Override
-	public Object map(ExcelRow row) {
-		ReceivingGameData receivingGameData = new ReceivingGameData();
+	public GameData getNewGameDataInstance() {
+		return new ReceivingGameData();
+	}
+	
+	@Override
+	public void mapStatsColumns(ExcelRow row) 
+	{
+		ReceivingGameData receivingGameData = (ReceivingGameData) gameData;
 		
-		row.resetIterator();
-		
-		receivingGameData.setPlayerid(dao.getPlayeridForName(row.nextCell().asString()));
 		receivingGameData.setRec(row.nextCell().asInt());
 		receivingGameData.setYds(row.nextCell().asInt());
 		receivingGameData.setLongStats(row.nextCell().asString());
 		receivingGameData.setTd(row.nextCell().asInt());
-		
-		return receivingGameData;
 	}
 
 }

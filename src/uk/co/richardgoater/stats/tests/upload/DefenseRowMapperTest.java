@@ -139,4 +139,14 @@ public class DefenseRowMapperTest extends RowMapperTest {
 		assertEquals(bk, mappedDefenseGameData.getBk());
 	}
 	
+	@Test
+	public void mapsSeasonid() {
+		assertEquals(seasonid, mappedDefenseGameData.getSeasonid());
+	}
+	
+	@Test
+	public void mapsWeeknum() {
+		assertEquals(weeknum, mappedDefenseGameData.getWeeknum());
+	}
+	
 }

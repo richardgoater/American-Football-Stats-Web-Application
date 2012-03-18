@@ -5,6 +5,7 @@ import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,6 +23,8 @@ public abstract class RowMapperTest {
 	protected String playerName;
 	protected abstract void setPlayerName();
 	protected int playerid = 50;
+	protected int seasonid = 1;
+	protected int weeknum = 1;
 
 	protected void setUpMocks() {
 		mockRow = createMock(ExcelRow.class);
@@ -30,6 +33,8 @@ public abstract class RowMapperTest {
 	}
 
 	protected void setExpectations() {
+		expect(mockRow.getSeasonid()).andReturn(seasonid);
+		expect(mockRow.getWeeknum()).andReturn(weeknum);
 		mockRow.resetIterator();
 		expectLastCall();
 		setMapperRowExpectations();
