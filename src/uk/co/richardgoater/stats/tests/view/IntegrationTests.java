@@ -23,7 +23,7 @@ import uk.co.richardgoater.stats.ui.SeasonSelector;
 import uk.co.richardgoater.stats.ui.StatsTable;
 import uk.co.richardgoater.stats.ui.WeekSelector;
 
-@Ignore
+
 public class IntegrationTests {
 	
 	ApplicationContext context;

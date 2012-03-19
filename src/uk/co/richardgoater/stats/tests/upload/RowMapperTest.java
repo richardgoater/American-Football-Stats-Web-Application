@@ -10,14 +10,14 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.co.richardgoater.stats.persistence.dao.AbstractStatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.StatsDAOImpl;
 import uk.co.richardgoater.stats.upload.excel.ExcelCell;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 
 public abstract class RowMapperTest {
 
 	protected ExcelRow mockRow;
-	protected AbstractStatsDAO mockDAO;
+	protected StatsDAOImpl mockDAO;
 	protected ExcelCell mockCell;
 	
 	protected String playerName;
@@ -28,7 +28,7 @@ public abstract class RowMapperTest {
 
 	protected void setUpMocks() {
 		mockRow = createMock(ExcelRow.class);
-		mockDAO = createMock(AbstractStatsDAO.class);
+		mockDAO = createMock(StatsDAOImpl.class);
 		mockCell = createMock(ExcelCell.class);
 	}
 

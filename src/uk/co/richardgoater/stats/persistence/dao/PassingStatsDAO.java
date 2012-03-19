@@ -6,7 +6,7 @@ import uk.co.richardgoater.stats.persistence.GameData;
 import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 
-public class PassingStatsDAO extends AbstractStatsDAO {
+public class PassingStatsDAO extends StatsDAOImpl {
 	
 	@SuppressWarnings("unchecked")
 	@Override

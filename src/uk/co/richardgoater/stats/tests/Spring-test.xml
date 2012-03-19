@@ -12,9 +12,9 @@
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver"/>
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/stats"/>
-		<property name="username" value="root"/>
-		<property name="password" value="Myadm1n"/>
+			value="jdbc:mysql://richard-pc:3306/stats"/>
+		<property name="username" value="c6statsadmin"/>
+		<property name="password" value="St4t5Adm1n"/>
 	</bean>
 
 	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">

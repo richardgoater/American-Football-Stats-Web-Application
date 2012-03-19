@@ -1,6 +1,8 @@
 package uk.co.richardgoater.stats.persistence.dao;
 
-public abstract class AbstractStatsDAO extends HibernateDAO implements StatsDAO {	
+import java.util.List;
+
+public abstract class StatsDAOImpl extends HibernateDAO implements StatsDAO {	
 	
 	protected String appendSeasonClause(String prefix, int seasonid) {
 		if(seasonid > 0)
@@ -15,7 +17,13 @@ public abstract class AbstractStatsDAO extends HibernateDAO implements StatsDAO 
 	}
 	
 	public int getPlayeridForName(String playerName) {
-		// TODO Auto-generated method stub
-		return 0;
+		@SuppressWarnings("unchecked")
+		List<Object> result = hibernateTemplate.find(
+				"select playerid from Player " +
+				"where name = '" + playerName + "'");
+		
+		if(result.size() > 0)
+			return (Integer) result.get(0);
+		else return 0;
 	}
 }
