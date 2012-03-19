@@ -16,6 +16,7 @@
 	
 	<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/MySqlDS"/>
 	
+	<!-- 
 	<ehcache:annotation-driven/>
 	<ehcache:config cache-manager="cacheManager">
 		<ehcache:evict-expired-elements interval="60" />
@@ -23,7 +24,7 @@
 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
 		<property name="configLocation" value="/WEB-INF/ehcache.xml"/>
 	</bean>
-
+	 -->
 		
    	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>

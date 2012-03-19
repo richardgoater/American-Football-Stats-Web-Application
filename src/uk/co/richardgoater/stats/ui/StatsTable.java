@@ -17,8 +17,8 @@ public abstract class StatsTable extends Table {
 	private static final long serialVersionUID = -6210798727180420975L;
 	protected StatsDAO dao;
 
-	@SuppressWarnings("unchecked")
-	public StatsTable(StatsDAO dao, Class beanType) {
+	public StatsTable(StatsDAO dao, 
+			@SuppressWarnings("rawtypes") Class beanType) {
 		super("");
 		this.dao = dao;
 		setContainerDataSource(new GameDataContainer(beanType));
