@@ -1,6 +1,8 @@
 package uk.co.richardgoater.stats.persistence.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 import uk.co.richardgoater.stats.persistence.Season;
@@ -27,5 +29,20 @@ public class ScheduleDAOImpl extends HibernateDAO implements ScheduleDAO {
 	@Override
 	public void saveSeason(Season s) {
 		hibernateTemplate.saveOrUpdate(s);
+	}
+
+	@Override
+	public Map<Integer, String> getSeasonsAsMap() {
+		Map<Integer, String> map = new HashMap<Integer, String>();
+		
+		List<Object> seasonList = getSeasons();
+		for (Object s : seasonList) {
+			if(s instanceof Season) {
+				Season season = (Season) s;
+				map.put(season.getSeasonid(), season.getYear());
+			}
+		}
+		
+		return map;
 	}
 }

@@ -1,6 +1,7 @@
 package uk.co.richardgoater.stats.persistence.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.googlecode.ehcache.annotations.Cacheable;
 
@@ -14,5 +15,8 @@ public interface ScheduleDAO {
 	
 	@Cacheable(cacheName="selectionCache")
 	List<Object> getSeasons();
+	@Cacheable(cacheName="selectionCache")
+	Map<Integer, String> getSeasonsAsMap();
 	void saveSeason(Season s);
+	
 }

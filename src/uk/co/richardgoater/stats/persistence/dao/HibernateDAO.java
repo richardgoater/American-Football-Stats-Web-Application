@@ -10,4 +10,8 @@ public class HibernateDAO {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
+	
+	public void setHibernateTemplate(HibernateTemplate ht) {
+		hibernateTemplate = ht;
+	}
 }

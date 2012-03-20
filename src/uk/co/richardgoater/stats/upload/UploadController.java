@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
+import uk.co.richardgoater.stats.persistence.dao.ScheduleDAO;
 
 
 @Controller
@@ -13,14 +16,21 @@ import org.springframework.web.multipart.MultipartFile;
 public class UploadController {
 
 	StatsLoader statsLoader;
-
+	ScheduleDAO scheduleDao;
+	
 	public void setStatsLoader(StatsLoader statsLoader) {
 		this.statsLoader = statsLoader;
 	}
+	
+	public void setScheduleDao(ScheduleDAO scheduleDao) {
+		this.scheduleDao = scheduleDao;
+	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String getUpload() {
-		return "upload";
+	public ModelAndView getUpload() {
+		ModelAndView modelAndView = new ModelAndView("upload");
+		modelAndView.addObject("seasons", scheduleDao.getSeasonsAsMap());
+		return modelAndView;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)

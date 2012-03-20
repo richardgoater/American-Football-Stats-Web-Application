@@ -12,9 +12,11 @@ public class Season {
 	private int seasonid;
 	private String year;
 	
-	public Season()
-	{
-		super();
+	public Season()	{ }
+	
+	public Season(int seasonid, String year) {
+		this.seasonid = seasonid;
+		this.year = year;
 	}
 	
 	@Id
