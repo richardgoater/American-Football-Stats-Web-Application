@@ -29,7 +29,7 @@ public class UploadController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView getUpload() {
 		ModelAndView modelAndView = new ModelAndView("upload");
-		modelAndView.addObject("seasons", scheduleDao.getSeasonsAsMap());
+		modelAndView.addObject("seasons", scheduleDao.getSeasons());
 		return modelAndView;
 	}
 

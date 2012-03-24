@@ -18,11 +18,12 @@ public class UploadControllerTest {
 	private UploadController uploadController;
 	private StatsLoader statsLoader;
 	private String expectedResult;
+	private UploadResponse response;
 	
 	private FakeMultipartFile file;
 	
 	int seasonid = 1;
-	int weeknum = 2;
+	int weeknum = 3;
 	
 	@Before
 	public void setup(){
@@ -34,25 +35,25 @@ public class UploadControllerTest {
 		
 		expect(statsLoader.load(file, seasonid, weeknum)).andReturn(expectedResult);
 		replay(statsLoader);
+		
+		response = uploadController.postUpload(file, seasonid, weeknum);
 	}
 	
 	@Test
 	public void shouldReturnAResponse(){		
-		UploadResponse response = uploadController.postUpload(file, seasonid, weeknum);
 		Assert.assertNotNull(response);
 	}
 	
 	@Test
 	public void shouldReturnTheCorrectResponse(){
-		UploadResponse response = uploadController.postUpload(file, seasonid, weeknum);
 		Assert.assertTrue(response.getResult().contains(expectedResult));
 	}
 	
 	@Test
 	public void shouldReturnAFailedResponseWhenFileIsEmpty(){
 		file.isEmpty(true);
-		UploadResponse response = uploadController.postUpload(file, seasonid, weeknum);
-		Assert.assertEquals("There was a problem with the upload. Soz.", response.getResult());
+		UploadResponse failResponse = uploadController.postUpload(file, seasonid, weeknum);
+		Assert.assertEquals("There was a problem with the upload. Soz.", failResponse.getResult());
 	}
 	
 }
