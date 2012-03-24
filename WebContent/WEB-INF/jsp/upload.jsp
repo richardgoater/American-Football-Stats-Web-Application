@@ -14,17 +14,22 @@
 		        	<form id="uploadform" method="post" enctype="multipart/form-data">
 			            <table>
 			            	<tr>
-			            		<td>
+			            		<td style="width: 100%;">
 			            			<input type="text" name="name"/>
 			            			<input type="file" name="file" id="fileinput"/>
 			            		</td>
+			            		<td style="width: 0;"></td>
 			            	</tr>
 			            	<tr>
-			            		<td>
-			            			<select name="season" title="Season:">
+			            		<td>Season: 
+			            			<select id="season">
 			            				<c:forEach var="season" items="${seasons}">
                 							<option>${season.year}</option>
               							</c:forEach>
+			            			</select>
+			            			Week: 
+			            			<select id="weeknum">
+			            				<option>&lt;Please select a season&gt;</option>
 			            			</select>
 			            		</td>
 			            	</tr>
@@ -60,6 +65,19 @@
 				
 				return false;
             });
+        
+        	function updateWeekSelect() {
+        		var season = $('#season').val();
+        		
+        		$.post('Stats/upload/seasons/' + season,
+        			function(weeks) {
+        				var weekSelect = $('#weeknum');
+        				for(var i = 0; i < weeks.length; i++) {
+        					var week = weeks[i];
+        					$(weekSelect).append( $('<option>', {value: week.weeknum }).text(week.opponent));	
+        				}
+        			}l);
+        	}
         </script>
     </body>
 </html>
