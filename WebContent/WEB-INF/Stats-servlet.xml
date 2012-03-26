@@ -11,10 +11,10 @@
     http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 	http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
 	http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring/ehcache-spring-1.1.xsd">
+
+	<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/MySqlDS"/>
 	
 	<import resource="Stats-persistence.xml"/>
-	
-	<jee:jndi-lookup id="dataSource" jndi-name="java:comp/env/MySqlDS"/>
 	
 	<!-- 
 	<ehcache:annotation-driven/>
@@ -44,7 +44,7 @@
 
 	<context:component-scan base-package="uk.co.richardgoater.stats.upload" />
 	<mvc:annotation-driven />
-	<mvc:default-servlet-handler/>
+	<!-- <mvc:default-servlet-handler/> -->
 	
 	<bean id="uploadController" class="uk.co.richardgoater.stats.upload.UploadController">
 		<property name="statsLoader" ref="statsLoader"/>
@@ -57,7 +57,7 @@
 			<map>
 				<entry key="Passing" value-ref="passingRowMapper"/>
 				<entry key="Rushing" value-ref="rushingRowMapper"/>
-				<entry key="Receving" value-ref="receivingRowMapper"/>
+				<entry key="Receiving" value-ref="receivingRowMapper"/>
 				<entry key="Defense" value-ref="defenseRowMapper"/>
 			</map>
 		</property>
@@ -76,6 +76,7 @@
 	<bean id="receivingRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.ReceivingRowMapper">
 		<property name="dao" ref="ReceivingStatsDAO"/>
 	</bean>
+	
 	<bean id="defenseRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.DefenseRowMapper">
 		<property name="dao" ref="DefenseStatsDAO"/>
 	</bean>

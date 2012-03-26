@@ -1,6 +1,9 @@
 package uk.co.richardgoater.stats.upload;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,7 +15,7 @@ import uk.co.richardgoater.stats.persistence.dao.ScheduleDAO;
 
 
 @Controller
-@RequestMapping(value = "/upload")
+@RequestMapping(value = "/")
 public class UploadController {
 
 	StatsLoader statsLoader;
@@ -26,14 +29,19 @@ public class UploadController {
 		this.scheduleDao = scheduleDao;
 	}
 
+	@RequestMapping(value = "seasons/{seasonid}", method = RequestMethod.GET)
+	public @ResponseBody List<Object> getWeeksForSeason(@PathVariable int seasonid) {
+		return scheduleDao.getScheduleWeeks(seasonid);
+	}
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView getUpload() {
+	public ModelAndView initialisePage() {
 		ModelAndView modelAndView = new ModelAndView("upload");
 		modelAndView.addObject("seasons", scheduleDao.getSeasons());
 		return modelAndView;
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value="upload", method = RequestMethod.POST)
 	public @ResponseBody
 	UploadResponse postUpload(@RequestParam("file") MultipartFile file,
 			@RequestParam("season") int seasonid,

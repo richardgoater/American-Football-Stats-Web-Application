@@ -5,7 +5,6 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartFile;
 
 import uk.co.richardgoater.stats.upload.StatsLoader;
-import uk.co.richardgoater.stats.upload.StatsUploadException;
 import uk.co.richardgoater.stats.upload.excel.mapping.ExcelRowMapper;
 
 public class ExcelStatsLoader implements StatsLoader {
@@ -19,12 +18,12 @@ public class ExcelStatsLoader implements StatsLoader {
 	
 	@Override
 	public String load(MultipartFile file, int seasonid, int weeknum) {
-		
+		result.setLength(0);
 		ExcelWorkbook workbook = excelParser.parse(file); 
 		for(ExcelSheet sheet : workbook.getSheets())
 			for(ExcelRow row : sheet.getRows()) {
 				row.setScheduleData(seasonid, weeknum);
-				result.append(loadRow(row, sheet.getTitle()));
+				result.append(loadRow(row, sheet.getTitle()) + "<br//>");
 			}
 		return result.toString();
 	}
@@ -40,7 +39,7 @@ public class ExcelStatsLoader implements StatsLoader {
 			Object mappedObject = rowMapper.map(row);
 			rowMapper.getDao().saveOrReplace(mappedObject);
 		}
-		catch (StatsUploadException e) {
+		catch (Exception e) {
 			return e.getMessage();
 		}
 		

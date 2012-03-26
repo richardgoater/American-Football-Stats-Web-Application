@@ -12,7 +12,7 @@
 		</parameter>
 		<parameter>
 			<name>url</name>
-			<value>jdbc:mysql://localhost:3306/c6statsadmindb</value>
+			<value>jdbc:mysql://Richard-PC:3306/stats</value>
 		</parameter>
 		<parameter>
 			<name>username</name>

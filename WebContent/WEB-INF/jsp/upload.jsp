@@ -12,19 +12,18 @@
 	        <div id=content-full>
 		        <div class="bordered">
 		        	<form id="uploadform" method="post" enctype="multipart/form-data">
-			            <table>
+			            <table style="width: 100%;">
 			            	<tr>
 			            		<td style="width: 100%;">
 			            			<input type="text" name="name"/>
 			            			<input type="file" name="file" id="fileinput"/>
 			            		</td>
-			            		<td style="width: 0;"></td>
 			            	</tr>
 			            	<tr>
 			            		<td>Season: 
-			            			<select id="season">
+			            			<select id="season" onchange="updateWeekSelect()">
 			            				<c:forEach var="season" items="${seasons}">
-                							<option>${season.year}</option>
+                							<option value="${season.seasonid}">${season.year}</option>
               							</c:forEach>
 			            			</select>
 			            			Week: 
@@ -49,7 +48,9 @@
 
 				var formData = new FormData();
 				var fileinput = $('#fileinput');
-				formData.append('file', fileinput[0].files[0])
+				formData.append('file', fileinput[0].files[0]);
+				formData.append('season', $('#season').val());
+				formData.append('weeknum', $('#weeknum').val());
 				
 				$.ajax({
 				    url: '/Stats/upload',
@@ -59,7 +60,7 @@
 				    processData: false,
 				    type: 'POST',
 				    success: function(resp){
-						$('#results').html(resp.result);
+						$('#results').empty().html(resp.result);
 				    }
 				});								
 				
@@ -69,14 +70,16 @@
         	function updateWeekSelect() {
         		var season = $('#season').val();
         		
-        		$.post('Stats/upload/seasons/' + season,
+        		$.getJSON('upload/seasons/' + season,
         			function(weeks) {
         				var weekSelect = $('#weeknum');
+        				$(weekSelect).empty();
         				for(var i = 0; i < weeks.length; i++) {
         					var week = weeks[i];
-        					$(weekSelect).append( $('<option>', {value: week.weeknum }).text(week.opponent));	
+        					$(weekSelect).append( $('<option>', {value: week.weeknum }).text(week.displayName));	
         				}
-        			}l);
+        			}
+        		);
         	}
         </script>
     </body>
