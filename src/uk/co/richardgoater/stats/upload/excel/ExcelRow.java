@@ -1,7 +1,7 @@
 package uk.co.richardgoater.stats.upload.excel;
 
 public interface ExcelRow {
-
+	
 	String asString();
 	
 	String rowIdAsString();

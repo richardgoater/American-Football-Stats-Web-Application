@@ -52,11 +52,11 @@ public abstract class GameDataWithLongest extends GameData {
 	}
 	
 	public int getLongest(String longestAsString) {
-		return Integer.parseInt(longestAsString.replace(touchdownIndicator, ""));
+		return Integer.parseInt(longestAsString.toUpperCase().replace(touchdownIndicator, ""));
 	}
 	
 	public boolean wasTD(String longestAsString) {
-		return longestAsString.endsWith(touchdownIndicator);
+		return longestAsString.toUpperCase().endsWith(touchdownIndicator);
 	}
 	
 }

@@ -29,11 +29,13 @@ public class ExcelStatsLoader implements StatsLoader {
 	public String load(MultipartFile file, int seasonid, int weeknum) {
 		result.setLength(0);
 		ExcelWorkbook workbook = excelParser.parse(file); 
-		for(ExcelSheet sheet : workbook.getSheets())
+		for(ExcelSheet sheet : workbook.getSheets()) {
+			result.append("Loading " + sheet.getTitle() + ":" + getSeparator());
 			for(ExcelRow row : sheet.getRows()) {
 				row.setScheduleData(seasonid, weeknum);
 				result.append(loadRow(row, sheet.getTitle()));
 			}
+		}
 		return result.toString();
 	}
 

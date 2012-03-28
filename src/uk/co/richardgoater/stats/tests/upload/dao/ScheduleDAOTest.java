@@ -1,4 +1,4 @@
-package uk.co.richardgoater.stats.tests.upload;
+package uk.co.richardgoater.stats.tests.upload.dao;
 
 import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;

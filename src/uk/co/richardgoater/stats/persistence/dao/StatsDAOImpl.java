@@ -2,6 +2,9 @@ package uk.co.richardgoater.stats.persistence.dao;
 
 import java.util.List;
 
+import uk.co.richardgoater.stats.persistence.GameData;
+import uk.co.richardgoater.stats.persistence.Player;
+
 public abstract class StatsDAOImpl extends HibernateDAO implements StatsDAO {	
 	
 	protected String appendSeasonClause(String prefix, int seasonid) {
@@ -13,9 +16,26 @@ public abstract class StatsDAOImpl extends HibernateDAO implements StatsDAO {
 
 	@Override
 	public void saveOrReplace(Object mappedObject) {
-		hibernateTemplate.saveOrUpdate(mappedObject);		
+		
+		if(mappedObject instanceof GameData)
+			saveOrReplaceGameData((GameData)mappedObject);
+		else if (mappedObject instanceof Player)
+			saveOrReplacePlayer((Player)mappedObject);
+		else
+			hibernateTemplate.saveOrUpdate(mappedObject);		
 	}
 	
+	protected void saveOrReplaceGameData(GameData mappedObject) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	protected void saveOrReplacePlayer(Player mappedObject) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	public int getPlayeridForName(String playerName) {
 		@SuppressWarnings("unchecked")
 		List<Object> result = hibernateTemplate.find(

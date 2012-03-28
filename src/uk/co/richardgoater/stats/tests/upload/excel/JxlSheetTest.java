@@ -1,4 +1,4 @@
-package uk.co.richardgoater.stats.tests.upload;
+package uk.co.richardgoater.stats.tests.upload.excel;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

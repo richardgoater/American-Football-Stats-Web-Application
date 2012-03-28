@@ -1,4 +1,4 @@
-package uk.co.richardgoater.stats.tests.upload;
+package uk.co.richardgoater.stats.tests.upload.mapping;
 
 import static org.easymock.EasyMock.expect;
 import static org.junit.Assert.assertEquals;

@@ -20,8 +20,9 @@ public class JxlSheet implements ExcelSheet {
 	public List<ExcelRow> getRows() {
 		List<ExcelRow> list = new ArrayList<ExcelRow>();
 		
-		for(int i = 0; i < realSheet.getRows(); i++)
-			list.add(new JxlRow(realSheet.getRow(i), i+1));
+		// iterate from 1 to skip row titles
+		for(int i = 1; i < realSheet.getRows(); i++)
+			list.add(new JxlRow(realSheet.getRow(i), i));
 		
 		return list;
 	}
