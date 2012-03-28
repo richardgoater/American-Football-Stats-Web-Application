@@ -25,11 +25,16 @@ public class JxlRow implements ExcelRow {
 	public String asString() {
 		resetIterator();
 		
-		StringBuilder sb = new StringBuilder().append("Row " + rownum + ":");
+		StringBuilder sb = new StringBuilder();
 		while(cellIterator.hasNext())
 			sb.append(" ").append(cellIterator.next().getContents());
 		
-		return sb.toString();
+		return sb.toString().trim();
+	}
+	
+	@Override
+	public String rowIdAsString() {
+		return "Row " + rownum + ":";
 	}
 
 	@Override

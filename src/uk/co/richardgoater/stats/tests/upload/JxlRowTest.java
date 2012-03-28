@@ -60,7 +60,7 @@ public class JxlRowTest extends JxlTest {
 	
 	@Test
 	public void returnsRowAsStringCorrectly() {
-		String expectedRowAsString = "Row 1: Dave Bright 8 7 1 2 6 0 0 0 0 1 0 0 0 0 0";
+		String expectedRowAsString = "Dave Bright 8 7 1 2 6 0 0 0 0 1 0 0 0 0 0";
 		assertEquals(expectedRowAsString, row.asString());
 	}
 }

@@ -4,6 +4,8 @@ public interface ExcelRow {
 
 	String asString();
 	
+	String rowIdAsString();
+	
 	void setScheduleData(int seasonid, int weeknum);
 
 	int getSeasonid();

@@ -10,8 +10,17 @@ import uk.co.richardgoater.stats.upload.excel.mapping.ExcelRowMapper;
 public class ExcelStatsLoader implements StatsLoader {
 	
 	ExcelParser excelParser;
+	
 	Map<String, ExcelRowMapper> rowMappers;
-
+	public void setRowMappers(Map<String, ExcelRowMapper> rowMappers) {
+		this.rowMappers = rowMappers;
+	}
+	
+	String separator;
+	public void setSeparator(String separator) {
+		this.separator = separator;
+	}
+	
 	public ExcelStatsLoader(ExcelParser excelParser) {
 		this.excelParser = excelParser;
 	}
@@ -23,7 +32,7 @@ public class ExcelStatsLoader implements StatsLoader {
 		for(ExcelSheet sheet : workbook.getSheets())
 			for(ExcelRow row : sheet.getRows()) {
 				row.setScheduleData(seasonid, weeknum);
-				result.append(loadRow(row, sheet.getTitle()) + "<br//>");
+				result.append(loadRow(row, sheet.getTitle()));
 			}
 		return result.toString();
 	}
@@ -40,18 +49,21 @@ public class ExcelStatsLoader implements StatsLoader {
 			rowMapper.getDao().saveOrReplace(mappedObject);
 		}
 		catch (Exception e) {
-			return e.getMessage();
+			return e.getClass().getName() + ": " + e.getMessage() + getSeparator();
 		}
 		
-		return "Row loaded: " + row.asString();
+		return "Row loaded: " + row.asString() + getSeparator();
 	}
-	
+
 	private ExcelRowMapper getRowMapper(String forDataType) {
 		return rowMappers.get(forDataType);
 	}
-
-	public void setRowMappers(Map<String, ExcelRowMapper> rowMappers) {
-		this.rowMappers = rowMappers;
+	
+	private String getSeparator() {
+		if(separator == null)
+			return "<br//>";
+		else
+			return separator;
 	}
 
 }
