@@ -6,6 +6,8 @@ public interface ExcelCell {
 
 	int asInt();
 
-	double asDouble(); 
+	double asDouble();
+	
+	boolean asBoolean();
 
 }

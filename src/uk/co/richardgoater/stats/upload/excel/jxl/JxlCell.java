@@ -26,4 +26,9 @@ public class JxlCell implements ExcelCell {
 		return Double.parseDouble(realCell.getContents());
 	}
 
+	@Override
+	public boolean asBoolean() {
+		return Boolean.parseBoolean(realCell.getContents());
+	}
+
 }

@@ -20,17 +20,24 @@ public abstract class ExcelRowMapperImpl {
 	public Object map(ExcelRow row) {
 		gameData = getNewGameDataInstance();
 		
-		gameData.setSeasonid(row.getSeasonid());
-		gameData.setWeeknum(row.getWeeknum());
-		
+		setScheduleData(row);		
 		row.resetIterator();
-		gameData.setPlayerid(dao.getPlayeridForName(row.nextCell().asString()));
-		
+		setPlayerId(row);
 		mapStatsColumns(row);
 		
 		return gameData;
 	}
 	
+	protected void setScheduleData(ExcelRow row) {
+		gameData.setSeasonid(row.getSeasonid());
+		gameData.setWeeknum(row.getWeeknum());
+	}
+	
+	protected void setPlayerId(ExcelRow row) {
+		gameData.setPlayerid(dao.getPlayeridForName(row.nextCell().asString()));
+		
+	}
+
 	public abstract void mapStatsColumns(ExcelRow row);
 	public abstract GameData getNewGameDataInstance();
 	
