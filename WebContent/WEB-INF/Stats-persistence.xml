@@ -31,23 +31,19 @@
 		</property>
 	</bean>
 	
-	<bean id="ScheduleDAO" class="uk.co.richardgoater.stats.persistence.dao.ScheduleDAOImpl">
+	<bean id="AbstractDAO" abstract="true">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
-	<bean id="PassingStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.PassingStatsDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
+	<bean id="ScheduleDAO" class="uk.co.richardgoater.stats.persistence.dao.ScheduleDAOImpl" parent="AbstractDAO"/>
+		
+	<bean id="PlayerDAO" class="uk.co.richardgoater.stats.persistence.dao.PlayerDAO" parent="AbstractDAO"/>
+		
+	<bean id="PassingGameDataDAO" class="uk.co.richardgoater.stats.persistence.dao.gamedata.PassingGameDataDAO" parent="AbstractDAO"/>
 	
-	<bean id="RushingStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.RushingStatsDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
-	
-	<bean id="ReceivingStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.ReceivingStatsDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
-	
-	<bean id="DefenseStatsDAO" class="uk.co.richardgoater.stats.persistence.dao.DefenseStatsDAO">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
+	<bean id="RushingGameDataDAO" class="uk.co.richardgoater.stats.persistence.dao.gamedata.RushingGameDataDAO" parent="AbstractDAO"/>
+		
+	<bean id="ReceivingGameDataDAO" class="uk.co.richardgoater.stats.persistence.dao.gamedata.ReceivingGameDataDAO" parent="AbstractDAO"/>
+		
+	<bean id="DefenseGameDataDAO" class="uk.co.richardgoater.stats.persistence.dao.gamedata.DefenseGameDataDAO" parent="AbstractDAO"/>
 </beans>

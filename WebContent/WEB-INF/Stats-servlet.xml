@@ -67,22 +67,22 @@
 	<bean id="excelParser" class="uk.co.richardgoater.stats.upload.excel.jxl.JxlExcelParser"/>
 	
 	<bean id="playerRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.PlayerRowMapper">
-		<property name="dao" ref="PassingStatsDAO" />
+		<property name="dao" ref="PlayerDAO" />
 	</bean>
 	
 	<bean id="passingRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.PassingRowMapper">
-		<property name="dao" ref="PassingStatsDAO" />
+		<property name="dao" ref="PassingGameDataDAO" />
 	</bean>
 	
 	<bean id="rushingRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.RushingRowMapper">
-		<property name="dao" ref="RushingStatsDAO"/>
+		<property name="dao" ref="RushingGameDataDAO"/>
 	</bean>
 	
 	<bean id="receivingRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.ReceivingRowMapper">
-		<property name="dao" ref="ReceivingStatsDAO"/>
+		<property name="dao" ref="ReceivingGameDataAO"/>
 	</bean>
 	
 	<bean id="defenseRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.DefenseRowMapper">
-		<property name="dao" ref="DefenseStatsDAO"/>
+		<property name="dao" ref="DefenseGameDataDAO"/>
 	</bean>
 </beans>

@@ -15,7 +15,11 @@ public class PlayerDAO extends AbstractStatsDAO implements StatsDAO {
 				"playerid = " + player.getPlayerid() + " and " +
 				"seasonid = " + player.getSeasonid());
 		
-//		if(existingPlayers)
+		if(existingPlayers.size() > 0) {
+			hibernateTemplate.delete(existingPlayers.get(0));
+		}
+		
+		hibernateTemplate.saveOrUpdate(player);
 	}
 
 	@SuppressWarnings("unchecked")
