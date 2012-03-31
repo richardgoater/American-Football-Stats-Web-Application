@@ -55,6 +55,7 @@
 		<constructor-arg name="excelParser" ref="excelParser"/>
 		<property name="rowMappers">
 			<map>
+				<entry key="Player" value-ref="playerRowMapper"/>
 				<entry key="Passing" value-ref="passingRowMapper"/>
 				<entry key="Rushing" value-ref="rushingRowMapper"/>
 				<entry key="Receiving" value-ref="receivingRowMapper"/>
@@ -64,6 +65,10 @@
 	</bean>
 	
 	<bean id="excelParser" class="uk.co.richardgoater.stats.upload.excel.jxl.JxlExcelParser"/>
+	
+	<bean id="playerRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.PlayerRowMapper">
+		<property name="dao" ref="PassingStatsDAO" />
+	</bean>
 	
 	<bean id="passingRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.PassingRowMapper">
 		<property name="dao" ref="PassingStatsDAO" />

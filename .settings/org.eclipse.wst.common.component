@@ -3,6 +3,7 @@
     <wb-module deploy-name="VaadinTest">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_tests"/>
         <property name="context-root" value="VaadinTest"/>
         <property name="java-output-path" value="/VaadinTest/build/classes"/>
     </wb-module>
