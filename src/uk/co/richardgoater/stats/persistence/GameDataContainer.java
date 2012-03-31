@@ -5,9 +5,10 @@ import java.util.Map;
 
 import com.vaadin.data.util.BeanItemContainer;
 
-@SuppressWarnings( { "serial" })
+@SuppressWarnings( { "serial", "rawtypes" })
 public class GameDataContainer extends BeanItemContainer {
 
+	@SuppressWarnings({ "unchecked" })
 	public GameDataContainer(Class type) throws IllegalArgumentException {
 		super(type); 
 
@@ -16,6 +17,7 @@ public class GameDataContainer extends BeanItemContainer {
 		addNestedContainerProperty("player.position");
 	}
 
+	@SuppressWarnings("unchecked")
 	public void addGameDataBeans(List<GameData> beans,
 			Map<Integer, Player> players) {
 		
@@ -31,6 +33,7 @@ public class GameDataContainer extends BeanItemContainer {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private void addZeroRows(Map<Integer, Player> players) {
 
 		for (Player p : players.values()) {
@@ -46,8 +49,6 @@ public class GameDataContainer extends BeanItemContainer {
 				e.printStackTrace();
 			}
 		}
-	}
-	
-	
+	}	
 
 }

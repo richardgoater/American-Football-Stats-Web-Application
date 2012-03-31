@@ -13,10 +13,10 @@ import uk.co.richardgoater.stats.persistence.dao.ScheduleDAO;
 import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.tests.fake.FakeScheduleDAO;
 import uk.co.richardgoater.stats.tests.fake.FakeStatsDAO;
-import uk.co.richardgoater.stats.ui.DefenseTable;
 import uk.co.richardgoater.stats.ui.SeasonSelector;
-import uk.co.richardgoater.stats.ui.StatsTable;
 import uk.co.richardgoater.stats.ui.WeekSelector;
+import uk.co.richardgoater.stats.ui.table.DefenseTable;
+import uk.co.richardgoater.stats.ui.table.StatsTable;
 
 import com.vaadin.data.Item;
 

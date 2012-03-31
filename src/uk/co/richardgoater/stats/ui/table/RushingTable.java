@@ -1,4 +1,4 @@
-package uk.co.richardgoater.stats.ui;
+package uk.co.richardgoater.stats.ui.table;
 
 import uk.co.richardgoater.stats.persistence.RushingGameData;
 import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;

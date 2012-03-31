@@ -5,6 +5,7 @@ import java.util.List;
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 import uk.co.richardgoater.stats.persistence.Season;
 import uk.co.richardgoater.stats.persistence.dao.ScheduleDAO;
+import uk.co.richardgoater.stats.ui.table.StatsTable;
 
 import com.vaadin.data.Property;
 
@@ -12,6 +13,14 @@ public class WeekSelector extends AbstractSelector {
 
 	private static final long serialVersionUID = -6167087394975397553L;
 	Season season;
+	
+	public Season getSeason() {
+		return season;
+	}
+
+	public void setSeason(Season season) {
+		this.season = season;
+	}
 	
 	public WeekSelector(List<StatsTable> tables, ScheduleDAO dao) {
 		super("Week", tables, dao);
@@ -42,12 +51,11 @@ public class WeekSelector extends AbstractSelector {
 		return dao.getScheduleWeeks(season.getSeasonid());
 	}
 
-	public Season getSeason() {
-		return season;
+	@Override
+	protected void populate() {
+		super.populate();
+		clearTables();		
+		selectFirstitem();
 	}
-
-	public void setSeason(Season season) {
-		this.season = season;
-	}	
 	
 }

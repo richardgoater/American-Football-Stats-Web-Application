@@ -3,6 +3,7 @@ package uk.co.richardgoater.stats.ui;
 import java.util.List;
 
 import uk.co.richardgoater.stats.persistence.dao.ScheduleDAO;
+import uk.co.richardgoater.stats.ui.table.StatsTable;
 
 import com.vaadin.ui.ComboBox;
 
@@ -30,5 +31,17 @@ public abstract class AbstractSelector extends ComboBox {
 			addItem(i);
 		}
 		pageLength = items.size();
+	}
+	
+	protected void selectFirstitem() {
+		Object firstItemID = getItemIds().toArray()[0];
+		if(firstItemID != null)
+			setValue(firstItemID);
+	}
+	
+	protected void clearTables() {
+		for (StatsTable t : tables) {
+			t.removeAllItems();
+		}
 	}
 }

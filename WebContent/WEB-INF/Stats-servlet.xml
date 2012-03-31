@@ -79,7 +79,7 @@
 	</bean>
 	
 	<bean id="receivingRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.ReceivingRowMapper">
-		<property name="dao" ref="ReceivingGameDataAO"/>
+		<property name="dao" ref="ReceivingGameDataDAO"/>
 	</bean>
 	
 	<bean id="defenseRowMapper" class="uk.co.richardgoater.stats.upload.excel.mapping.DefenseRowMapper">

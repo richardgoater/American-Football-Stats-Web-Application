@@ -18,10 +18,10 @@ import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.dao.ScheduleDAO;
 import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.tests.TestDataProvider;
-import uk.co.richardgoater.stats.ui.DefenseTable;
 import uk.co.richardgoater.stats.ui.SeasonSelector;
-import uk.co.richardgoater.stats.ui.StatsTable;
 import uk.co.richardgoater.stats.ui.WeekSelector;
+import uk.co.richardgoater.stats.ui.table.DefenseTable;
+import uk.co.richardgoater.stats.ui.table.StatsTable;
 
 @Ignore
 public class IntegrationTests {

@@ -4,6 +4,7 @@ import java.util.List;
 
 import uk.co.richardgoater.stats.persistence.Season;
 import uk.co.richardgoater.stats.persistence.dao.ScheduleDAO;
+import uk.co.richardgoater.stats.ui.table.StatsTable;
 
 public class SeasonSelector extends AbstractSelector {
 
@@ -25,15 +26,11 @@ public class SeasonSelector extends AbstractSelector {
 		private static final long serialVersionUID = 5439124626185999257L;
 
 		@Override
-		public void valueChange(com.vaadin.data.Property.ValueChangeEvent event) {
-			
+		public void valueChange(com.vaadin.data.Property.ValueChangeEvent event) 
+		{
 			Season s = (Season) getValue();
 			weekSelector.setSeason(s);
 			weekSelector.populate();
-			
-			for (StatsTable t : tables) {
-				t.removeAllItems();
-			}
 		}		
 	}
 

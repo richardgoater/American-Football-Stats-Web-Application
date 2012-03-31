@@ -10,13 +10,13 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 import uk.co.richardgoater.stats.persistence.dao.ScheduleDAO;
 import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.ui.AdminLoginWindow;
-import uk.co.richardgoater.stats.ui.DefenseTable;
-import uk.co.richardgoater.stats.ui.PassingTable;
-import uk.co.richardgoater.stats.ui.ReceivingTable;
-import uk.co.richardgoater.stats.ui.RushingTable;
 import uk.co.richardgoater.stats.ui.SeasonSelector;
-import uk.co.richardgoater.stats.ui.StatsTable;
 import uk.co.richardgoater.stats.ui.WeekSelector;
+import uk.co.richardgoater.stats.ui.table.DefenseTable;
+import uk.co.richardgoater.stats.ui.table.PassingTable;
+import uk.co.richardgoater.stats.ui.table.ReceivingTable;
+import uk.co.richardgoater.stats.ui.table.RushingTable;
+import uk.co.richardgoater.stats.ui.table.StatsTable;
 
 import com.vaadin.Application;
 import com.vaadin.data.Property;
@@ -64,10 +64,10 @@ public class StatsApplication extends Application {
 		// headerLabel.setStyleName("wcheader");
 		// mainWindow.addComponent(headerLabel);
 
-		passingTable = new PassingTable((GameDataDAO) context.getBean("PassingStatsDAO"));
-		rushingTable = new RushingTable((GameDataDAO) context.getBean("RushingStatsDAO"));
-		receivingTable = new ReceivingTable((GameDataDAO) context.getBean("ReceivingStatsDAO"));
-		defenseTable = new DefenseTable((GameDataDAO) context.getBean("DefenseStatsDAO"));
+		passingTable = new PassingTable((GameDataDAO) context.getBean("PassingGameDataDAO"));
+		rushingTable = new RushingTable((GameDataDAO) context.getBean("RushingGameDataDAO"));
+		receivingTable = new ReceivingTable((GameDataDAO) context.getBean("ReceivingGameDataDAO"));
+		defenseTable = new DefenseTable((GameDataDAO) context.getBean("DefenseGameDataDAO"));
 		
 		ArrayList<StatsTable> tableList = new ArrayList<StatsTable>();
 		tableList.add(passingTable);

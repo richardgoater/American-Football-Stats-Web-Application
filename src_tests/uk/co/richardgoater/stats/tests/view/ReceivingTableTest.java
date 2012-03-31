@@ -4,7 +4,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import uk.co.richardgoater.stats.ui.ReceivingTable;
+import uk.co.richardgoater.stats.ui.table.ReceivingTable;
 
 public class ReceivingTableTest {
 

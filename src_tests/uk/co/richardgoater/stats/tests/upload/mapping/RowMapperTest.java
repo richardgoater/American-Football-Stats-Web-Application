@@ -9,7 +9,6 @@ import static org.easymock.EasyMock.verify;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.co.richardgoater.stats.persistence.dao.AbstractStatsDAO;
 import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.upload.excel.ExcelCell;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;

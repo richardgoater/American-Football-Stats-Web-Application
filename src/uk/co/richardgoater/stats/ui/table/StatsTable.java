@@ -1,4 +1,4 @@
-package uk.co.richardgoater.stats.ui;
+package uk.co.richardgoater.stats.ui.table;
 
 import java.util.HashMap;
 import java.util.List;
@@ -32,7 +32,7 @@ public abstract class StatsTable extends Table {
 	
 	protected abstract void setVisibleColumns();
 
-	protected void setWeek(ScheduleWeek week) {
+	public void setWeek(ScheduleWeek week) {
 		List<GameData> data = null;
 		if(week.getWeeknum() == 0)
 			data =  dao.getGameDataTotals(week.getSeasonID());

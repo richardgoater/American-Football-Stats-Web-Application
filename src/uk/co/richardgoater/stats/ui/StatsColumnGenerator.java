@@ -1,5 +1,7 @@
 package uk.co.richardgoater.stats.ui;
 
+import uk.co.richardgoater.stats.ui.table.DefenseTable;
+
 import com.vaadin.data.Property;
 import com.vaadin.ui.Component;
 import com.vaadin.ui.Label;
