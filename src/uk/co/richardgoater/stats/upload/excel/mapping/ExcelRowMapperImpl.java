@@ -7,7 +7,7 @@ import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 public abstract class ExcelRowMapperImpl {
 
 	protected StatsDAO dao;
-	protected GameData gameData;
+	protected Object mappedObject;
 	
 	public void setDao(StatsDAO dao) {
 		this.dao = dao;
@@ -18,27 +18,26 @@ public abstract class ExcelRowMapperImpl {
 	}
 	
 	public Object map(ExcelRow row) {
-		gameData = getNewGameDataInstance();
+		mappedObject = getNewInstance();
 		
 		setScheduleData(row);		
 		row.resetIterator();
 		setPlayerId(row);
-		mapStatsColumns(row);
+		mapColumns(row);
 		
-		return gameData;
+		return mappedObject;
 	}
 	
 	protected void setScheduleData(ExcelRow row) {
-		gameData.setSeasonid(row.getSeasonid());
-		gameData.setWeeknum(row.getWeeknum());
+		((GameData) mappedObject).setSeasonid(row.getSeasonid());
+		((GameData) mappedObject).setWeeknum(row.getWeeknum());
 	}
 	
 	protected void setPlayerId(ExcelRow row) {
-		gameData.setPlayerid(dao.getPlayeridForName(row.nextCell().asString()));
-		
+		((GameData) mappedObject).setPlayerid(dao.getPlayeridForName(row.nextCell().asString()));
 	}
 
-	public abstract void mapStatsColumns(ExcelRow row);
-	public abstract GameData getNewGameDataInstance();
+	public abstract void mapColumns(ExcelRow row);
+	protected abstract Object getNewInstance();
 	
 }

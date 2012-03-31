@@ -1,6 +1,5 @@
 package uk.co.richardgoater.stats.upload.excel.mapping;
 
-import uk.co.richardgoater.stats.persistence.GameData;
 import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 
@@ -10,23 +9,31 @@ implements ExcelRowMapper {
 
 	@Override
 	protected void setScheduleData(ExcelRow row) {
-		gameData.setSeasonid(row.getSeasonid());
+		((Player) mappedObject).setSeasonid(row.getSeasonid());
 	}
 	
 	@Override
 	protected void setPlayerId(ExcelRow row) {
-		gameData.setPlayerid(row.nextCell().asInt());
+		((Player) mappedObject).setPlayerid(row.nextCell().asInt());
 	}
 	
 	@Override
-	public void mapStatsColumns(ExcelRow row) {
-//		Player player = (Player) gameData;
+	public void mapColumns(ExcelRow row) {
+		Player player = (Player) mappedObject;
+		
+		player.setName(row.nextCell().asString());
+		player.setNumber(row.nextCell().asInt());
+		player.setPosition(row.nextCell().asString());
+		player.setCaptain(row.nextCell().asBoolean());
+		player.setPassing(row.nextCell().asBoolean());
+		player.setRushing(row.nextCell().asBoolean());
+		player.setReceiving(row.nextCell().asBoolean());
+		player.setDefense(row.nextCell().asBoolean());
 	}
 
 	@Override
-	public GameData getNewGameDataInstance() {
-		// TODO Auto-generated method stub
-		return null;
+	public Player getNewInstance() {
+		return new Player();
 	}
 
 }

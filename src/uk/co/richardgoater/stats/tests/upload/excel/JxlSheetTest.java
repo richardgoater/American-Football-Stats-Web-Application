@@ -31,7 +31,7 @@ public class JxlSheetTest extends JxlTest {
 	@Test
 	public void returnsCorrectNumberOfRows() throws BiffException, IOException {
 		List<ExcelRow> rows = sheet.getRows();
-		assertEquals(getSheet().getRows(), rows.size());
+		assertEquals(getExcelSheet().getRows().size(), rows.size());
 	}
 	
 	@Test

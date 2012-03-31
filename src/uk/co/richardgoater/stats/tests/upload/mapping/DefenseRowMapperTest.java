@@ -46,12 +46,12 @@ public class DefenseRowMapperTest extends RowMapperTest {
 	}
 	
 	@Override
-	protected void setMapperRowExpectations() {
+	protected void setRowExpectations() {
 		setNextCellNumberOfTimesExpectation(16);
 	}
 	
 	@Override
-	protected void setMapperCellExpectations() {
+	protected void setCellExpectations() {
 		expect(mockCell.asInt()).andReturn(tckl);
 		expect(mockCell.asInt()).andReturn(solo);
 		expect(mockCell.asInt()).andReturn(assist);

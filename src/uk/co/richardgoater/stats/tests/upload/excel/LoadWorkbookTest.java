@@ -65,7 +65,7 @@ public class LoadWorkbookTest {
 		replay(mockWorkbook);
 		
 		expect(mockSheet.getRows()).andReturn(getTestRows());
-		expect(mockSheet.getTitle()).andReturn(dataType);
+		expect(mockSheet.getTitle()).andReturn(dataType).times(2);
 		replay(mockSheet);
 	}
 	

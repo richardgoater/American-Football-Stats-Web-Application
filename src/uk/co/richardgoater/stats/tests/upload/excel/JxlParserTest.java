@@ -35,11 +35,12 @@ public class JxlParserTest {
 		
 		assertNotNull(workBook);
 		
-		assertEquals(4, sheets.size());
-		assertEquals("Passing", sheets.get(0).getTitle());
-		assertEquals("Rushing", sheets.get(1).getTitle());
-		assertEquals("Receiving", sheets.get(2).getTitle());
-		assertEquals("Defense", sheets.get(3).getTitle());
+		assertEquals(5, sheets.size());
+		assertEquals("Player", sheets.get(0).getTitle());
+		assertEquals("Passing", sheets.get(1).getTitle());
+		assertEquals("Rushing", sheets.get(2).getTitle());
+		assertEquals("Receiving", sheets.get(3).getTitle());
+		assertEquals("Defense", sheets.get(4).getTitle());
 	}
 
 }

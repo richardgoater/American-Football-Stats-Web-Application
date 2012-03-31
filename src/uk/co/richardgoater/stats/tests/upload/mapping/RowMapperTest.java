@@ -36,23 +36,23 @@ public abstract class RowMapperTest {
 		expect(mockRow.getWeeknum()).andReturn(weeknum);
 		mockRow.resetIterator();
 		expectLastCall();
-		setMapperRowExpectations();
+		setRowExpectations();
 		replay(mockRow);
 		
 		expect(mockCell.asString()).andReturn(playerName);
-		setMapperCellExpectations();
+		setCellExpectations();
 		replay(mockCell);
 		
 		expect(mockDAO.getPlayeridForName(playerName)).andReturn(playerid);
 		replay(mockDAO);
 	}
 	
-	protected abstract void setMapperRowExpectations();
+	protected abstract void setRowExpectations();
 	protected void setNextCellNumberOfTimesExpectation(int numberOfTimes) {
 		expect(mockRow.nextCell()).andReturn(mockCell).times(numberOfTimes);
 	}
 	
-	protected abstract void setMapperCellExpectations();
+	protected abstract void setCellExpectations();
 	protected abstract void instantiateRowMapper();
 	protected abstract void mapGameData();
 	

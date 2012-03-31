@@ -9,14 +9,14 @@ extends ExcelRowMapperImpl
 implements ExcelRowMapper {
 
 	@Override
-	public GameData getNewGameDataInstance() {
+	public GameData getNewInstance() {
 		return new ReceivingGameData();
 	}
 	
 	@Override
-	public void mapStatsColumns(ExcelRow row) 
+	public void mapColumns(ExcelRow row) 
 	{
-		ReceivingGameData receivingGameData = (ReceivingGameData) gameData;
+		ReceivingGameData receivingGameData = (ReceivingGameData) mappedObject;
 		
 		receivingGameData.setRec(row.nextCell().asInt());
 		receivingGameData.setYds(row.nextCell().asInt());

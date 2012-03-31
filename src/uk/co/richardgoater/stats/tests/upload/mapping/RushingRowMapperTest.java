@@ -37,12 +37,12 @@ public class RushingRowMapperTest extends RowMapperTest {
 	}
 	
 	@Override
-	protected void setMapperRowExpectations() {
+	protected void setRowExpectations() {
 		setNextCellNumberOfTimesExpectation(5);
 	}
 	
 	@Override
-	protected void setMapperCellExpectations() {
+	protected void setCellExpectations() {
 		expect(mockCell.asInt()).andReturn(att);
 		expect(mockCell.asInt()).andReturn(yds);
 		expect(mockCell.asString()).andReturn(displayLong);

@@ -7,14 +7,14 @@ import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 public class DefenseRowMapper extends ExcelRowMapperImpl implements ExcelRowMapper {
 
 	@Override
-	public GameData getNewGameDataInstance() {
+	public GameData getNewInstance() {
 		return new DefenseGameData();
 	}
 	
 	@Override
-	public void mapStatsColumns(ExcelRow row) 
+	public void mapColumns(ExcelRow row) 
 	{	
-		DefenseGameData defenseGameData = (DefenseGameData) gameData;
+		DefenseGameData defenseGameData = (DefenseGameData) mappedObject;
 		
 		defenseGameData.setTckl(row.nextCell().asInt());
 		defenseGameData.setSolo(row.nextCell().asInt());

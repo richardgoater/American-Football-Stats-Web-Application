@@ -1,6 +1,8 @@
 package uk.co.richardgoater.stats.tests.upload.mapping;
 
 import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.expectLastCall;
+import static org.easymock.EasyMock.replay;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
@@ -38,12 +40,24 @@ public class PlayerRowMapperTest extends RowMapperTest {
 	}
 	
 	@Override
-	protected void setMapperRowExpectations() {
+	protected void setExpectations() {
+		expect(mockRow.getSeasonid()).andReturn(seasonid);
+		mockRow.resetIterator();
+		expectLastCall();
+		setRowExpectations();
+		replay(mockRow);
+		
+		setCellExpectations();
+		replay(mockCell);		
+	}
+	
+	@Override
+	protected void setRowExpectations() {
 		setNextCellNumberOfTimesExpectation(9);
 	}
 	
 	@Override
-	protected void setMapperCellExpectations() {
+	protected void setCellExpectations() {
 		expect(mockCell.asInt()).andReturn(playerid);
 		expect(mockCell.asString()).andReturn(name);
 		expect(mockCell.asInt()).andReturn(number);

@@ -3,6 +3,9 @@ package uk.co.richardgoater.stats.tests.upload.excel;
 import java.io.File;
 import java.io.IOException;
 
+import uk.co.richardgoater.stats.upload.excel.ExcelSheet;
+import uk.co.richardgoater.stats.upload.excel.jxl.JxlSheet;
+
 
 import jxl.Cell;
 import jxl.Sheet;
@@ -19,7 +22,11 @@ public abstract class JxlTest {
 	}
 	
 	Cell[] getCells() throws BiffException, IOException {
-		return getSheet().getRow(0);
+		return getSheet().getRow(1);
+	}
+	
+	ExcelSheet getExcelSheet() throws BiffException, IOException {
+		return new JxlSheet(getSheet());
 	}
 	
 }
