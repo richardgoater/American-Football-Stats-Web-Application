@@ -8,14 +8,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import uk.co.richardgoater.stats.persistence.GameData;
-import uk.co.richardgoater.stats.persistence.dao.DefenseStatsDAO;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAOImpl;
+import uk.co.richardgoater.stats.persistence.dao.AbstractStatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.DefenseGameDataDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.tests.fake.FakeStatsDAO;
 
 public class DefenseGameDataTest {
 	
-	StatsDAO dao;
+	GameDataDAO dao;
 	List<GameData> defenseGameData;
 
 	@Before
@@ -31,6 +31,6 @@ public class DefenseGameDataTest {
 	}
 	
 	Object[] mockValues = {new Integer(1), new Long(1)};
-	StatsDAOImpl realDao = new DefenseStatsDAO();	
+	AbstractStatsDAO realDao = new DefenseGameDataDAO();	
 	
 }

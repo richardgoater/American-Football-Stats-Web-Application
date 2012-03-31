@@ -1,19 +1,19 @@
 package uk.co.richardgoater.stats.upload.excel.mapping;
 
 import uk.co.richardgoater.stats.persistence.GameData;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 
 public abstract class ExcelRowMapperImpl {
 
-	protected StatsDAO dao;
+	protected GameDataDAO dao;
 	protected Object mappedObject;
 	
-	public void setDao(StatsDAO dao) {
+	public void setDao(GameDataDAO dao) {
 		this.dao = dao;
 	}
 	
-	public StatsDAO getDao() {
+	public GameDataDAO getDao() {
 		return dao;
 	}
 	

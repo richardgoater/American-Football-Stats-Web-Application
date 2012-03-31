@@ -1,13 +1,13 @@
 package uk.co.richardgoater.stats.ui;
 
 import uk.co.richardgoater.stats.persistence.PassingGameData;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 
 public class PassingTable extends StatsTable {
 
 	private static final long serialVersionUID = 2034737865345850L;
 	
-	public PassingTable(StatsDAO dao) {
+	public PassingTable(GameDataDAO dao) {
 		super(dao, PassingGameData.class);
 	}
 	

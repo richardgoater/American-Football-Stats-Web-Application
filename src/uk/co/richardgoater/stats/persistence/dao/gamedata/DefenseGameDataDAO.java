@@ -1,4 +1,4 @@
-package uk.co.richardgoater.stats.persistence.dao;
+package uk.co.richardgoater.stats.persistence.dao.gamedata;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import uk.co.richardgoater.stats.persistence.GameData;
 import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 
-public class DefenseStatsDAO extends StatsDAOImpl {
+public class DefenseGameDataDAO extends AbstractGameDataDAO implements GameDataDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Override

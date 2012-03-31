@@ -9,14 +9,15 @@ import static org.easymock.EasyMock.verify;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.co.richardgoater.stats.persistence.dao.StatsDAOImpl;
+import uk.co.richardgoater.stats.persistence.dao.AbstractStatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.upload.excel.ExcelCell;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 
 public abstract class RowMapperTest {
 
 	protected ExcelRow mockRow;
-	protected StatsDAOImpl mockDAO;
+	protected GameDataDAO mockDAO;
 	protected ExcelCell mockCell;
 	
 	protected String playerName;
@@ -27,7 +28,7 @@ public abstract class RowMapperTest {
 
 	protected void setUpMocks() {
 		mockRow = createMock(ExcelRow.class);
-		mockDAO = createMock(StatsDAOImpl.class);
+		mockDAO = createMock(GameDataDAO.class);
 		mockCell = createMock(ExcelCell.class);
 	}
 

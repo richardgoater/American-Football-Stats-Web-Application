@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import uk.co.richardgoater.stats.persistence.Season;
 import uk.co.richardgoater.stats.persistence.dao.ScheduleDAO;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.tests.fake.FakeScheduleDAO;
 import uk.co.richardgoater.stats.tests.fake.FakeStatsDAO;
 import uk.co.richardgoater.stats.ui.DefenseTable;
@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 public class SeasonSelectorTest {
 
 	ScheduleDAO selectionDao = new FakeScheduleDAO();
-	StatsDAO statsDao = new FakeStatsDAO();
+	GameDataDAO statsDao = new FakeStatsDAO();
 	List<StatsTable> tables;
 	SeasonSelector seasonSelector;
 	WeekSelector weekSelector;

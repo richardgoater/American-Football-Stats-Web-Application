@@ -1,13 +1,13 @@
 package uk.co.richardgoater.stats.ui;
 
 import uk.co.richardgoater.stats.persistence.RushingGameData;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 
 public class RushingTable extends StatsTable {
 
 	private static final long serialVersionUID = 2034737865345850L;
 
-	public RushingTable(StatsDAO dao) {
+	public RushingTable(GameDataDAO dao) {
 		super(dao, RushingGameData.class);
 	}
 	

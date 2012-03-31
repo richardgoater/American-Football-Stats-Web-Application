@@ -10,7 +10,7 @@ import org.junit.Test;
 import uk.co.richardgoater.stats.persistence.DefenseGameData;
 import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.dao.ScheduleDAO;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.tests.fake.FakeScheduleDAO;
 import uk.co.richardgoater.stats.tests.fake.FakeStatsDAO;
 import uk.co.richardgoater.stats.ui.DefenseTable;
@@ -22,7 +22,7 @@ import com.vaadin.data.Item;
 
 public class DefenseTableTest {
 	
-	StatsDAO dao;
+	GameDataDAO dao;
 	ScheduleDAO dao2;
 	DefenseGameData dgd;
 	DefenseTable dt;

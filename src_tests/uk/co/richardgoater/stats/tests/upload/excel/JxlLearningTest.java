@@ -51,9 +51,9 @@ public class JxlLearningTest {
 		Sheet sheet = wb.getSheet("Defense");
 		Assert.assertNotNull(sheet);
 		
-		Cell a11 = sheet.getCell("A15");
-		Assert.assertNotNull(a11);
-		Assert.assertEquals("Tish Pattni", a11.getContents());
+		Cell a16 = sheet.getCell("A16");
+		Assert.assertNotNull(a16);
+		Assert.assertEquals("Tish Pattni", a16.getContents());
 	}
 	
 }

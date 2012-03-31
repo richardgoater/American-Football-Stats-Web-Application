@@ -10,7 +10,7 @@ import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 import uk.co.richardgoater.stats.persistence.Season;
 import uk.co.richardgoater.stats.persistence.dao.ScheduleDAO;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 
 public class TestDataProvider {
 
@@ -20,10 +20,10 @@ public class TestDataProvider {
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("uk/co/richardgoater/stats/tests/Spring-test.xml");
 		createSelectionRecords((ScheduleDAO) context.getBean("SelectionDAO"));
-		createStatsRecords((StatsDAO) context.getBean("DefenseStatsDAO"));
+		createStatsRecords((GameDataDAO) context.getBean("DefenseStatsDAO"));
 	}
 
-	public static void createStatsRecords(StatsDAO dao) {
+	public static void createStatsRecords(GameDataDAO dao) {
 		Player p = new Player("Thomas Hutton", 28, "CB", false);
 		p.setPlayerid(1);
 		p.setDefense(true);

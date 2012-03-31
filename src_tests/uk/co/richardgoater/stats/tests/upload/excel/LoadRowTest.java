@@ -13,7 +13,7 @@ import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.tests.fake.FakeMultipartFile;
 import uk.co.richardgoater.stats.upload.StatsUploadException;
 import uk.co.richardgoater.stats.upload.excel.ExcelParser;
@@ -34,7 +34,7 @@ public class LoadRowTest {
 	public String incorrectDataType;
 	public int seasonid = 1;
 	public int weeknum = 1;
-	public StatsDAO mockStatsDAO;
+	public GameDataDAO mockStatsDAO;
 	private ExcelParser mockJxlParser;
 	
 	@Before
@@ -51,7 +51,7 @@ public class LoadRowTest {
 	
 	@SuppressWarnings("unchecked")
 	private void setUpMocks() {
-		mockStatsDAO = createMock(StatsDAO.class);
+		mockStatsDAO = createMock(GameDataDAO.class);
 		mockRow = createMock(ExcelRow.class);
 		mockRowMapper = createMock(ExcelRowMapper.class);
 		mockJxlParser = createMock(JxlExcelParser.class);

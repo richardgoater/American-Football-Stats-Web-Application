@@ -1,0 +1,27 @@
+package uk.co.richardgoater.stats.persistence.dao;
+
+import java.util.List;
+
+import uk.co.richardgoater.stats.persistence.Player;
+
+public class PlayerDAO extends AbstractStatsDAO implements StatsDAO {
+
+	public void saveOrReplace(Object mappedObject) {
+		Player player = (Player) mappedObject;
+		
+		@SuppressWarnings("unchecked")
+		List<Player> existingPlayers = hibernateTemplate.find(
+				"from player where " + 
+				"playerid = " + player.getPlayerid() + " and " +
+				"seasonid = " + player.getSeasonid());
+		
+//		if(existingPlayers)
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Player> getPlayers(int seasonid) {
+		return hibernateTemplate.find("from Player where seasonid = " + seasonid);
+	}
+	
+}

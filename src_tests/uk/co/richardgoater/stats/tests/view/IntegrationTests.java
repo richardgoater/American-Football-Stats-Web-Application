@@ -16,7 +16,7 @@ import uk.co.richardgoater.stats.persistence.DefenseGameData;
 import uk.co.richardgoater.stats.persistence.GameData;
 import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.dao.ScheduleDAO;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.tests.TestDataProvider;
 import uk.co.richardgoater.stats.ui.DefenseTable;
 import uk.co.richardgoater.stats.ui.SeasonSelector;
@@ -28,7 +28,7 @@ public class IntegrationTests {
 	
 	ApplicationContext context;
 	ScheduleDAO selectionDao; 
-	StatsDAO statsDao;
+	GameDataDAO statsDao;
 	List<StatsTable> tables;
 	Player p;
 	Player p2;
@@ -37,7 +37,7 @@ public class IntegrationTests {
 	
 	public IntegrationTests() {
 		context = new ClassPathXmlApplicationContext("uk/co/richardgoater/stats/tests/Spring-test.xml");
-		statsDao = (StatsDAO) context.getBean("DefenseStatsDAO");
+		statsDao = (GameDataDAO) context.getBean("DefenseStatsDAO");
 		selectionDao = (ScheduleDAO) context.getBean("SelectionDAO");
 	}
 	

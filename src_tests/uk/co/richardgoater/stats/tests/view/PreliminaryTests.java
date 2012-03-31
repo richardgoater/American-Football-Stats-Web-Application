@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import uk.co.richardgoater.stats.persistence.DefenseGameData;
 import uk.co.richardgoater.stats.persistence.Player;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.tests.fake.FakeStatsDAO;
 
 import com.vaadin.data.Item;
@@ -16,7 +16,7 @@ import com.vaadin.ui.Table;
 public class PreliminaryTests {
 
 	BeanItemContainer<DefenseGameData> container;
-	StatsDAO dao;
+	GameDataDAO dao;
 	DefenseGameData dgd;
 	Player p;
 	

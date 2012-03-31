@@ -7,9 +7,9 @@ import uk.co.richardgoater.stats.persistence.DefenseGameData;
 import uk.co.richardgoater.stats.persistence.GameData;
 import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 
-public class FakeStatsDAO implements StatsDAO {
+public class FakeStatsDAO implements GameDataDAO {
 
 	@Override
 	public List<GameData> getGameDataForWeek(ScheduleWeek week) {

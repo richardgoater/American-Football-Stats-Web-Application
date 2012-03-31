@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import uk.co.richardgoater.stats.persistence.dao.ScheduleDAO;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.ui.AdminLoginWindow;
 import uk.co.richardgoater.stats.ui.DefenseTable;
 import uk.co.richardgoater.stats.ui.PassingTable;
@@ -64,10 +64,10 @@ public class StatsApplication extends Application {
 		// headerLabel.setStyleName("wcheader");
 		// mainWindow.addComponent(headerLabel);
 
-		passingTable = new PassingTable((StatsDAO) context.getBean("PassingStatsDAO"));
-		rushingTable = new RushingTable((StatsDAO) context.getBean("RushingStatsDAO"));
-		receivingTable = new ReceivingTable((StatsDAO) context.getBean("ReceivingStatsDAO"));
-		defenseTable = new DefenseTable((StatsDAO) context.getBean("DefenseStatsDAO"));
+		passingTable = new PassingTable((GameDataDAO) context.getBean("PassingStatsDAO"));
+		rushingTable = new RushingTable((GameDataDAO) context.getBean("RushingStatsDAO"));
+		receivingTable = new ReceivingTable((GameDataDAO) context.getBean("ReceivingStatsDAO"));
+		defenseTable = new DefenseTable((GameDataDAO) context.getBean("DefenseStatsDAO"));
 		
 		ArrayList<StatsTable> tableList = new ArrayList<StatsTable>();
 		tableList.add(passingTable);

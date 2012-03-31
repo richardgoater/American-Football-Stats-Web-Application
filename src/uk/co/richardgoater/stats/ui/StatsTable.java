@@ -8,16 +8,16 @@ import uk.co.richardgoater.stats.persistence.GameData;
 import uk.co.richardgoater.stats.persistence.GameDataContainer;
 import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
-import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
+import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 
 import com.vaadin.ui.Table;
 
 public abstract class StatsTable extends Table {
 
 	private static final long serialVersionUID = -6210798727180420975L;
-	protected StatsDAO dao;
+	protected GameDataDAO dao;
 
-	public StatsTable(StatsDAO dao, 
+	public StatsTable(GameDataDAO dao, 
 			@SuppressWarnings("rawtypes") Class beanType) {
 		super("");
 		this.dao = dao;

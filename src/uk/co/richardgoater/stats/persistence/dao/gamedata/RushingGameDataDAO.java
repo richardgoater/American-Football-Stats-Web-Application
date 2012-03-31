@@ -1,4 +1,4 @@
-package uk.co.richardgoater.stats.persistence.dao;
+package uk.co.richardgoater.stats.persistence.dao.gamedata;
 
 import java.util.List;
 
@@ -6,31 +6,31 @@ import uk.co.richardgoater.stats.persistence.GameData;
 import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 
-public class ReceivingStatsDAO extends StatsDAOImpl {
+public class RushingGameDataDAO extends AbstractGameDataDAO implements GameDataDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<GameData> getGameDataForWeek(ScheduleWeek week) {
-		return hibernateTemplate.find("from ReceivingGameData where weeknum = " + week.getWeeknum() + " and seasonid = " + week.getSeasonID());
+		return hibernateTemplate.find("from RushingGameData where weeknum = " + week.getWeeknum() + " and seasonid = " + week.getSeasonID());
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<GameData> getGameDataTotals(int seasonid) {
 		return hibernateTemplate.find("select " +
-				"new uk.co.richardgoater.stats.persistence.ReceivingGameData (" +
-				"rgd.playerid," +
-				"sum(rgd.rec)," +
+				"new uk.co.richardgoater.stats.persistence.RushingGameData (" +
+				"rgd.playerid, " +
+				"sum(rgd.att)," +
 				"sum(rgd.yds)," +
 				"max(rgd.longest)," +
 				"sum(rgd.td))" +
-				" from ReceivingGameData rgd" + appendSeasonClause(" where", seasonid) + " group by rgd.playerid");
+				" from RushingGameData rgd" + appendSeasonClause( " where", seasonid) + " group by rgd.playerid");
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Player> getPlayers(int seasonid) {
-		return hibernateTemplate.find("from Player where isreceiving = 1" + appendSeasonClause(" and", seasonid));
+		return hibernateTemplate.find("from Player where isrushing = 1" + appendSeasonClause(" and", seasonid));		
 	}
 
 }
