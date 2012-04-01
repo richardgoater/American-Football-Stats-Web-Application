@@ -59,7 +59,9 @@ public class RushingGameData extends GameDataWithLongest {
 	
 	@Transient
 	public double getYdsPerAtt() {
-		return yds / att;
+		if(att == 0) return 0;
+		else
+			return yds / att;
 	}
 	
 	@Column(name = "TD")

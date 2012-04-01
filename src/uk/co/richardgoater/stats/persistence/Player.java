@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name = "PLAYER")
 public class Player {
@@ -87,11 +89,13 @@ public class Player {
 	}
 	
 	@Column(name = "ISCAPTAIN")
+	//@Type(type = "true_false")
 	public boolean isCaptain() {
 		return isCaptain;
 	}
 	
 	@Column(name = "ISPASSING")
+	//@Type(type = "true_false")
 	public boolean isPassing() {
 		return isPassing;
 	}
@@ -101,6 +105,7 @@ public class Player {
 	}
 	
 	@Column(name = "ISRUSHING")
+	//@Type(type = "true_false")
 	public boolean isRushing() {
 		return isRushing;
 	}
@@ -110,6 +115,7 @@ public class Player {
 	}
 	
 	@Column(name = "ISRECEIVING")
+	//@Type(type = "true_false")
 	public boolean isReceiving() {
 		return isReceiving;
 	}
@@ -119,6 +125,7 @@ public class Player {
 	}
 	
 	@Column(name = "ISDEFENSE")
+	//@Type(type = "true_false")
 	public boolean isDefense() {
 		return isDefense;
 	}

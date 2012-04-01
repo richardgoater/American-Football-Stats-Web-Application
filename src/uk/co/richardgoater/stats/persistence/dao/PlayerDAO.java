@@ -11,7 +11,7 @@ public class PlayerDAO extends AbstractStatsDAO implements StatsDAO {
 		
 		@SuppressWarnings("unchecked")
 		List<Player> existingPlayers = hibernateTemplate.find(
-				"from player where " + 
+				"from Player where " + 
 				"playerid = " + player.getPlayerid() + " and " +
 				"seasonid = " + player.getSeasonid());
 		

@@ -59,7 +59,9 @@ public class ReceivingGameData extends GameDataWithLongest {
 	
 	@Transient
 	public double getYdsPerRec() {
-		return yds / rec;
+		if(rec == 0) return 0;
+		else
+			return yds / rec;
 	}
 	
 	@Column(name = "TD")

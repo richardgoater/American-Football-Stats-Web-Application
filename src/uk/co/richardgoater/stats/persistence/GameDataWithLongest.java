@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 
+import org.hibernate.annotations.Type;
+
 @MappedSuperclass
 public abstract class GameDataWithLongest extends GameData {
 	
@@ -24,6 +26,7 @@ public abstract class GameDataWithLongest extends GameData {
 	}
 	
 	@Column(name = "ISLONGTD")
+	//@Type(type = "true_false")
 	public boolean isLongTD() {
 		return isLongTD;
 	}
