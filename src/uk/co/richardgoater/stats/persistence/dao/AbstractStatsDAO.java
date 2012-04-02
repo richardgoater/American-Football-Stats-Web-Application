@@ -21,4 +21,19 @@ public abstract class AbstractStatsDAO extends HibernateDAO {
 			return (Integer) result.get(0);
 		else return 0;
 	}
+	
+	public void saveOrReplace(Object mappedObject) {
+				
+		@SuppressWarnings("unchecked")
+		List<Object> existingRecords = hibernateTemplate.find(
+				getExistingRecordsQuery(mappedObject));
+		
+		if(existingRecords.size() > 0) {
+			hibernateTemplate.delete(existingRecords.get(0));
+		}
+		
+		hibernateTemplate.saveOrUpdate(mappedObject);
+	}
+	
+	public abstract String getExistingRecordsQuery(Object mappedObject);
 }

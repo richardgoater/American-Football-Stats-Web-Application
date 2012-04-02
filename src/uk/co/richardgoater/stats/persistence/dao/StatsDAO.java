@@ -14,5 +14,5 @@ public interface StatsDAO {
 	int getPlayeridForName(String asString);
 	
 	void saveOrReplace(Object mappedObject);
-	
+
 }

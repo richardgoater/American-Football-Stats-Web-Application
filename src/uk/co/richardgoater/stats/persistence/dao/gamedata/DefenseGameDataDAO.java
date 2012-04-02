@@ -8,6 +8,11 @@ import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 
 public class DefenseGameDataDAO extends AbstractGameDataDAO implements GameDataDAO {
 	
+	@Override
+	protected String getTableName() {
+		return "DefenseGameData";
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<GameData> getGameDataForWeek(ScheduleWeek week) {
