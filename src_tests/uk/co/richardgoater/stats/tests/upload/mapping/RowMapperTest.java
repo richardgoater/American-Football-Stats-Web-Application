@@ -31,7 +31,7 @@ public abstract class RowMapperTest {
 		mockCell = createMock(ExcelCell.class);
 	}
 
-	protected void setExpectations() {
+	protected void setExpectations() throws Exception {
 		expect(mockRow.getSeasonid()).andReturn(seasonid);
 		expect(mockRow.getWeeknum()).andReturn(weeknum);
 		mockRow.resetIterator();
@@ -54,10 +54,10 @@ public abstract class RowMapperTest {
 	
 	protected abstract void setCellExpectations();
 	protected abstract void instantiateRowMapper();
-	protected abstract void mapGameData();
+	protected abstract void mapGameData() throws Exception;
 	
 	@Before
-	public void setUp() {
+	public void setUp() throws Exception {
 		setUpMocks();
 		setExpectations();
 		instantiateRowMapper();

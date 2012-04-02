@@ -17,7 +17,7 @@ public abstract class ExcelRowMapperImpl {
 		return dao;
 	}
 	
-	public Object map(ExcelRow row) {
+	public Object map(ExcelRow row) throws Exception {
 		mappedObject = getNewInstance();
 		
 		setScheduleData(row);		
@@ -33,7 +33,7 @@ public abstract class ExcelRowMapperImpl {
 		((GameData) mappedObject).setWeeknum(row.getWeeknum());
 	}
 	
-	protected void setPlayerId(ExcelRow row) {
+	protected void setPlayerId(ExcelRow row) throws Exception {
 		((GameData) mappedObject).setPlayerid(dao.getPlayeridForName(row.nextCell().asString()));
 	}
 

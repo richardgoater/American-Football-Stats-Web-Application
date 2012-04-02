@@ -32,7 +32,7 @@ public class ReceivingRowMapperTest extends RowMapperTest {
 	}
 
 	@Override
-	protected void mapGameData() {
+	protected void mapGameData() throws Exception {
 		mappedRecevingGameData = (ReceivingGameData) receivingRowMapper.map(mockRow);
 	}
 	

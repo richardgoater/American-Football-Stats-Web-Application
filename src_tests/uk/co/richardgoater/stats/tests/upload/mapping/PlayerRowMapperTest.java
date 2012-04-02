@@ -35,7 +35,7 @@ public class PlayerRowMapperTest extends RowMapperTest {
 	}
 
 	@Override
-	protected void mapGameData() {
+	protected void mapGameData() throws Exception {
 		mappedPlayer = (Player) playerRowMapper.map(mockRow);
 	}
 	

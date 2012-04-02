@@ -41,7 +41,7 @@ public class DefenseRowMapperTest extends RowMapperTest {
 	}
 
 	@Override
-	protected void mapGameData() {
+	protected void mapGameData() throws Exception {
 		mappedDefenseGameData = (DefenseGameData) defenseRowMapper.map(mockRow);
 	}
 	

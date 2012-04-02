@@ -7,7 +7,7 @@ import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 
 public interface ExcelRowMapper {
 
-	Object map(ExcelRow row) throws StatsUploadException;
+	Object map(ExcelRow row) throws Exception;
 
 	StatsDAO getDao();
 

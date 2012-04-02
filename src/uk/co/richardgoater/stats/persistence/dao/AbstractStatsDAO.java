@@ -11,7 +11,7 @@ public abstract class AbstractStatsDAO extends HibernateDAO {
 		return "";
 	}
 
-	public int getPlayeridForName(String playerName) {
+	public int getPlayeridForName(String playerName) throws Exception {
 		@SuppressWarnings("unchecked")
 		List<Object> result = hibernateTemplate.find(
 				"select playerid from Player " +
@@ -19,7 +19,7 @@ public abstract class AbstractStatsDAO extends HibernateDAO {
 		
 		if(result.size() > 0)
 			return (Integer) result.get(0);
-		else return 0;
+		else throw new Exception("No player found for name '" + playerName + "'");
 	}
 	
 	public void saveOrReplace(Object mappedObject) {

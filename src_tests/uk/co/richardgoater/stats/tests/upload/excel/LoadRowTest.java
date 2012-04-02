@@ -38,7 +38,7 @@ public class LoadRowTest {
 	private ExcelParser mockJxlParser;
 	
 	@Before
-	public void setUp() throws StatsUploadException {
+	public void setUp() throws Exception {
 		setUpMocks();
 		setExpectations();
 		
@@ -58,7 +58,7 @@ public class LoadRowTest {
 		mockMap = createMock(Map.class);	
 	}
 	
-	private void setExpectations() throws StatsUploadException {
+	private void setExpectations() throws Exception {
 		expect(mockRowMapper.getDao()).andReturn(mockStatsDAO);
 		expect(mockRowMapper.map(mockRow)).andReturn(null);
 		replay(mockRowMapper);

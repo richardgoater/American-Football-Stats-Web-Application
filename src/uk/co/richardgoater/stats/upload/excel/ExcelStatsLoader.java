@@ -1,5 +1,6 @@
 package uk.co.richardgoater.stats.upload.excel;
 
+import java.util.Date;
 import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -28,6 +29,7 @@ public class ExcelStatsLoader implements StatsLoader {
 	@Override
 	public String load(MultipartFile file, int seasonid, int weeknum) {
 		result.setLength(0);
+		appendOpeningMessage(file.getOriginalFilename());
 		ExcelWorkbook workbook = excelParser.parse(file); 
 		for(ExcelSheet sheet : workbook.getSheets()) {
 			result.append("Loading " + sheet.getTitle() + ":" + getSeparator());
@@ -40,6 +42,10 @@ public class ExcelStatsLoader implements StatsLoader {
 	}
 
 	
+	private void appendOpeningMessage(String fileName) {
+		result.append(fileName + " received at " + new Date() + getSeparator());
+	}
+
 	public String loadRow(ExcelRow row, String dataType) {
 		
 		ExcelRowMapper rowMapper = getRowMapper(dataType);		

@@ -4,8 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
 
-import org.hibernate.annotations.Type;
-
 @MappedSuperclass
 public abstract class GameDataWithLongest extends GameData {
 	

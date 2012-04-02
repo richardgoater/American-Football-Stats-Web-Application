@@ -28,7 +28,8 @@ public class JxlCell implements ExcelCell {
 
 	@Override
 	public boolean asBoolean() {
-		return Boolean.parseBoolean(realCell.getContents());
+		String oneOrZero = realCell.getContents();
+		return oneOrZero.equals("1");
 	}
 
 }
