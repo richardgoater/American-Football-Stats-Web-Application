@@ -105,6 +105,7 @@ public abstract class GameData {
 	@Transient
 	public void setPlayer(Player p) {
 		player = p;
+		playerid = p.getPlayerid();
 	}
 	
 	@Transient

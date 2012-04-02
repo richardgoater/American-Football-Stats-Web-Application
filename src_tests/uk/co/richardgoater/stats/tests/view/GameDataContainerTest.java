@@ -59,17 +59,14 @@ public class GameDataContainerTest {
 	
 	@Test
 	public void testAddZeroRows() {
-		Player p2 = new Player("Mark Foster", 47, "S", false);
-		p2.setPlayerid(2);
-		p2.setDefense(true);
-		players.put(p2.getPlayerid(), p2);
+		populateZeroRows();
 		
 		container.addGameDataBeans(dao.getGameDataForWeek(null), players);
 		
-		assertEquals(2, container.size());
+		assertEquals(players.size()+1, container.size());
 		
 		DefenseGameData dgd2 = new DefenseGameData();
-		dgd2.setPlayer(p2);
+		dgd2.setPlayer(players.get(2));
 		
 		Object item = container.getItem(dgd2);
 		assertNotNull(item);
@@ -83,6 +80,17 @@ public class GameDataContainerTest {
 		assertEquals(0, s1.getValue());
 		Property s2 = ((Item)item).getItemProperty("ints");
 		assertEquals(0, s2.getValue());
+	}
+
+	private void populateZeroRows() {
+		
+		for (int i = 2; i < 6; i++) {
+			Player p = new Player("Mark Foster", 47, "S", false);
+			p.setPlayerid(i);
+			p.setDefense(true);
+			players.put(p.getPlayerid(), p);
+		}
+
 	}
 
 }
