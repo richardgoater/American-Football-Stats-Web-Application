@@ -61,7 +61,7 @@ public class RushingGameData extends GameDataWithLongest {
 	public double getYdsPerAtt() {
 		if(att == 0) return 0;
 		else
-			return yds / att;
+			return divide(yds, att);
 	}
 	
 	@Column(name = "TD")

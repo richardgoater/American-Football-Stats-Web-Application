@@ -62,11 +62,11 @@ public abstract class GameData {
 		if(denominator == 0)
 			return 0.0;
 		else
-			return numerator/denominator;
+			return round(numerator/denominator, 2);
 	}
 	
 	@Transient
-	public double round(double d, int c) {
+	private double round(double d, int c) {
 		int temp=(int)((d*Math.pow(10,c)));
 		return (((double)temp)/Math.pow(10,c));
 	}
