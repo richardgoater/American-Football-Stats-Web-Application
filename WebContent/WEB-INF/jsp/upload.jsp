@@ -4,12 +4,13 @@
         <title>Stats Upload</title>
         <base href="/Stats/"/>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/Stats/res/upload.js"></script>
        	<link rel="stylesheet" href="http://www.watfordcheetahs.com/css/main.css" />
        	<style>
        		tr {border-bottom: 2px solid #4D4D4D; padding-bottom: 20px; padding-top: 20px}
        		tr.top {padding-top: 0px;}
        		tr.bottom {border-bottom: none; padding-bottom: 0px}
-       		td {border-right: none; border-bottom: inherit; padding-bottom: inherit; padding-top: inherit}
+       		td {border-right: none; border-bottom: inherit; padding-bottom: inherit; padding-top: inherit; color: #FFCE03;}
        	</style>
     </head>
     <body>
@@ -21,14 +22,14 @@
 			            <table style="width: 100%; border-spacing: 0px;">
 			            	<tr class="top">
 			            		<td>Select a Season:<br /> 
-			            			<select id="season" onchange="updateWeekSelect()">
+			            			<select id="season" onchange="getWeeksForSeason()">
 			            				<c:forEach var="season" items="${seasons}">
                 							<option value="${season.seasonid}">${season.year}</option>
               							</c:forEach>
 			            			</select>
 			            		</td>
 			            		<td>Or add a new Season:<br /> 
-			            			<input type="text" id="addSeason" maxlength="4"/><br />
+			            			<input type="text" id="newSeason" maxlength="4"/><br />
 			            			<input type="button" onclick="addSeason()" value="Submit"/>
 			            		</td>
 			            		<td>Or remove selected<br />
@@ -44,8 +45,8 @@
 			            			</select>
 			            		</td>
 			            		<td>Or add a new one:<br /> 
-			            			<input type="text" id="addWeeknum" maxlength="2" value="Num"/><br />
-			            			<input type="text" id="addWeekOpponent" value="Opponent"/><br />
+			            			<input type="text" id="newWeeknum" maxlength="2" value="Num"/><br />
+			            			<input type="text" id="newWeekOpponent" value="Opponent"/><br />
 			            			<input type="button" onclick="addWeek()" value="Submit"/>
 			            		</td>
 			            		<td>Or remove selected<br />
@@ -64,45 +65,6 @@
 		        <h2 style="margin-top:20px;">Results</h2>
 		        <div id="results" class="bordered" style="margin-top: 0px;"></div>
 	        </div>  
-        </div>      
-        <script>$('#uploadform').submit(function(event) {
-            	event.preventDefault();
-
-				var formData = new FormData();
-				var fileinput = $('#fileinput');
-				formData.append('file', fileinput[0].files[0]);
-				formData.append('season', $('#season').val());
-				formData.append('weeknum', $('#weeknum').val());
-				
-				$.ajax({
-				    url: '/Stats/upload',
-				    data: formData,
-				    cache: false,
-				    contentType: false,
-				    processData: false,
-				    type: 'POST',
-				    success: function(resp){
-						$('#results').empty().html(resp.result);
-				    }
-				});								
-				
-				return false;
-            });
-        
-        	function updateWeekSelect() {
-        		var season = $('#season').val();
-        		
-        		$.getJSON('upload/seasons/' + season,
-        			function(weeks) {
-        				var weekSelect = $('#weeknum');
-        				$(weekSelect).empty();
-        				for(var i = 0; i < weeks.length; i++) {
-        					var week = weeks[i];
-        					$(weekSelect).append( $('<option>', {value: week.weeknum }).text(week.displayName));	
-        				}
-        			}
-        		);
-        	}
-        </script>
+        </div>
     </body>
 </html>
