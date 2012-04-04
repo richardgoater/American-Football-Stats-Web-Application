@@ -7,6 +7,7 @@
         <script type="text/javascript" src="/Stats/res/upload.js"></script>
        	<link rel="stylesheet" href="http://www.watfordcheetahs.com/css/main.css" />
        	<style>
+       		h1.title {margin-top: 0px; padding-top: 20px;}
        		tr {border-bottom: 2px solid #4D4D4D; padding-bottom: 20px; padding-top: 20px}
        		tr.top {padding-top: 0px;}
        		tr.bottom {border-bottom: none; padding-bottom: 0px}
@@ -44,7 +45,7 @@
 			            				<option>&lt;Please select a season&gt;</option>
 			            			</select>
 			            		</td>
-			            		<td>Or add a new one:<br /> 
+			            		<td>Or add a new Week:<br /> 
 			            			<input type="text" id="newWeeknum" maxlength="2" value="Num"/><br />
 			            			<input type="text" id="newWeekOpponent" value="Opponent"/><br />
 			            			<input type="button" onclick="addWeek()" value="Submit"/>

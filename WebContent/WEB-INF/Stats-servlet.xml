@@ -48,6 +48,9 @@
 	
 	<bean id="uploadController" class="uk.co.richardgoater.stats.upload.UploadController">
 		<property name="statsLoader" ref="statsLoader"/>
+	</bean>
+	
+	<bean id="scheduleDataController" class="uk.co.richardgoater.stats.upload.ScheduleDataController">
 		<property name="scheduleDao" ref="ScheduleDAO"/>
 	</bean>
 	

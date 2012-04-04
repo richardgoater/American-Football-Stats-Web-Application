@@ -2,7 +2,6 @@ package uk.co.richardgoater.stats.tests.fake;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 import uk.co.richardgoater.stats.persistence.Season;
@@ -55,9 +54,9 @@ public class FakeScheduleDAO implements ScheduleDAO {
 	}
 
 	@Override
-	public Map<Integer, String> getSeasonsAsMap() {
+	public void removeSeasonAndData(int seasonid) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 }

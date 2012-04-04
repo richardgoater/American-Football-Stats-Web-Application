@@ -1,3 +1,11 @@
+window.onload = function() {
+	$.get('upload/seasons/',
+			function(seasons) {
+				refreshSeasonList(seasons);
+			}
+		);
+};
+
 $('#uploadform').submit(function(event) {
 	event.preventDefault();
 
@@ -42,7 +50,7 @@ function refreshWeekList(weeks) {
 
 function getWeeksForSeason() {
 	var season = $('#season').val();
-	$.getJSON('upload/seasons/' + season, 
+	$.get('upload/seasons/' + season, 
 		function(weeks) {
 			refreshWeekList(weeks);
 		}
@@ -51,22 +59,26 @@ function getWeeksForSeason() {
 
 function addSeason() {
 	var newSeason = $('#newSeason').val();
-	
-	$.ajax({
-	    url: 'upload/seasons/',
-	    data: {'season' : newSeason},
-	    cache: false,
-	    contentType: false,
-	    processData: false,
-	    type: 'POST',
-	    success: function(seasons) {
+	var newID = $('#season').children().size();
+	$.post('upload/seasons/',
+		{"newID" : newID ,"season" : newSeason},
+		function(seasons) {
 			refreshSeasonList(seasons);
 		}
-	});	
+	);
 }
 
 function deleteSeason() {
-	alert('delete season');
+	var season = $('#season').val();
+	
+	$.ajax({
+	    url: 'upload/seasons/' + season,
+	    type: 'DELETE',
+	    success: function(seasons){
+			refreshSeasonList(seasons);
+			getWeeksForSeason();
+	    }
+	});	
 }
 
 function refreshWeekList(weeks) {

@@ -1,9 +1,6 @@
 package uk.co.richardgoater.stats.persistence.dao;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 import uk.co.richardgoater.stats.persistence.Season;
 
@@ -12,7 +9,8 @@ public class ScheduleDAOImpl extends HibernateDAO implements ScheduleDAO {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Object> getScheduleWeeks(int seasonID) {
-		return hibernateTemplate.find("from ScheduleWeek where seasonid = " + seasonID);
+		return hibernateTemplate.find(
+				"from ScheduleWeek where seasonid = " + seasonID);
 	}
 	
 	@Override
@@ -29,20 +27,26 @@ public class ScheduleDAOImpl extends HibernateDAO implements ScheduleDAO {
 	@Override
 	public void saveSeason(Season s) {
 		hibernateTemplate.saveOrUpdate(s);
+		saveScheduleWeek(new ScheduleWeek(0, "All", null, false, s.getSeasonid()));
 	}
 
 	@Override
-	public Map<Integer, String> getSeasonsAsMap() {
-		Map<Integer, String> map = new HashMap<Integer, String>();
+	public void removeSeasonAndData(int seasonid) {
+		String whereClause = "";
 		
-		List<Object> seasonList = getSeasons();
-		for (Object s : seasonList) {
-			if(s instanceof Season) {
-				Season season = (Season) s;
-				map.put(season.getSeasonid(), season.getYear());
-			}
+		if(seasonid > 0)
+			whereClause = " where seasonid = " + seasonid;
+	
+		String[] tables = {"Season", "ScheduleWeek", "Player", "GameData"};
+		for(String table : tables) {
+			hibernateTemplate.deleteAll(
+				hibernateTemplate.find(
+					"from " + table + whereClause
+				)
+			);
 		}
 		
-		return map;
+		if(seasonid == 0)
+			saveSeason(new Season(0, "All"));
 	}
 }
