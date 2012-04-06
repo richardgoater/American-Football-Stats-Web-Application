@@ -6,14 +6,24 @@ window.onload = function() {
 		);
 };
 
+function jqSeasonSelect() {
+	return $('#season');
+}
+
+function jqWeekSelect() {
+	return $('#weeknum');
+}
+
 $('#uploadform').submit(function(event) {
 	event.preventDefault();
+});
 
+function uploadFile() {
 	var formData = new FormData();
 	var fileinput = $('#fileinput');
 	formData.append('file', fileinput[0].files[0]);
-	formData.append('season', $('#season').val());
-	formData.append('weeknum', $('#weeknum').val());
+	formData.append('season', jqSeasonSelect().val());
+	formData.append('weeknum', jqWeekSelect().val());
 	
 	$.ajax({
 	    url: 'upload',
@@ -28,28 +38,26 @@ $('#uploadform').submit(function(event) {
 	});								
 	
 	return false;
-});
+}
         
 function refreshSeasonList(seasons) {
-	var seasonSelect = $('#season');
-	$(seasonSelect).empty();
+	jqSeasonSelect().empty();
 	for(var i = 0; i < seasons.length; i++) {
 		var season = seasons[i];
-		$(seasonSelect).append( $('<option>', {value: season.seasonid }).text(season.year));
+		jqSeasonSelect().append( $('<option>', {value: season.seasonid }).text(season.year));
 	}
 }
 
 function refreshWeekList(weeks) {
-	var weekSelect = $('#weeknum');
-	$(weekSelect).empty();
+	jqWeekSelect().empty();
 	for(var i = 0; i < weeks.length; i++) {
 		var week = weeks[i];
-		$(weekSelect).append( $('<option>', {value: week.weeknum }).text(week.displayName));	
+		jqWeekSelect().append( $('<option>', {value: week.weeknum }).text(week.displayName));	
 	}
 }
 
 function getWeeksForSeason() {
-	var season = $('#season').val();
+	var season = jqSeasonSelect().val();
 	$.get('upload/seasons/' + season, 
 		function(weeks) {
 			refreshWeekList(weeks);
@@ -59,7 +67,7 @@ function getWeeksForSeason() {
 
 function addSeason() {
 	var newSeason = $('#newSeason').val();
-	var newID = $('#season').children().size();
+	var newID = jqSeasonSelect().children().size();
 	$.post('upload/seasons/',
 		{"newID" : newID ,"season" : newSeason},
 		function(seasons) {
@@ -69,7 +77,7 @@ function addSeason() {
 }
 
 function deleteSeason() {
-	var season = $('#season').val();
+	var season = jqSeasonSelect().val();
 	
 	$.ajax({
 	    url: 'upload/seasons/' + season,
@@ -81,19 +89,32 @@ function deleteSeason() {
 	});	
 }
 
-function refreshWeekList(weeks) {
-	var weekSelect = $('#weeknum');
-	$(weekSelect).empty();
-	for(var i = 0; i < weeks.length; i++) {
-		var week = weeks[i];
-		$(weekSelect).append( $('<option>', {value: week.weeknum }).text(week.displayName));	
-	}
-}
-
 function addWeek() {
-	alert('add week');
+	var newWeeknum = $('#newWeeknum').val(),
+		newWeekOpponent = $('#newWeekOpponent').val(),
+		isHome = $('#isHome').val(),
+		seasonid = jqSeasonSelect().val();
+	
+	$.post('upload/seasons/' + seasonid + '/week',
+			{"weeknum" : newWeeknum,
+			"opponent" : newWeekOpponent,
+			"isHome" : isHome,
+			"seasonid" : seasonid},
+			function(weeks) {
+				refreshWeekList(weeks);
+			}
+		);
 }
 
 function deleteWeek() {
-	alert('delete week');
+	var weeknum = jqWeekSelect().val();
+	var seasonid = jqSeasonSelect().val();
+	
+	$.ajax({
+	    url: 'upload/seasons/' + seasonid + '/week/' + weeknum,
+	    type: 'DELETE',
+	    success: function(weeks){
+	    	refreshWeekList(weeks);
+	    }
+	});
 }

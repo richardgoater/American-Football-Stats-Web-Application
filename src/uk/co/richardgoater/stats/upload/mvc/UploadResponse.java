@@ -1,4 +1,4 @@
-package uk.co.richardgoater.stats.upload;
+package uk.co.richardgoater.stats.upload.mvc;
 
 public class UploadResponse {
 	

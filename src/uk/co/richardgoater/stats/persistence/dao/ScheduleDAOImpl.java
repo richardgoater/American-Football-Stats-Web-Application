@@ -1,6 +1,8 @@
 package uk.co.richardgoater.stats.persistence.dao;
 
 import java.util.List;
+
+import uk.co.richardgoater.common.persistence.HibernateDAO;
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 import uk.co.richardgoater.stats.persistence.Season;
 
@@ -35,18 +37,26 @@ public class ScheduleDAOImpl extends HibernateDAO implements ScheduleDAO {
 		String whereClause = "";
 		
 		if(seasonid > 0)
-			whereClause = " where seasonid = " + seasonid;
+			whereClause = "where seasonid = " + seasonid;
 	
 		String[] tables = {"Season", "ScheduleWeek", "Player", "GameData"};
-		for(String table : tables) {
-			hibernateTemplate.deleteAll(
-				hibernateTemplate.find(
-					"from " + table + whereClause
-				)
-			);
-		}
+		bulkRemove(tables, whereClause);
 		
 		if(seasonid == 0)
 			saveSeason(new Season(0, "All"));
+	}
+
+	@Override
+	public void removeWeekAndData(int weeknum, int seasonid) {
+		String whereClause = "where seasonid = " + seasonid;
+		
+		if(weeknum > 0)
+			whereClause += " and weeknum = " + weeknum;
+		
+		String[] tables = {"ScheduleWeek", "Player", "GameData"};
+		bulkRemove(tables, whereClause);
+		
+		if(weeknum == 0)
+			saveScheduleWeek(new ScheduleWeek(0, "All", null, false, seasonid));
 	}
 }

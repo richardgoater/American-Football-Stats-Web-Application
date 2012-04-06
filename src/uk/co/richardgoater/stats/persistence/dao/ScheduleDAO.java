@@ -20,5 +20,7 @@ public interface ScheduleDAO {
 	void saveSeason(Season s);
 
 	void removeSeasonAndData(int seasonid);
+
+	void removeWeekAndData(int weeknum, int seasonid);
 	
 }

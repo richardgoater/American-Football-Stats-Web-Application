@@ -46,11 +46,15 @@
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler/>
 	
-	<bean id="uploadController" class="uk.co.richardgoater.stats.upload.UploadController">
+	<bean id="uploadController" class="uk.co.richardgoater.stats.upload.mvc.UploadController">
 		<property name="statsLoader" ref="statsLoader"/>
 	</bean>
 	
-	<bean id="scheduleDataController" class="uk.co.richardgoater.stats.upload.ScheduleDataController">
+	<bean id="seasonController" class="uk.co.richardgoater.stats.upload.mvc.SeasonController">
+		<property name="scheduleDao" ref="ScheduleDAO"/>
+	</bean>
+	
+	<bean id="weekController" class="uk.co.richardgoater.stats.upload.mvc.WeekController">
 		<property name="scheduleDao" ref="ScheduleDAO"/>
 	</bean>
 	

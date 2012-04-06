@@ -45,4 +45,11 @@
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 		<nature>com.vaadin.integration.eclipse.widgetsetNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>VaadinCommonSrc</name>
+			<type>2</type>
+			<location>/home/richard/workspace/VaadinCommon/src</location>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -59,4 +59,10 @@ public class FakeScheduleDAO implements ScheduleDAO {
 		
 	}
 
+	@Override
+	public void removeWeekAndData(int weeknum, int seasonid) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

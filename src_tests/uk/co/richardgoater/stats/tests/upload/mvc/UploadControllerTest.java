@@ -10,8 +10,8 @@ import org.junit.Test;
 
 import uk.co.richardgoater.stats.tests.fake.FakeMultipartFile;
 import uk.co.richardgoater.stats.upload.StatsLoader;
-import uk.co.richardgoater.stats.upload.UploadController;
-import uk.co.richardgoater.stats.upload.UploadResponse;
+import uk.co.richardgoater.stats.upload.mvc.UploadController;
+import uk.co.richardgoater.stats.upload.mvc.UploadResponse;
 
 public class UploadControllerTest {
 

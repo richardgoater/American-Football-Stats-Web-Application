@@ -2,6 +2,8 @@ package uk.co.richardgoater.stats.persistence.dao;
 
 import java.util.List;
 
+import uk.co.richardgoater.common.persistence.HibernateDAO;
+
 public abstract class AbstractStatsDAO extends HibernateDAO {	
 	
 	protected String appendSeasonClause(String prefix, int seasonid) {
