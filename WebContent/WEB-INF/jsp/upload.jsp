@@ -15,6 +15,7 @@
        		td.inner {border: none; padding: 0px;}
        		td.aLeft {text-align: left;}
        		td.aRight {text-align: right;}
+       		span.error {color: red;}
        	</style>
     </head>
     <body>

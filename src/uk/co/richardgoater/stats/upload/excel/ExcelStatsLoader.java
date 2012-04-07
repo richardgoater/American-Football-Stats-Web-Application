@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.web.multipart.MultipartFile;
 
 import uk.co.richardgoater.stats.upload.StatsLoader;
+import uk.co.richardgoater.stats.upload.UploadResponse;
 import uk.co.richardgoater.stats.upload.excel.mapping.ExcelRowMapper;
 
 public class ExcelStatsLoader implements StatsLoader {
@@ -17,61 +18,51 @@ public class ExcelStatsLoader implements StatsLoader {
 		this.rowMappers = rowMappers;
 	}
 	
-	String separator;
-	public void setSeparator(String separator) {
-		this.separator = separator;
-	}
-	
 	public ExcelStatsLoader(ExcelParser excelParser) {
 		this.excelParser = excelParser;
 	}
 	
 	@Override
-	public String load(MultipartFile file, int seasonid, int weeknum) {
-		result.setLength(0);
+	public UploadResponse load(MultipartFile file, int seasonid, int weeknum) {
+		response.clearMessage();
 		appendOpeningMessage(file.getOriginalFilename());
 		ExcelWorkbook workbook = excelParser.parse(file); 
 		for(ExcelSheet sheet : workbook.getSheets()) {
-			result.append("Loading " + sheet.getTitle() + ":" + getSeparator());
+			appendSheetTitleMessage(sheet.getTitle());
 			for(ExcelRow row : sheet.getRows()) {
 				row.setScheduleData(seasonid, weeknum);
-				result.append(loadRow(row, sheet.getTitle()));
+				loadRow(row, sheet.getTitle());
 			}
 		}
-		return result.toString();
+		return response;
 	}
 
-	
 	private void appendOpeningMessage(String fileName) {
-		result.append(fileName + " received at " + new Date() + getSeparator());
+		response.appendBoldLine(fileName + " received on " + new Date());
+	}
+	
+	private void appendSheetTitleMessage(String title) {
+		response.appendBlankLine();
+		response.appendBoldLine("Loading " + title + ":");		
 	}
 
-	public String loadRow(ExcelRow row, String dataType) {
-		
-		ExcelRowMapper rowMapper = getRowMapper(dataType);		
-		if(rowMapper == null)
-			return "Unknown Datatype: '" + dataType + "'";
-		
+	public void loadRow(ExcelRow row, String dataType) {			
 		try {
+			ExcelRowMapper rowMapper = getRowMapper(dataType);
 			Object mappedObject = rowMapper.map(row);
 			rowMapper.getDao().saveOrReplace(mappedObject);
+			response.appendLine("Row loaded: " + row.asString());
 		}
 		catch (Exception e) {
-			return e.getClass().getName() + ": " + e.getMessage() + getSeparator();
+			response.appendError(e.getMessage());
 		}
-		
-		return "Row loaded: " + row.asString() + getSeparator();
 	}
 
-	private ExcelRowMapper getRowMapper(String forDataType) {
-		return rowMappers.get(forDataType);
-	}
-	
-	private String getSeparator() {
-		if(separator == null)
-			return "<br//>";
-		else
-			return separator;
+	private ExcelRowMapper getRowMapper(String forDataType) throws Exception {
+		ExcelRowMapper rm = rowMappers.get(forDataType);
+		if(rm == null)
+			throw new Exception("Unknown Datatype: '" + forDataType + "'");
+		else return rm;
 	}
 
 }

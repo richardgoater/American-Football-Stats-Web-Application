@@ -4,9 +4,6 @@ import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.verify;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,7 +12,6 @@ import org.junit.Test;
 
 import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
 import uk.co.richardgoater.stats.tests.fake.FakeMultipartFile;
-import uk.co.richardgoater.stats.upload.StatsUploadException;
 import uk.co.richardgoater.stats.upload.excel.ExcelParser;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 import uk.co.richardgoater.stats.upload.excel.ExcelStatsLoader;
@@ -80,20 +76,8 @@ public class LoadRowTest {
 	}
 	
 	@Test
-	public void shouldReturnErrorMessageForUnknownType() {
-		String result = statsLoaderWithRealMap.loadRow(mockRow, incorrectDataType);
-		assertEquals("Unknown Datatype: '" + incorrectDataType + "'", result);
-	}
-	
-	@Test
 	public void shouldAttemptToMapData() {
 		statsLoaderWithRealMap.loadRow(mockRow, dataType);
 		verify(mockRowMapper);
-	}
-	
-	@Test
-	public void shouldNotReturnErrorMessageForCorrectType() {
-		String result = statsLoaderWithRealMap.loadRow(mockRow, dataType);
-		assertTrue(!result.contains("Unknown Datatype"));
 	}
 }

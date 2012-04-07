@@ -10,14 +10,15 @@ import org.junit.Test;
 
 import uk.co.richardgoater.stats.tests.fake.FakeMultipartFile;
 import uk.co.richardgoater.stats.upload.StatsLoader;
+import uk.co.richardgoater.stats.upload.UploadResponse;
 import uk.co.richardgoater.stats.upload.mvc.UploadController;
-import uk.co.richardgoater.stats.upload.mvc.UploadResponse;
+import uk.co.richardgoater.stats.upload.mvc.WebUploadResponse;
 
 public class UploadControllerTest {
 
 	private UploadController uploadController;
 	private StatsLoader statsLoader;
-	private String expectedResult;
+	private String expectedMessage;
 	private UploadResponse response;
 	
 	private FakeMultipartFile file;
@@ -31,9 +32,11 @@ public class UploadControllerTest {
 		statsLoader = createMock(StatsLoader.class);
 		uploadController.setStatsLoader(statsLoader);
 		file = new FakeMultipartFile();
-		expectedResult = "Season: " + seasonid + " - Weeknum: " + weeknum;
+		expectedMessage = "Season: " + seasonid + " - Weeknum: " + weeknum;
+		response = new WebUploadResponse();
+		response.appendLine(expectedMessage);
 		
-		expect(statsLoader.load(file, seasonid, weeknum)).andReturn(expectedResult);
+		expect(statsLoader.load(file, seasonid, weeknum)).andReturn(response);
 		replay(statsLoader);
 		
 		response = uploadController.postUpload(file, seasonid, weeknum);
@@ -46,14 +49,7 @@ public class UploadControllerTest {
 	
 	@Test
 	public void shouldReturnTheCorrectResponse(){
-		Assert.assertTrue(response.getResult().contains(expectedResult));
-	}
-	
-	@Test
-	public void shouldReturnAFailedResponseWhenFileIsEmpty(){
-		file.isEmpty(true);
-		UploadResponse failResponse = uploadController.postUpload(file, seasonid, weeknum);
-		Assert.assertEquals("There was a problem with the upload. Soz.", failResponse.getResult());
+		Assert.assertTrue(response.getMessage().contains(expectedMessage));
 	}
 	
 }

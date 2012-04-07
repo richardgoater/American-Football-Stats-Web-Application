@@ -49,11 +49,13 @@ public class ScheduleDAOImpl extends HibernateDAO implements ScheduleDAO {
 	@Override
 	public void removeWeekAndData(int weeknum, int seasonid) {
 		String whereClause = "where seasonid = " + seasonid;
-		
-		if(weeknum > 0)
-			whereClause += " and weeknum = " + weeknum;
-		
 		String[] tables = {"ScheduleWeek", "Player", "GameData"};
+		
+		if(weeknum > 0) {
+			whereClause += " and weeknum = " + weeknum;
+			tables = new String[]{"ScheduleWeek", "GameData"};
+		}		
+		
 		bulkRemove(tables, whereClause);
 		
 		if(weeknum == 0)

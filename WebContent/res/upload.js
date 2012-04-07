@@ -32,8 +32,8 @@ function uploadFile() {
 	    contentType: false,
 	    processData: false,
 	    type: 'POST',
-	    success: function(resp){
-			$('#results').empty().html(resp.result);
+	    success: function(response){
+			$('#results').empty().html(response.message);
 	    }
 	});								
 	
