@@ -4,7 +4,7 @@ import uk.co.richardgoater.stats.persistence.GameData;
 import uk.co.richardgoater.stats.persistence.dao.StatsDAO;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 
-public abstract class ExcelRowMapperImpl {
+public abstract class AbstractExcelRowMapper {
 
 	protected StatsDAO dao;
 	protected Object mappedObject;

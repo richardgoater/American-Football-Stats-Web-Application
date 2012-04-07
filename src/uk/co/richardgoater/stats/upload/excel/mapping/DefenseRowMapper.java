@@ -4,7 +4,7 @@ import uk.co.richardgoater.stats.persistence.DefenseGameData;
 import uk.co.richardgoater.stats.persistence.GameData;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 
-public class DefenseRowMapper extends ExcelRowMapperImpl implements ExcelRowMapper {
+public class DefenseRowMapper extends AbstractExcelRowMapper implements ExcelRowMapper {
 
 	@Override
 	public GameData getNewInstance() {

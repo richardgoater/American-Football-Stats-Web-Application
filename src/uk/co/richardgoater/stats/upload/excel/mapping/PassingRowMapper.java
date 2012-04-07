@@ -5,7 +5,7 @@ import uk.co.richardgoater.stats.persistence.PassingGameData;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 
 public class PassingRowMapper 
-extends ExcelRowMapperImpl 
+extends AbstractExcelRowMapper 
 implements ExcelRowMapper {
 	
 	@Override

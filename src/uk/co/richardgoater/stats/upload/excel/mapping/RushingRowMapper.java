@@ -5,7 +5,7 @@ import uk.co.richardgoater.stats.persistence.RushingGameData;
 import uk.co.richardgoater.stats.upload.excel.ExcelRow;
 
 public class RushingRowMapper
-extends ExcelRowMapperImpl 
+extends AbstractExcelRowMapper 
 implements ExcelRowMapper {
 
 	@Override
