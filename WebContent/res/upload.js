@@ -46,6 +46,7 @@ function refreshSeasonList(seasons) {
 		var season = seasons[i];
 		jqSeasonSelect().append( $('<option>', {value: season.seasonid }).text(season.year));
 	}
+	getWeeksForSeason();
 }
 
 function refreshWeekList(weeks) {

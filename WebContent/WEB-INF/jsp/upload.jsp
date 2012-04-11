@@ -4,7 +4,7 @@
         <title>Stats Upload</title>
         <base href="${pageContext.request.contextPath}/"/>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script type="text/javascript" src="/Stats/res/upload.js"></script>
+        <script type="text/javascript" src="res/upload.js"></script>
        	<link rel="stylesheet" href="http://www.watfordcheetahs.com/css/main.css" />
        	<style>
        		h1.title {margin-top: 0px; padding-top: 20px;}
@@ -71,7 +71,7 @@
 			            	<tr class="bottom">
 			            		<td class="end">Select a file to upload:</td>
 			            		<td class="end"><input type="file" name="file" id="fileinput"/></td>
-			            		<td class="end"><input type="button" onclick="uploadFile()" value="submit"/></td>
+			            		<td class="end"><input type="button" onclick="uploadFile()" value="Submit"/></td>
 			            	</tr>	
 			            </table>
 			        </form>

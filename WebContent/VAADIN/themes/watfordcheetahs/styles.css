@@ -131,4 +131,4 @@
 }
 .v-table-row { background: #1A1A1A; }
 .v-table-row-odd { background: #3C3C3C; }
-
+.v-table-row:hover, .v-table-row-odd:hover { color: #FFCE03; }
