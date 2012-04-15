@@ -57,7 +57,8 @@
     font-weight: bold;
     background-color: #ffce03;
 }
-.v-filterselect-suggestmenu .gwt-MenuItem-selected {
+.v-filterselect-suggestmenu .gwt-MenuItem-selected,
+.v-ie .v-filterselect-suggestmenu .gwt-MenuItem-selected {
 	color: white;
 	font-family: Arial,Geneva,sans-serif;
 	font-size: 11pt;
@@ -129,6 +130,9 @@
 	background: #1A1A1A;
 	color: white;	
 }
+.v-tabsheet-content { border-color: #4D4D4D; }
+.v-tabsheet-deco { background-color: #4D4D4D; border: none; }
 .v-table-row { background: #1A1A1A; }
 .v-table-row-odd { background: #3C3C3C; }
 .v-table-row:hover, .v-table-row-odd:hover { color: #FFCE03; }
+.v-sa .v-tabsheet-tabs .v-captiontext { height: 100%; }
