@@ -93,7 +93,7 @@ function deleteSeason() {
 function addWeek() {
 	var newWeeknum = $('#newWeeknum').val(),
 		newWeekOpponent = $('#newWeekOpponent').val(),
-		isHome = $('#isHome').val(),
+		isHome = $('#isHome').prop('checked'),
 		seasonid = jqSeasonSelect().val();
 	
 	$.post('upload/seasons/' + seasonid + '/week',

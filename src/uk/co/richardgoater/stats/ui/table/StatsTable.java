@@ -52,7 +52,7 @@ public abstract class StatsTable extends Table {
 			setColumnHeader(str, str.toUpperCase());
 		}
 		
-		setColumnHeader("player.name", "NAME");
+		setColumnHeader("player.displayName", "NAME");
 		setColumnHeader("player.number", "#");
 		setColumnHeader("player.position", "POS");
 		

@@ -56,7 +56,7 @@ public class FakeStatsDAO implements GameDataDAO {
 	}
 
 	@Override
-	public int getPlayeridForName(String asString) {
+	public int getPlayeridForName(String asString, int seasonid) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

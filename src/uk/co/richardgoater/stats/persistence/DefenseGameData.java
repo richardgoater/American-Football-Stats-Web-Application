@@ -27,7 +27,7 @@ public class DefenseGameData extends GameData {
 
 	@Transient
 	public String[] getVisibleColumns() {
-		return new String[] { "player.name", "player.number", "player.position", 
+		return new String[] { "player.displayName", "player.number", "player.position", 
 				"tckl", 
 				"solo", 
 				"assist", 

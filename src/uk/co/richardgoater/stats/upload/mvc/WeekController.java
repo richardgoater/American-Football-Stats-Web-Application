@@ -18,7 +18,7 @@ public class WeekController extends ScheduleDataController {
 			@RequestParam String opponent, @RequestParam boolean isHome, 
 			@PathVariable int seasonid) {
 		scheduleDao.saveScheduleWeek(
-				new ScheduleWeek(weeknum, opponent, null, true, seasonid));
+				new ScheduleWeek(weeknum, opponent, null, isHome, seasonid));
 		return scheduleDao.getScheduleWeeks(seasonid);
 	}
 	

@@ -5,7 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
+@SuppressWarnings("unused")
 @Entity
 @Table(name = "PLAYER")
 public class Player {
@@ -13,6 +15,7 @@ public class Player {
 	private int playeruid;
 	private int playerid;
 	private String name;
+	@Transient private String displayName;
 	private int number;
 	private String position;
 	private boolean isCaptain;
@@ -57,11 +60,20 @@ public class Player {
 	
 	@Column(name = "NAME")
 	public String getName() {
-		return name;
+		return name; 
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	@Transient
+	public String getDisplayName() {
+		String captainInd = " (c)";
+		if(isCaptain && !name.endsWith(captainInd))
+			return name + captainInd;
+		else
+			return name;
 	}
 	
 	@Column(name = "NUMBER")
@@ -87,13 +99,11 @@ public class Player {
 	}
 	
 	@Column(name = "ISCAPTAIN")
-	//@Type(type = "true_false")
 	public boolean isCaptain() {
 		return isCaptain;
 	}
 	
 	@Column(name = "ISPASSING")
-	//@Type(type = "true_false")
 	public boolean isPassing() {
 		return isPassing;
 	}
@@ -103,7 +113,6 @@ public class Player {
 	}
 	
 	@Column(name = "ISRUSHING")
-	//@Type(type = "true_false")
 	public boolean isRushing() {
 		return isRushing;
 	}
@@ -113,7 +122,6 @@ public class Player {
 	}
 	
 	@Column(name = "ISRECEIVING")
-	//@Type(type = "true_false")
 	public boolean isReceiving() {
 		return isReceiving;
 	}
@@ -123,7 +131,6 @@ public class Player {
 	}
 	
 	@Column(name = "ISDEFENSE")
-	//@Type(type = "true_false")
 	public boolean isDefense() {
 		return isDefense;
 	}

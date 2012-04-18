@@ -18,7 +18,7 @@ public class RushingGameData extends GameDataWithLongest {
 	@Transient
 	public String[] getVisibleColumns() {
 		return new String[]{
-				"player.name", "player.number", "player.position",
+				"player.displayName", "player.number", "player.position",
 				"att",
 				"yds",
 				"ydsPerAtt",

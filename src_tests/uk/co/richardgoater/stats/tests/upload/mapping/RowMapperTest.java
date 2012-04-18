@@ -32,7 +32,7 @@ public abstract class RowMapperTest {
 	}
 
 	protected void setExpectations() throws Exception {
-		expect(mockRow.getSeasonid()).andReturn(seasonid);
+		expect(mockRow.getSeasonid()).andReturn(seasonid).times(2);
 		expect(mockRow.getWeeknum()).andReturn(weeknum);
 		mockRow.resetIterator();
 		expectLastCall();
@@ -43,7 +43,7 @@ public abstract class RowMapperTest {
 		setCellExpectations();
 		replay(mockCell);
 		
-		expect(mockDAO.getPlayeridForName(playerName)).andReturn(playerid);
+		expect(mockDAO.getPlayeridForName(playerName, seasonid)).andReturn(playerid);
 		replay(mockDAO);
 	}
 	

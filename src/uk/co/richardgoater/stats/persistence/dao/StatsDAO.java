@@ -11,7 +11,7 @@ public interface StatsDAO {
 	@Cacheable(cacheName="playerCache")
 	List<Player> getPlayers(int seasonid);
 	
-	int getPlayeridForName(String asString) throws Exception;
+	int getPlayeridForName(String asString, int seasonid) throws Exception;
 	
 	void saveOrReplace(Object mappedObject);
 

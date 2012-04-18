@@ -1,6 +1,7 @@
 package uk.co.richardgoater.stats.upload.mvc;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,5 +33,12 @@ public class UploadController {
 			@RequestParam("weeknum") int weeknum) {
 		
 		return statsLoader.load(file, seasonid, weeknum);
+	}
+	
+	@ExceptionHandler(value = Exception.class)
+	public @ResponseBody UploadResponse somethingWentWrong(Exception ex) {
+		UploadResponse response = new WebUploadResponse();
+		response.appendError(ex.getMessage());
+		return response;		
 	}
 }

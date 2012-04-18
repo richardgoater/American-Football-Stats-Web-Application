@@ -34,7 +34,7 @@ public abstract class AbstractExcelRowMapper {
 	}
 	
 	protected void setPlayerId(ExcelRow row) throws Exception {
-		((GameData) mappedObject).setPlayerid(dao.getPlayeridForName(row.nextCell().asString()));
+		((GameData) mappedObject).setPlayerid(dao.getPlayeridForName(row.nextCell().asString(), row.getSeasonid()));
 	}
 
 	public abstract void mapColumns(ExcelRow row);

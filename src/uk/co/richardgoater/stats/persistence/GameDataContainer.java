@@ -5,14 +5,14 @@ import java.util.Map;
 
 import com.vaadin.data.util.BeanItemContainer;
 
-@SuppressWarnings( { "serial", "rawtypes" })
+@SuppressWarnings({ "serial", "rawtypes" })
 public class GameDataContainer extends BeanItemContainer {
 
 	@SuppressWarnings({ "unchecked" })
 	public GameDataContainer(Class type) throws IllegalArgumentException {
 		super(type); 
 
-		addNestedContainerProperty("player.name");
+		addNestedContainerProperty("player.displayName");
 		addNestedContainerProperty("player.number");
 		addNestedContainerProperty("player.position");
 	}

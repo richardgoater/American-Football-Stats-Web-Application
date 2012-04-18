@@ -13,11 +13,12 @@ public abstract class AbstractStatsDAO extends HibernateDAO {
 		return "";
 	}
 
-	public int getPlayeridForName(String playerName) throws Exception {
+	public int getPlayeridForName(String playerName, int seasonid) throws Exception {
 		@SuppressWarnings("unchecked")
 		List<Object> result = hibernateTemplate.find(
 				"select playerid from Player " +
-				"where name = '" + playerName + "'");
+				"where name = '" + playerName + "'" +
+				"and seasonid = " + seasonid);
 		
 		if(result.size() > 0)
 			return (Integer) result.get(0);

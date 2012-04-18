@@ -33,7 +33,7 @@ public abstract class AbstractSelector extends ComboBox {
 		pageLength = items.size();
 	}
 	
-	protected void selectFirstitem() {
+	protected void selectFirstItem() {
 		Object firstItemID = getItemIds().toArray()[0];
 		if(firstItemID != null)
 			setValue(firstItemID);

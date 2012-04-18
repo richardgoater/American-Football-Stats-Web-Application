@@ -9,7 +9,7 @@
     padding-top: 5pt;
 }
 .v-tabsheet-tabitem .v-captiontext{
-	color: black;	
+	color: #493400;	
 }
 .wcsubheader1, .v-captiontext {
     font-family: Arial,Geneva,sans-serif;
@@ -37,10 +37,10 @@
     color: #FFF;
 }
 .v-table-header {
-    color: black;
+    color: #493400;
 }
 .v-filterselect-button, .v-filterselect-button:hover, .v-app .v-filterselect-input, .v-window .v-filterselect-input, .v-popupview-popup .v-filterselect-input, .v-filterselect-focus .v-filterselect-input, .v-filterselect-focus .v-filterselect-button, .v-filterselect-focus .v-filterselect-button:hover {
-    color: black;
+    color: #493400;
     font-family: Arial,Geneva,sans-serif;
     font-size: 11pt;
     font-weight: bold;
@@ -136,3 +136,4 @@
 .v-table-row-odd { background: #3C3C3C; }
 .v-table-row:hover, .v-table-row-odd:hover { color: #FFCE03; }
 .v-sa .v-tabsheet-tabs .v-captiontext { height: 100%; }
+.v-tabheet-tabsheetpanel{ background: #1A1A1A; }
