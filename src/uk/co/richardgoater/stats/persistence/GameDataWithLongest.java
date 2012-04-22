@@ -7,7 +7,7 @@ import javax.persistence.Transient;
 @MappedSuperclass
 public abstract class GameDataWithLongest extends GameData {
 	
-	private String touchdownIndicator = "T";
+	public static final String touchdownIndicator = "T";
 	
 	protected int longest;
 	private boolean isLongTD;
@@ -24,7 +24,6 @@ public abstract class GameDataWithLongest extends GameData {
 	}
 	
 	@Column(name = "ISLONGTD")
-	//@Type(type = "true_false")
 	public boolean isLongTD() {
 		return isLongTD;
 	}

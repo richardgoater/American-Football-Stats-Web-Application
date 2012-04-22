@@ -1,13 +1,19 @@
-package uk.co.richardgoater.stats.persistence;
+package uk.co.richardgoater.stats.persistence.util;
 
 import java.util.List;
 import java.util.Map;
 
+import uk.co.richardgoater.stats.persistence.GameData;
+import uk.co.richardgoater.stats.persistence.Player;
+
 import com.vaadin.data.util.BeanItemContainer;
+import com.vaadin.data.util.ItemSorter;
 
 @SuppressWarnings({ "serial", "rawtypes" })
 public class GameDataContainer extends BeanItemContainer {
 
+	ItemSorter statsItemSorter = new StatsItemSorter();
+	
 	@SuppressWarnings({ "unchecked" })
 	public GameDataContainer(Class type) throws IllegalArgumentException {
 		super(type); 
@@ -49,6 +55,11 @@ public class GameDataContainer extends BeanItemContainer {
 				e.printStackTrace();
 			}
 		}
-	}	
+	}
+	
+	@Override
+	public ItemSorter getItemSorter() {
+		return statsItemSorter;
+	}
 
 }

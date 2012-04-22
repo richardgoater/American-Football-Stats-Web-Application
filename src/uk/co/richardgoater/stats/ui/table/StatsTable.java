@@ -5,10 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 import uk.co.richardgoater.stats.persistence.GameData;
-import uk.co.richardgoater.stats.persistence.GameDataContainer;
 import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
+import uk.co.richardgoater.stats.persistence.util.GameDataContainer;
 
 import com.vaadin.ui.Table;
 
@@ -66,5 +66,6 @@ public abstract class StatsTable extends Table {
 		for(Player p : playerList)
 			m.put(p.getPlayerid(), p);
 		return m;
-	}
+	}	
+	
 }

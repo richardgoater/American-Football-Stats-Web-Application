@@ -13,9 +13,9 @@ import com.vaadin.data.Item;
 import com.vaadin.data.Property;
 
 import uk.co.richardgoater.stats.persistence.DefenseGameData;
-import uk.co.richardgoater.stats.persistence.GameDataContainer;
 import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.dao.gamedata.GameDataDAO;
+import uk.co.richardgoater.stats.persistence.util.GameDataContainer;
 import uk.co.richardgoater.stats.tests.fake.FakeStatsDAO;
 
 public class GameDataContainerTest {
