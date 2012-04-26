@@ -4,6 +4,22 @@ window.onload = function() {
 				refreshSeasonList(seasons);
 			}
 		);
+	
+	$('#uploadform').submit(function(event) {
+		event.preventDefault();
+	});
+	
+	$(document).ajaxError(function() {
+		jqResultsSelect().empty().html('<span class="error">Sorry, something went wrong. :(</span>');
+	});
+
+	$('div.spinner').ajaxSend(function() {
+		$(this).addClass('show');
+	});
+
+	$('div.spinner').ajaxComplete(function() {
+		$(this).removeClass('show');
+	});
 };
 
 function jqSeasonSelect() {
@@ -14,9 +30,9 @@ function jqWeekSelect() {
 	return $('#weeknum');
 }
 
-$('#uploadform').submit(function(event) {
-	event.preventDefault();
-});
+function jqResultsSelect() {
+	return $('#results');
+}
 
 function uploadFile() {
 	var formData = new FormData();
@@ -33,7 +49,7 @@ function uploadFile() {
 	    processData: false,
 	    type: 'POST',
 	    success: function(response){
-			$('#results').empty().html(response.message);
+			jqResultsSelect().empty().html(response.message);
 	    }
 	});								
 	

@@ -16,6 +16,8 @@
        		td.aLeft {text-align: left;}
        		td.aRight {text-align: right;}
        		span.error {color: red;}
+       		div.spinner {display: none;}
+       		div.spinner.show {display: inline;}
        	</style>
     </head>
     <body>
@@ -71,7 +73,8 @@
 			            	<tr class="bottom">
 			            		<td class="end">Select a file to upload:</td>
 			            		<td class="end"><input type="file" name="file" id="fileinput"/></td>
-			            		<td class="end"><input type="button" onclick="uploadFile()" value="Submit"/></td>
+			            		<td class="end"><input type="button" onclick="uploadFile()" value="Submit"/>
+			            			<div class="spinner"><img src="res/spinner.gif"/></div></td>
 			            	</tr>	
 			            </table>
 			        </form>
