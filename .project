@@ -47,9 +47,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>VaadinCommonSrc</name>
+			<name>VaadinCommon_src</name>
 			<type>2</type>
-			<location>/home/richard/workspace/VaadinCommon/src</location>
+			<location>/home/richard/git/VaadinCommon/VaadinCommon/src</location>
 		</link>
 	</linkedResources>
 </projectDescription>

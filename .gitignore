@@ -2,3 +2,4 @@ deploycss.bat
 /target
 /build
 /VaadinCommonSrc
+/VaadinCommon_src

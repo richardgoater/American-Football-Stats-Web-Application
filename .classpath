@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry excluding="uk/co/richardgoater/stats/upload/excel/WorkBookLoader.java" kind="src" path="src"/>
 	<classpathentry kind="src" path="src_tests"/>
-	<classpathentry including="uk/co/richardgoater/common/persistence/HibernateDAO.java" kind="src" path="VaadinCommonSrc"/>
+	<classpathentry including="uk/co/richardgoater/common/persistence/HibernateDAO.java" kind="src" path="VaadinCommon_src"/>
 	<classpathentry kind="con" path="org.maven.ide.eclipse.MAVEN2_CLASSPATH_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
