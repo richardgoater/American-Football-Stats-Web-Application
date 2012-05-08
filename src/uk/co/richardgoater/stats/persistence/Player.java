@@ -17,6 +17,7 @@ public class Player {
 	private String name;
 	@Transient private String displayName;
 	private int number;
+	@Transient private String displayNumber;
 	private String position;
 	private boolean isCaptain;
 	private boolean isPassing;
@@ -83,6 +84,14 @@ public class Player {
 	
 	public void setNumber(int number) {
 		this.number = number;
+	}
+	
+	@Transient
+	public String getDisplayNumber() {
+		if(number == 0)
+			return "";
+		else
+			return "" + number;
 	}
 	
 	@Column(name = "POSITION")

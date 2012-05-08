@@ -12,7 +12,8 @@ public class ScheduleDAOImpl extends HibernateDAO implements ScheduleDAO {
 	@Override
 	public List<Object> getScheduleWeeks(int seasonID) {
 		return hibernateTemplate.find(
-				"from ScheduleWeek where seasonid = " + seasonID);
+				"from ScheduleWeek where seasonid = " + seasonID + 
+				" order by weeknum asc");
 	}
 	
 	@Override

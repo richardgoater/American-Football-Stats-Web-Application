@@ -45,7 +45,7 @@ public class PreliminaryTests {
 		dgd.setPlayer(p);
 		
 		container.addNestedContainerProperty("player.displayName");
-		container.addNestedContainerProperty("player.number");
+		container.addNestedContainerProperty("player.displayNumber");
 		container.addNestedContainerProperty("player.position");
 		
 		container.addBean(dgd);	

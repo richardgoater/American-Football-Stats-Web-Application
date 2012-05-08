@@ -1,5 +1,8 @@
 package uk.co.richardgoater.stats.persistence;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -65,13 +68,14 @@ public abstract class GameData {
 		if(denominator == 0)
 			return 0.0;
 		else
-			return round(numerator/denominator, 2);
+			return round(numerator/denominator);
 	}
 	
 	@Transient
-	private double round(double d, int c) {
-		int temp=(int)((d*Math.pow(10,c)));
-		return (((double)temp)/Math.pow(10,c));
+	private double round(double d) {
+		DecimalFormat df = new DecimalFormat("#.##");
+		df.setRoundingMode(RoundingMode.HALF_UP);
+		return Double.parseDouble(df.format(d));
 	}
 	
 	@Transient

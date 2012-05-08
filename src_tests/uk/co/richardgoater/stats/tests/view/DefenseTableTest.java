@@ -68,7 +68,7 @@ public class DefenseTableTest {
 	@Test
 	public void columnHeaderTest() {
 		assertEquals("INT", dt.getColumnHeader("ints"));
-		assertEquals("#", dt.getColumnHeader("player.number"));		
+		assertEquals("#", dt.getColumnHeader("player.displayNumber"));		
 		assertEquals("TCKL", dt.getColumnHeader("tckl"));
 	}
 
