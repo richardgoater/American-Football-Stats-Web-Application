@@ -39,7 +39,13 @@ public class PassingGameDataDAO extends AbstractGameDataDAO implements GameDataD
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Player> getPlayers(int seasonid) {
-		return hibernateTemplate.find("from Player where ispassing = 1" + appendSeasonClause( " and", seasonid));
+		String query = "from Player where ispassing = 1" + appendSeasonClause( " and", seasonid);
+		
+		if(seasonid == 0) 
+			query = "select new uk.co.richardgoater.stats.persistence.Player " +
+					"(name, 0, '', false) " + query;
+		
+		return hibernateTemplate.find(query);
 	}
 
 }

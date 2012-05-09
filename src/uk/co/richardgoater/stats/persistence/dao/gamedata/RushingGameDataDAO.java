@@ -35,7 +35,8 @@ public class RushingGameDataDAO extends AbstractGameDataDAO implements GameDataD
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Player> getPlayers(int seasonid) {
-		return hibernateTemplate.find("from Player where isrushing = 1" + appendSeasonClause(" and", seasonid));		
+		return hibernateTemplate.find("from Player where isrushing = 1" + appendSeasonClause(" and", seasonid)
+				+ " order by number asc");		
 	}
 
 }

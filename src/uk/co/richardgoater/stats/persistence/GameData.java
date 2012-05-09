@@ -67,12 +67,13 @@ public abstract class GameData {
 	protected double divide(double numerator, double denominator) {
 		if(denominator == 0)
 			return 0.0;
-		else
+		else {
 			return round(numerator/denominator);
+		}
 	}
 	
 	@Transient
-	private double round(double d) {
+	protected double round(double d) {
 		DecimalFormat df = new DecimalFormat("#.##");
 		df.setRoundingMode(RoundingMode.HALF_UP);
 		return Double.parseDouble(df.format(d));

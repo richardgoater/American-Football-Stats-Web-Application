@@ -87,15 +87,15 @@ public class PassingGameData extends GameDataWithLongest {
 	public double getCompPerCent() {
 		if(att == 0) return 0;
 		else {
-			return divide(comp, att)  * 100.0;
+			double div = (comp * 1.0) / (att * 1.0);
+			double perCent = div * 100; 
+			return round(perCent);
 		}
 	}
 
 	@Transient
 	public double getYdsPerAtt() {
-		if(att == 0) return 0;
-		else
-			return divide(yds, att);
+		return divide(yds, att);
 	}
 	
 	@Column(name = "TD")
@@ -136,9 +136,7 @@ public class PassingGameData extends GameDataWithLongest {
 	
 	@Transient
 	public double getYdsPerComp() {
-		if(comp == 0) return 0;
-		else
-			return divide(yds, comp);
+		return divide(yds, comp);
 	}
 
 }

@@ -54,7 +54,7 @@ public class WeekSelector extends AbstractSelector {
 	@Override
 	protected void populate() {
 		super.populate();
-		clearTables();		
+//		clearTables();		
 		selectFirstItem();
 	}
 	

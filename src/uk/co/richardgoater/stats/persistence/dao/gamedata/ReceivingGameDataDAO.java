@@ -35,7 +35,8 @@ public class ReceivingGameDataDAO extends AbstractGameDataDAO implements GameDat
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Player> getPlayers(int seasonid) {
-		return hibernateTemplate.find("from Player where isreceiving = 1" + appendSeasonClause(" and", seasonid));
+		return hibernateTemplate.find("from Player where isreceiving = 1" + appendSeasonClause(" and", seasonid)
+				+ " order by number asc");
 	}
 
 }

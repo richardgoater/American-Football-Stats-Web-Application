@@ -33,6 +33,8 @@ public abstract class StatsTable extends Table {
 	protected abstract void setVisibleColumns();
 
 	public void setWeek(ScheduleWeek week) {
+		setSortContainerPropertyId(null);
+		
 		List<GameData> data = null;
 		if(week.getWeeknum() == 0)
 			data =  dao.getGameDataTotals(week.getSeasonID());

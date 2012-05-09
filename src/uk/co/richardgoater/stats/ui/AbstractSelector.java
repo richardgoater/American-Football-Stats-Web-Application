@@ -42,6 +42,7 @@ public abstract class AbstractSelector extends ComboBox {
 	protected void clearTables() {
 		for (StatsTable t : tables) {
 			t.removeAllItems();
+			t.setSortContainerPropertyId(null);
 		}
 	}
 }
