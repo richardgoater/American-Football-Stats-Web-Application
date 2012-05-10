@@ -38,7 +38,7 @@ public class PreliminaryTests {
 		dgd.setTckl(tckl);
 		dgd.setInts(ints);
 		
-		p = new Player("Richard Goater", 27, "K", false);
+		p = new Player(1, "Richard Goater", 27, "K", "false");
 		p.setPlayerid(1);
 		p.setDefense(true);
 		

@@ -3,7 +3,6 @@ package uk.co.richardgoater.stats.persistence.dao.gamedata;
 import java.util.List;
 
 import uk.co.richardgoater.stats.persistence.GameData;
-import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 
 public class DefenseGameDataDAO extends AbstractGameDataDAO implements GameDataDAO {
@@ -43,12 +42,10 @@ public class DefenseGameDataDAO extends AbstractGameDataDAO implements GameDataD
 				"sum(dgd.bk))" +
 				" from DefenseGameData dgd" + appendSeasonClause( " where", seasonid) + " group by dgd.playerid");
 	}
-
-	@SuppressWarnings("unchecked")
+	
 	@Override
-	public List<Player> getPlayers(int seasonid) {
-		return hibernateTemplate.find("from Player where isdefense = 1" + appendSeasonClause( " and", seasonid) 
-				+ " order by number asc");
+	protected String getPlayerTypeColumn() {
+		return "isdefense";
 	}
 	
 }

@@ -42,7 +42,7 @@ public class DefenseTableTest {
 		dgd.setTckl(5);
 		dgd.setInts(2);
 		
-		p = new Player("Richard Goater", 27, "K", false);
+		p = new Player(1, "Richard Goater", 27, "K", "false");
 		p.setPlayerid(1);
 		p.setDefense(true);
 		

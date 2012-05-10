@@ -39,7 +39,7 @@ public class GameDataContainerTest {
 		dgd.setTckl(5);
 		dgd.setInts(2);
 		
-		p = new Player("Richard Goater", 27, "K", false);
+		p = new Player(1, "Richard Goater", 27, "K", "false");
 		p.setPlayerid(1);
 		p.setDefense(true);
 		
@@ -85,8 +85,7 @@ public class GameDataContainerTest {
 	private void populateZeroRows() {
 		
 		for (int i = 2; i < 6; i++) {
-			Player p = new Player("Mark Foster", 47, "S", false);
-			p.setPlayerid(i);
+			Player p = new Player(i, "Mark Foster", 47, "S", "false");
 			p.setDefense(true);
 			players.put(p.getPlayerid(), p);
 		}

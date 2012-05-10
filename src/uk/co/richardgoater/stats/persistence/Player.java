@@ -31,12 +31,13 @@ public class Player {
 		super();
 	}
 	
-	public Player(String name, int number, String position, boolean isCaptain) {
+	public Player(int id, String name, int number, String position, String isCaptain) {
 		super();
+		this.playerid = id;
 		this.name = name;
 		this.number = number;
 		this.position = position;
-		this.isCaptain = isCaptain;
+		this.isCaptain = new Boolean(isCaptain);
 	}
 
 	@Id

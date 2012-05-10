@@ -35,11 +35,11 @@ public class FakeStatsDAO implements GameDataDAO {
 	@Override
 	public List<Player> getPlayers(int seasonid) {
 		
-		Player p = new Player("Richard Goater", 27, "K", false);
+		Player p = new Player(1, "Richard Goater", 27, "K", "false");
 		p.setPlayerid(1);
 		p.setDefense(true);
 		
-		Player p2 = new Player("Richard Goater", 27, "K", false);
+		Player p2 = new Player(2, "Richard Goater", 27, "K", "false");
 		p2.setPlayerid(2);
 		p2.setDefense(true);
 		

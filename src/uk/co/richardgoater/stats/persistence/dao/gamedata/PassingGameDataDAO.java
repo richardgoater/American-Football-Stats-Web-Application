@@ -3,7 +3,6 @@ package uk.co.richardgoater.stats.persistence.dao.gamedata;
 import java.util.List;
 
 import uk.co.richardgoater.stats.persistence.GameData;
-import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 
 public class PassingGameDataDAO extends AbstractGameDataDAO implements GameDataDAO {
@@ -35,17 +34,10 @@ public class PassingGameDataDAO extends AbstractGameDataDAO implements GameDataD
 				"sum(pgd.sackYds))" +			 				
 				" from PassingGameData pgd" + appendSeasonClause( " where", seasonid) + " group by pgd.playerid");
 	}
-	
-	@SuppressWarnings("unchecked")
+
 	@Override
-	public List<Player> getPlayers(int seasonid) {
-		String query = "from Player where ispassing = 1" + appendSeasonClause( " and", seasonid);
-		
-		if(seasonid == 0) 
-			query = "select new uk.co.richardgoater.stats.persistence.Player " +
-					"(name, 0, '', false) " + query;
-		
-		return hibernateTemplate.find(query);
+	protected String getPlayerTypeColumn() {
+		return "ispassing";
 	}
 
 }

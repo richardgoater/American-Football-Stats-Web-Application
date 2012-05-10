@@ -24,19 +24,19 @@ public class TestDataProvider {
 	}
 
 	public static void createStatsRecords(GameDataDAO dao) {
-		Player p = new Player("Thomas Hutton", 28, "CB", false);
+		Player p = new Player(1, "Thomas Hutton", 28, "CB", "false");
 		p.setPlayerid(1);
 		p.setDefense(true);
 		p.setSeasonid(1);
 		dao.saveOrReplace(p);
 		
-		Player p2 = new Player("Mark Foster", 47, "S", false);
+		Player p2 = new Player(2, "Mark Foster", 47, "S", "false");
 		p2.setPlayerid(2);
 		p2.setDefense(true);
 		p2.setSeasonid(1);
 		dao.saveOrReplace(p2);
 		
-		Player p3 = new Player("Richard Goater", 27, "K", true);
+		Player p3 = new Player(3, "Richard Goater", 27, "K", "true");
 		p3.setPlayerid(3);
 		p3.setDefense(true);
 		p3.setSeasonid(1);

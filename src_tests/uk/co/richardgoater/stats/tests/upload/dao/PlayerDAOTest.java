@@ -11,7 +11,7 @@ import uk.co.richardgoater.stats.persistence.dao.PlayerDAO;
 public class PlayerDAOTest extends DAOTest {
 
 	PlayerDAO dao = new PlayerDAO();
-	Player newPlayer = new Player("Mark Foster", 47, "S", false);
+	Player newPlayer = new Player(1, "Mark Foster", 47, "S", "false");
 	List<Player> playerList = new ArrayList<Player>();
 	
 	@Override

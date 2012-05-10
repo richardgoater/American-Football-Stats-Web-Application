@@ -3,7 +3,6 @@ package uk.co.richardgoater.stats.persistence.dao.gamedata;
 import java.util.List;
 
 import uk.co.richardgoater.stats.persistence.GameData;
-import uk.co.richardgoater.stats.persistence.Player;
 import uk.co.richardgoater.stats.persistence.ScheduleWeek;
 
 public class RushingGameDataDAO extends AbstractGameDataDAO implements GameDataDAO {
@@ -32,11 +31,9 @@ public class RushingGameDataDAO extends AbstractGameDataDAO implements GameDataD
 				" from RushingGameData rgd" + appendSeasonClause( " where", seasonid) + " group by rgd.playerid");
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Player> getPlayers(int seasonid) {
-		return hibernateTemplate.find("from Player where isrushing = 1" + appendSeasonClause(" and", seasonid)
-				+ " order by number asc");		
+	protected String getPlayerTypeColumn() {
+		return "isrushing";
 	}
 
 }
