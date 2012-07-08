@@ -1,5 +1,6 @@
 package uk.co.richardgoater.stats.persistence;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -27,7 +28,7 @@ public class DefenseGameData extends GameData {
 
 	@Transient
 	public String[] getVisibleColumns() {
-		return new String[] { "player.displayName", "player.displayNumber", "player.position", 
+		String[] columns = new String[] { 
 				"tckl", 
 				"solo", 
 				"assist", 
@@ -43,8 +44,10 @@ public class DefenseGameData extends GameData {
 				"td",
 				"safety", 
 				"bk" };
+		
+		return combinedPlayerAndStatColumns(columns);
 	}
-
+	
 	public DefenseGameData() {}
 	
 	public DefenseGameData(Number playerid, Number tckl, Number solo,

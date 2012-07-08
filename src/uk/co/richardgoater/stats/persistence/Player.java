@@ -26,6 +26,10 @@ public class Player {
 	private boolean isDefense;
 	private int seasonid;
 	
+	
+	@Transient 
+	public static final String[] visibleColumns = {"player.displayName"};
+	
 	public Player()
 	{
 		super();

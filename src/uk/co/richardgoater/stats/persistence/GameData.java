@@ -2,6 +2,7 @@ package uk.co.richardgoater.stats.persistence;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.Arrays;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -128,5 +129,17 @@ public abstract class GameData {
 
 	public void setSeasonid(int seasonid) {
 		this.seasonid = seasonid;
+	}
+
+	@Transient
+	protected String[] combinedPlayerAndStatColumns(String[] statColumns) {
+		
+		String[] combinedArray = Arrays.copyOf(Player.visibleColumns, 
+				Player.visibleColumns.length + statColumns.length);
+		
+		System.arraycopy(statColumns, 0, combinedArray, 
+				Player.visibleColumns.length, statColumns.length);
+		
+		return combinedArray;
 	}
 }

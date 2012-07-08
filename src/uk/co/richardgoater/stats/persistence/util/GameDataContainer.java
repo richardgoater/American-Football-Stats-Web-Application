@@ -19,8 +19,8 @@ public class GameDataContainer extends BeanItemContainer {
 		super(type); 
 
 		addNestedContainerProperty("player.displayName");
-		addNestedContainerProperty("player.displayNumber");
-		addNestedContainerProperty("player.position");
+//		addNestedContainerProperty("player.displayNumber");
+//		addNestedContainerProperty("player.position");
 	}
 
 	@SuppressWarnings("unchecked")

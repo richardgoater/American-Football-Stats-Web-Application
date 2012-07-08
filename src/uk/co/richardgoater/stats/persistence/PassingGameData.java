@@ -23,8 +23,7 @@ public class PassingGameData extends GameDataWithLongest {
 	
 	@Transient
 	public String[] getVisibleColumns() {
-		return new String[]{
-				"player.displayName", "player.displayNumber", "player.position",
+		String[] columns =  new String[]{
 				"att",
 				"comp",
 				"yds",
@@ -37,6 +36,8 @@ public class PassingGameData extends GameDataWithLongest {
 				"ydsPerAtt",
 				"ydsPerComp"
 		};
+		
+		return combinedPlayerAndStatColumns(columns);
 	}
 	
 	public PassingGameData() {}

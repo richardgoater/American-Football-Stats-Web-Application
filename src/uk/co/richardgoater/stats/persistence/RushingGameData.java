@@ -17,14 +17,15 @@ public class RushingGameData extends GameDataWithLongest {
 	
 	@Transient
 	public String[] getVisibleColumns() {
-		return new String[]{
-				"player.displayName", "player.displayNumber", "player.position",
+		String[] columns = new String[]{
 				"att",
 				"yds",
 				"ydsPerAtt",
 				"displayLong",
 				"td"
 		};
+		
+		return combinedPlayerAndStatColumns(columns);
 	}
 	
 	public RushingGameData() {}

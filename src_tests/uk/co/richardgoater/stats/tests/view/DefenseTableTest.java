@@ -1,6 +1,7 @@
 package uk.co.richardgoater.stats.tests.view;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.util.ArrayList;
 
@@ -68,8 +69,13 @@ public class DefenseTableTest {
 	@Test
 	public void columnHeaderTest() {
 		assertEquals("INT", dt.getColumnHeader("ints"));
-		assertEquals("#", dt.getColumnHeader("player.displayNumber"));		
 		assertEquals("TCKL", dt.getColumnHeader("tckl"));
 	}
-
+	
+	@Test
+	public void playerNumberAndPositionNotShown() {
+		Item i = dt.getItem(dgd);
+		assertNull(i.getItemProperty("player.displayNumber"));
+		assertNull(i.getItemProperty("player.position"));
+	}
 }

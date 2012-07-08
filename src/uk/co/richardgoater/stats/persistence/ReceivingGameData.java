@@ -17,14 +17,15 @@ public class ReceivingGameData extends GameDataWithLongest {
 	
 	@Transient
 	public String[] getVisibleColumns() {
-		return new String[]{
-				"player.displayName", "player.displayNumber", "player.position",
+		String[] columns = new String[]{
 				"rec",
 				"yds",
 				"ydsPerRec",
 				"displayLong",
 				"td"
 		};
+		
+		return combinedPlayerAndStatColumns(columns);
 	}
 	
 	public ReceivingGameData() {}

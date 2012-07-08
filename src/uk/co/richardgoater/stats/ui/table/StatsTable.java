@@ -55,8 +55,8 @@ public abstract class StatsTable extends Table {
 		}
 		
 		setColumnHeader("player.displayName", "NAME");
-		setColumnHeader("player.displayNumber", "#");
-		setColumnHeader("player.position", "POS");
+//		setColumnHeader("player.displayNumber", "#");
+//		setColumnHeader("player.position", "POS");
 		
 		renameColumnHeaders();
 	}
