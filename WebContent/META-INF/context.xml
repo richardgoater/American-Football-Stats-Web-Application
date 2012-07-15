@@ -12,15 +12,15 @@
 		</parameter>
 		<parameter>
 			<name>url</name>
-			<value>jdbc:mysql://Richard-PC:3306/stats</value>
+			<value>jdbc:mysql://localhost:3306/c6cheetahsstats</value>
 		</parameter>
 		<parameter>
 			<name>username</name>
-			<value>c6statsadmin</value>
+			<value>c6cheetahsstats</value>
 		</parameter>
 		<parameter>
 			<name>password</name>
-			<value>St4t5Adm1n</value>
+			<value>C#3374#5</value>
 		</parameter>
 		<parameter>
 			<name>maxActive</name>
