@@ -60,7 +60,7 @@ public class DefenseGameData extends GameData {
 		this.solo = solo.intValue();
 		this.assist = assist.intValue();
 		this.sck = sck.doubleValue();
-		this.sckYds = sck.intValue();
+		this.sckYds = sckYds.intValue();
 		this.qbHurry = qbHurry.intValue();
 		this.ints = ints.intValue();
 		this.intYds = intYds.intValue();
